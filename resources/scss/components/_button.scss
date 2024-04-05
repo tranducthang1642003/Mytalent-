@@ -1,0 +1,18 @@
+@mixin  btn (){
+    text-decoration:none;
+    cursor: pointer;
+    display: inline-block;
+    border: 0;
+    border-radius: $base-border-radius;
+width: $w-30-width;
+height: 40px;
+background-color: rgb(88, 88, 255);
+
+}
+
+.btn{
+    @include btn;
+}
+
+
+
