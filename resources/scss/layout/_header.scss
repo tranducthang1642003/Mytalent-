@@ -52,7 +52,7 @@ input::placeholder {
 }
 
 form{
-    width: 90%;
+    width: 100%;
 }
 .txt{
  width: 100%;
@@ -61,44 +61,11 @@ form{
     border: 1px solid rgb(148, 147, 147);
 
 }
-
-
-
-.tap{
-    height: 30px;
-    display: flex;
-    align-items: center;
-    padding: $p-padding-top;
-}
-
 .name-sig{
     width: 30%;
 }
 
-.tap-input{
-    height: 30px;
-    display: $base-display;
-    align-items: center;
-    padding: $p-padding-top;
-    width: 100%;
-    
-}
 
-.tabs input{
-    position:absolute;
-    top:0;
-    left:0;
-    display:none;   
-}
-
-.tap-input-1{
-    height: 30px;
-    display: $base-display;
-    align-items: center;
-    
-    width: 80%;
-    
-}
 .name-check{
     width: 90%;
 }
@@ -106,4 +73,47 @@ label{
     font-size: 17px;
     font-weight: 900;
     line-height: 2.5;
+}
+
+.tap-input-1{
+        display: flex;
+        flex-direction: row-reverse;
+}
+
+
+.tab{
+    overflow: hidden;
+    border: 1px solid #ffffff;
+    padding: 20px 0px 15px 0px;
+  }
+  
+  /* Style the buttons inside the tab */
+  .tab button {
+    padding: 10px 20px 5px 8px;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 20px;
+    background-color: #ffffff;
+  }
+
+  .tab button:hover {
+   color: blue;
+   border-bottom: 2px solid blue;
+
+  }
+  .tab button.active {
+    color: blue;
+    border-bottom: 3px solid blue;
+  }
+  .tabcontent {
+    display: none;
+    border-top: none;
+  }
+.from-col-submit{
+    display: flex;
+   padding: 30px 5px 5px 0px;
+    justify-content: center;
 }

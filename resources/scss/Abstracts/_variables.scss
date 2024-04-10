@@ -13,12 +13,12 @@ $base-align-items: center;
 $base-ul-li-display:none;
 $base-float:left;
 $base-float:right;
-$w-30-width:35%;
+$w-30-width:30%;
 $w-23-width:90%;
 $w-100-width:100%;
 $f-font-size:2em;
 $t-text-align:center;
-$h-30-height:400px;
+$h-30-height:300px;
 $p-padding:5px 5px 3px 6px 7px;
 $m-margin-top:20px;
 $p-padding-top:20px 20px 10px 0px;
@@ -32,7 +32,8 @@ $colors:(
  "Silver": 	#C0C0C0,	
  "Gray": 	#808080,	
  "Maroon": 	#800000,	
- "Olive": 	#808000,	
+ "red":     #ff0000,
+ "Olive": 	#808000,
  "Green": 	#008000,	
  "Purple": 	#800080,	
  "Teal": 	#008080,	
