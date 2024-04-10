@@ -1,8 +1,8 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\cv\list1;
 use App\Http\Controllers\cv\addcv;
+use App\Http\Controllers\job\add_job;
 
 Route::prefix('login')->group(function(){
 Route::get('/', [LoginController::class, 'showLoginForm']);
@@ -17,5 +17,9 @@ Route::prefix('cv')->group(function(){
     
 });
     
+Route::prefix('js_job')->group(function(){
+    Route::get('/job',[ add_job::class,'showadd_job']);
+   });
+       
     
 
