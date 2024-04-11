@@ -34,6 +34,8 @@
 </header>
 <br>
 <article>
+<form method="POST" action="{{ route('job') }}" enctype="multipart/form-data">
+                          @csrf
 <section>
 <div class="col-1">
 <div class="text-1"> Danh sách CV / Thêm thông tin</div>
@@ -61,35 +63,35 @@
   <p><div class="from"></p>
     <label>Vị trí tuyển dụng <span class ="text-red-light-1">*</span></label>
     <div class="from-txt">
-    <input type="text" class="txt" placeholder="Nhập">
+    <input type="text" name="vitri" class="txt" placeholder="Nhập">
     </div>
     </div>
     <!-- f -->
     <p><div class="from"></p>
     <label>Tên công ty<span class ="text-red-light-1">*</span></label>
     <div class="from-txt">
-    <input type="text" class="txt" placeholder="Nhập">
+    <input type="text" name="congty" class="txt" placeholder="Nhập">
     </div>
     </div>
     <!-- f -->
     <p><div class="from"></p>
     <label>Số lượng tuyển dụng  <span class ="text-red-light-1">*</span></label>
     <div class="from-txt">
-    <input type="text" class="txt" placeholder="Nhập">
+    <input type="text" class="txt" name="soluong" placeholder="Nhập">
     </div>
     </div>
     <!-- f -->
     <p><div class="from"></p>
     <label>Hình thức việc làm<span class ="text-red-light-1">*</span></label>
     <div class="from-txt">
-    <input type="text" class="txt" placeholder="Nhập">
+    <input type="text" class="txt" name="lamviec" placeholder="Nhập">
     </div>
     </div>
  <!-- f -->
  <p><div class="from"></p>
     <label>Địa chỉ <span class ="text-red-light-1">*</span></label>
     <div class="from-txt">
-    <input type="text" class="txt" placeholder="Nhập">
+    <input type="text" name="diachi" class="txt" placeholder="Nhập">
     </div>
     </div>
 
@@ -97,16 +99,17 @@
  <p><div class="from"></p>
     <label>Loại hợp đồng</label>
     <div class="from-txt">
-    <input type="text" class="txt" placeholder="Nhập">
+    <input type="text" name="loaihopdong" class="txt"  placeholder="Nhập">
     </div>
     </div>
 
     <p><div class="from"></p>
     <label>Mô tả công việc</label>
     <div class="from-txt">
-    <input type="text" class="txt" placeholder="Nhập">
+    <input type="text" name="mota" class="txt" placeholder="Nhập">
     </div>
     </div>
+    <br>
   </div>
 </div>
 </div>
@@ -116,7 +119,13 @@
     <p><div class="from"></p>
     <label class="text-file">Từ khóa *</label>
     <div class="from-txt">
-    <input type="text" class="txt1" placeholder="Nhập">
+    <input type="text" name="tukhoa" class="txt1" placeholder="Nhập">
+    </div>
+    </div>
+    <p><div class="from"></p>
+    <label class="text-file">link *</label>
+    <div class="from-txt">
+    <input type="text" name="link" class="txt1" placeholder="Nhập">
     </div>
     </div>
 </div>
@@ -132,22 +141,21 @@
   <p><div class="from"></p>
   <label>Kinh nghiệm yêu cầu </label>
     <div class="from-txt">
-    <input type="text" class="txt" placeholder="Nhập">
+    <input type="text" name="kinhnghiem" class="txt" placeholder="Nhập">
     </div>
     </div>
     <!-- f -->
     <p><div class="from"></p>
     <label>Kỹ Năng </label>
     <div class="from-txt">
-    <input type="list" class="txt" list="items" placeholder="Nhập">
-    <datalist id="items">
-      <option value="Trường công nghệ thông">
-      <option value="Trường đại học mở">
-      <option value="Sư phạm kĩ thuật">
-      <option value="Cao thắng">
-      <option value="Đại học FPT">
-      <option value="Cao đẳng điện lực">
-      <option value="Cao đẳng việt mỹ">
+    <input type="list" class="txt" name="kynang"  list="tag-input1" placeholder="Nhập" >
+    <datalist id="tag-input1" >
+      <option value="Backend">
+      <option value="Fonfend">
+      <option value="Teamword">
+      <option value="leadership">
+      <option value="problemsolvings">
+      <option value="interpersonal">
 </datalist>
     </div>
     </div>
@@ -157,26 +165,28 @@
     <p><div class="from"></p>
     <label>Nghành nghề</label>
     <div class="from-txt">
-    <input type="text" class="txt" id="tag-input1">
+    <input type="text" name="nganhnghe" class="txt" >
     </div>
 </div>
 
         <p><div class="from"></p>
     <label>Mức lương</label>
     <div class="from-txt">
-    <input type="text" class="txt" placeholder="Nhập">
+    <input type="text" name="luong" class="txt" placeholder="Nhập">
     </div>
 </div>
 
 <p><div class="from"></p>
     <label>Hình thức lương <span class ="text-red-light-1">*</span></label>
     <div class="from-txt">
-      <input type="radio" name="gioitinh" id="0">
+      <input type="radio" name="hinhthucluong" id="0">
       <label for="0">NET</label>
-      <input type="radio" name="gioitinh" id="1">
+      <input type="radio" name="hinhthucluong" id="1">
       <label for="1">GROSS</label>
     </div>
+    <br>
     </div>
+  
 </div>
 </div>
 </div>
@@ -186,6 +196,15 @@
 
 
 </article>
+<br>
+
+<footer>
+<button type="submit" class="btn">Lưu và thêm mới </button>
+<input type="reset" class="btn1"  value="Xóa ">
+              </div>
+            </form>
+            </div>
+</footer>
 
 </body>
 </html>

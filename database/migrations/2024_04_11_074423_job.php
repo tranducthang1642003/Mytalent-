@@ -19,13 +19,12 @@ return new class extends Migration
         $table->string('lamviec');
         $table->string('diachi');
         $table->string('loaihopdong');
-        $table->double('nam');
         $table->string('kynang');
         $table->string('nganhnghe');
         $table->double('luong');
-        $table->binary('hinhthucluong');
-        $table->double('tukhoa');
-        $table->double('link');
+        $table->string('hinhthucluong');
+        $table->string('tukhoa');
+        $table->string('link');
         $table->rememberToken();
         $table->timestamps();
        });

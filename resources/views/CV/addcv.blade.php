@@ -145,7 +145,7 @@
     </div>
     <select name="countries" id="countries" >
     <option value="1">Sư phạm </option>
-    <option value="2">Cao đẳng fpt</option>
+    <option value="2">Cao đẳng fpt </option>
     <option value="3">Đại học sài gòn</option>
     <option value="4">Cao đẳng kĩ thuật</option>
     <option value="5">đại học maketing</option>

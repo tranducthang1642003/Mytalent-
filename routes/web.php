@@ -18,8 +18,11 @@ Route::prefix('cv')->group(function(){
 });
     
 Route::prefix('js_job')->group(function(){
-    Route::get('/job',[ add_job::class,'showadd_job']);
-   });
+    Route::get('/job',[ add_job::class,'showadd_job'])->name('job');
+    Route::post('/job',[add_job::class,'job']);
+    Route::get('/list',[add_job::class,'showlist']);
+   
+   });  
        
     
 

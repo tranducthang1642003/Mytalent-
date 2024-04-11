@@ -76,13 +76,10 @@ header {
 }
 
 article {
-  min-height: 300px;
-  width: 98%;
-  min-height: 100px;
-  background-color: rgb(177, 177, 177);
+  width: 90%;
+  min-height: 1300px;
   margin: auto;
   border-radius: 10px;
-  box-shadow: 3px 3px 3px 3px rgb(222, 217, 217);
 }
 
 .col-1 {
@@ -300,6 +297,15 @@ input[type=file i] {
 
 .hidden {
   display: none;
+}
+
+footer {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  height: 111px;
+  justify-content: center;
+  flex-direction: row-reverse;
 }
 
 .text-Yello {
@@ -728,7 +734,7 @@ input[type=file i] {
   display: inline-block;
   border: 0;
   border-radius: 20px;
-  width: 30%;
+  width: 12%;
   height: 40px;
   background-color: rgb(88, 88, 255);
 }
@@ -738,13 +744,21 @@ input[type=file i] {
   cursor: pointer;
   display: inline-block;
   border: 0;
-  border-radius: 10px;
-  height: 28px;
-  background-color: rgb(255, 255, 255);
-  text-align: center;
+  display: inline-block;
+  border-radius: 20px;
+  width: 12%;
+  height: 40px;
+  background-color: rgb(88, 88, 255);
 }
 
-li {
-  text-align: center;
-  padding: 10px 6px 7px 8px;
+.btn2 {
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  border: 0;
+  display: inline-block;
+  border-radius: 3px;
+  width: 35%;
+  height: 30px;
+  background-color: rgb(88, 88, 255);
 }
