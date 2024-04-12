@@ -123,4 +123,15 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+
+    'aliases' => [
+        // Other aliases...
+        
+        'Mail' => Illuminate\Support\Facades\Mail::class,
+    ],
+    
+
+
+
+
 ];

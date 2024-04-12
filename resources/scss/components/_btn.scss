@@ -22,9 +22,27 @@ height: 30px;
 background-color: rgb(88, 88, 255);
 }
 
+
+@mixin btn3(){
+    text-decoration:none;
+    cursor: pointer;
+    display: inline-block;
+ border: 1px dashed blue;
+    display: inline-block;
+    border-radius: 3px;
+width: 30%;
+height: 40px;
+ color: blue;
+ background-color: rgb(255, 255, 255);
+ font-size: 12px;
+}
+
 .btn1{
     @include btn1;
 }
 .btn2{
     @include btn2;
+}
+.btn3{
+    @include btn3;
 }

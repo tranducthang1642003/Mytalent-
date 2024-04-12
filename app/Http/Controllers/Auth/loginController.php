@@ -3,33 +3,58 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
 {
-    public function showLoginForm()
+    /*
+    |--------------------------------------------------------------------------
+    | Login Controller
+    |--------------------------------------------------------------------------
+    |
+    | This controller handles authenticating users for the application and
+    | redirecting them to your home screen. The controller uses a trait
+    | to conveniently provide its functionality to your applications.
+    |
+    */
+
+    use AuthenticatesUsers;
+
+    /**
+     * Where to redirect users after login.
+     *
+     * @var string
+     */
+    protected $redirectTo = '/home';
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
     {
-        return view('login.sigin');
+        $this->middleware('guest')->except('logout');
     }
 
-        public function dangky()
-        {
-            return view('login.sigup');
-        }
-
-        public function đangnhap()
-        {
-            return view('login.sigin');
-        }
-
-        public function quenpass()
-        {
-            return view('login.resetpass');
-        }
-
-        public function uploadpass()
-        {
-            return view('login.newpass');
-        }
-        
+    public function showlogin()
+    {
+        return view('auth.login');
     }
 
+
+
+public function register(Request $request){
+$users = new Users();
+$users->name = $request->name;
+$users->email = $request->email;
+$users->password = Hash::make($request->password);
+$users->verification_code =shal(time());
+$users->save;
+
+if($users == null){
+    
+}
+
+    }
+}

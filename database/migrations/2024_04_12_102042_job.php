@@ -22,11 +22,13 @@ return new class extends Migration
         $table->string('kynang');
         $table->string('nganhnghe');
         $table->double('luong');
-        $table->string('hinhthucluong');
+        $table->boolean('hinhthucluong');
         $table->string('tukhoa');
         $table->string('link');
+        $table->string('trangthai')->default('Đang tuyển');
         $table->rememberToken();
         $table->timestamps();
+      
        });
    
     }

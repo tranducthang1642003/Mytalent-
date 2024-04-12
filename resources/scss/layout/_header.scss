@@ -81,6 +81,21 @@ label{
 }
 
 
+.txt1{
+    width: 70%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid rgb(148, 147, 147);
+}
+.txt_code{
+    height: 40px;
+    float: right;
+    width: 25%;
+    border-radius: 5px;
+    border: 1px solid rgb(148, 147, 147);
+}
+
+ 
 .tab{
     overflow: hidden;
     border: 1px solid #ffffff;
@@ -89,14 +104,15 @@ label{
   
   /* Style the buttons inside the tab */
   .tab button {
-    padding: 10px 20px 5px 8px;
+    padding: 9px 21px 9px 18px;
     float: left;
     border: none;
     outline: none;
     cursor: pointer;
     transition: 0.3s;
-    font-size: 20px;
-    background-color: #ffffff;
+    font-size: 15px;
+    background: white;
+   
   }
 
   .tab button:hover {

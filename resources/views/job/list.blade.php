@@ -99,8 +99,9 @@
                         <td>{{$job->id}}</td>
                         <td>{{$job->vitr}} </td>
                         <td>lọc</td>
-                        <td>{{$job->congty}}</td>
-                        <td>trạng thái</td>
+                        <td>{{$job->hinhthucluong}}</td>
+                        <td class="{{ $job->trangthai == 'Đang tuyển' ? 'bg-Green-light-2' : 'text-danger' }}"> {{ $job->trangthai }}</td>
+
                         <td>{{$job->created_at}}</td>
                         <td>{{$job->created_at}}</td>
                         <td>thao tác</td>
