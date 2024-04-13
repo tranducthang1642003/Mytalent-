@@ -120,7 +120,7 @@
 
 <div class="main-right">
 <section>
-<div class="from">
+<!-- <div class="from">
 <label for="file" style="width: 30%;">
 <div class="text-file">Ảnh đại diện</div>
 <div class="txt-img">
@@ -154,7 +154,7 @@
     <div class="from-txt1">
     <input type="text" class="txt1" placeholder="Nhập">
     </div>
-    </div>
+    </div> -->
 
 </div>
 
@@ -205,7 +205,7 @@
     <p><div class="from"></p>
     <label>Trường học </label>
     <div class="from-txt">
-    <input type="list" class="txt" list="items" placeholder="Nhập" name="truonghoc">
+    <input type="list" class="txt" list="items" placeholder="Nhập" name="truonghoc[]">
     <datalist id="items">
       <option value="Trường công nghệ thông">
       <option value="Trường đại học mở">
@@ -215,11 +215,11 @@
       <option value="Cao đẳng điện lực">
       <option value="Cao đẳng việt mỹ">
 </datalist>
-    </div>
+    </div> 
     <div id="inputs-container" style="padding:10px">
   <!-- Initial input -->
 </div>
-<button onclick="addInput()" class="btn3">+ Thêm vị trí</button>
+ <input type="button"  onclick="addInput()" name="truonghoc[]" class="btn3" value="">
     </div>
     <!-- f -->
 
@@ -253,7 +253,7 @@
     <div id="inputs-container1" style="padding:10px">
   <!-- Initial input -->
 </div>
-<button onclick="addInput1()" name="vitri" class="btn3">+ Thêm vị trí</button>
+<input type="button"  onclick="addInput1()" class="btn3" value="">
     </div>
     <!-- f -->
 

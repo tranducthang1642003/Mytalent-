@@ -1,17 +1,28 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Http\Request;
-class HomeController
-{
 
-    public function testEmail()
+use Illuminate\Http\Request;
+
+class HomeController extends Controller
+{
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
     {
-        $name = 'mail';
-        Mail::send('mail.sigup-email', compact('name'), function ($email) {
-            $email->to('thangtdps37142@fpt.edu.vn')->subject('Mail test');
-            $email->from('thangtdps37142@fpt.edu.vn','mail');
-        });
+        $this->middleware('auth');
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function index()
+    {
+        return view('home');
     }
 }

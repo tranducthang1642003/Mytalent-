@@ -12,7 +12,11 @@ class addcv
 
 
     public function cv_job(Request $request){
-        // Assuming 'job' is your model for handling job applications
+        $vitri = $request->input('vitri');
+        $truonghoc = $request->input('truonghoc');
+        // Serialize mảng $vitris thành chuỗi
+        $vitri = serialize($vitri);
+        $truonghoc = serialize($truonghoc);
         cv::create([
             'name' => $request->name,
             'gioitinh' => $request->gioitinh,
@@ -20,11 +24,10 @@ class addcv
             'email' => $request->email,
             'date' => $request->date,
             'diachi' => $request->diachi,
-            'file' => $request->file,
             'link' => $request->link,
             'daihoc' => $request->daihoc,
-            'truonghoc' => $request->truonghoc,
-            'hinhthucluong' => $request->hinhthucluong,
+            'truonghoc' => $truonghoc, // Lưu trường 'truonghoc' dưới dạng JSON
+            'vitri' => $vitri, // Lưu trường 'vitri' dưới dạng JSON
             'chungchi' => $request->chungchi,
             'nghanhnghe' => $request->nghanhnghe,
             'luong' => $request->luong,
@@ -33,6 +36,7 @@ class addcv
     
         return redirect()->route('job.job')->with('success', 'Job added successfully');
     }
+    
     
 
 }

@@ -1,14 +1,16 @@
 <?php
 use Illuminate\Support\Facades\Route;
-// use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\cv\addcv;
 use App\Http\Controllers\job\add_job;
 use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Auth;
+
 
 Route::prefix('login')->group(function(){
-Route::get('/', [LoginController::class, 'showLoginForm']);
-Route::get('/forgetpass',[LoginController::class,'quenpass']);
-Route::get('/newforgetpass',[LoginController::class,'uploadpass']);
+Route::get('/', [RegisterController::class, 'showlogin'])->name('login');
+Route::get('/forgetpass',[RegisterController::class,'quenpass']);
+Route::get('/newforgetpass',[RegisterController::class,'uploadpass']);
 });
 
 
@@ -32,3 +34,7 @@ Route::prefix('js_job')->group(function(){
 
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

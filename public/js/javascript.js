@@ -29,7 +29,7 @@ function addInput() {
   const newInputContainer = document.createElement('div');
   newInputContainer.classList.add('input-container');
   newInputContainer.innerHTML = `
-    <input type="text" class="txt1" placeholder="Nhập vào đây" name="truonghoc">
+  <input type="text" class="txt1" placeholder="Nhập" name="truonghoc[]"  class="btn3">
     <button onclick="removeInput(this)">Xóa</button>
   `;
 
@@ -55,8 +55,8 @@ function addInput1() {
   const newInputContainer = document.createElement('div');
   newInputContainer.classList.add('input-container');
   newInputContainer.innerHTML = `
-    <input type="text" class="txt1" placeholder="Nhập vào đây" name="vitri">
-    // <button onclick="editInput(this)">Sửa</button>
+    <input type="text" class="txt1" placeholder="Nhập vào đây" name="vitri[]">
+  
     
   `;
   // Thêm input mới vào inputsContainer

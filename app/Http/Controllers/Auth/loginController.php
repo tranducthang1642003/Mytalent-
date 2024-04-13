@@ -36,25 +36,4 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-
-    public function showlogin()
-    {
-        return view('auth.login');
-    }
-
-
-
-public function register(Request $request){
-$users = new Users();
-$users->name = $request->name;
-$users->email = $request->email;
-$users->password = Hash::make($request->password);
-$users->verification_code =shal(time());
-$users->save;
-
-if($users == null){
-    
-}
-
-    }
 }

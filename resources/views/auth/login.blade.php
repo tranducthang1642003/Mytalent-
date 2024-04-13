@@ -1,107 +1,68 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="/css/main.css">
+@extends('layouts.app')
 
-</head>
-<body>
-    <div class="Headline">
-        <div class="sigin-name">
-        <h1 class="h text-Blue  f">MyTalent</h1>
-        <p class="h">Nền tản tuyển dụng thông minh công nghệ Al</p>
-        </div>
-    <div class="sigin-col-1">  
-<div class="tab">
-<button class="tablinks" onclick="openCity(event, 'Đăng nhập')">Đăng nhập</button>
-<button class="tablinks" onclick="openCity(event, 'Đăng ký')" id="defaultOpen">Đăng ký</button>
-</div>
-<div class="da"></div>
-<!-- form sigin -->
-<div id="Đăng nhập" class="tabcontent">
-    <form action="">             
-    <div class="from-col-email">
-    <label>Email</label>
-    <div class="email">
-    <input type="text" class="txt"  placeholder=" Nhập Email">
-    </div>
-    </div>
-    <div class="from-col-password">
-    <label>Password</label>
-    <div class="email">
-    <input type="password" class="txt" placeholder="Nhập Mật khẩu ">
-    </div>
-    </div>
-    <br>
-    <div class="tap-input-1">
-    <div class="name-sig"><a href="/login/forgetpass">Quên mật khẩu</a></div>
-<div class="name-check"><input type="checkbox"> Ghi nhớ </div>
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Login') }}</div>
 
-</div>
-    <div class="from-col-submit">
-    <input type="submit" class="btn" value="Submit">
-    </div>
-    </form>
-</div>
- <!-- from sigin -->
-<div id="Đăng ký" class="tabcontent">
-    <form action="">
-        <label>Chọn mô hình </label>
-        <div class="tap-input-1">
-            <div class="name-check"> <input type="radio"> Doang Nghiệp</div>
-            <div class="name-sig"> <input type="radio"> Cá Nhân</div>
-                </div>    
-    <div class="from-col-email">
-    <label>Email</label>
-    <div class="email">
-    <input type="text" class="txt"  placeholder=" Nhập Email">
-    </div>
-    </div>
-    <div class="from-col-password">
-    <label>Password</label>
-    <div class="email">
-    <input type="password" class="txt" placeholder="Nhập Mật khẩu ">
-    </div>
-    </div>
-    
-    <div class="from-col-password">
-        <label>Xác nhận mật khẩu</label>
-        <div class="email">
-        <input type="password" class="txt" placeholder="Xác nhận Mật khẩu ">
-        </div>
-        </div>
-    
-        <div class="from-col-code">
-            <label>Nhập mã code</label>
-            <div class="code">
-            <input type="number" class="txt1" placeholder="code">
-            <button type="button" class="txt_code">Lấy mã</button>
+                <div class="card-body">
+                    <form method="POST" action="{{ route('login') }}">
+                        @csrf
+
+                        <div class="row mb-3">
+                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6 offset-md-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                                    <label class="form-check-label" for="remember">
+                                        {{ __('Remember Me') }}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Login') }}
+                                </button>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-            </div>
-    
-    <div class="from-col-submit">
-    <input type="submit" class="btn1" value="Submit">
+        </div>
     </div>
-    </form>
 </div>
-</body>
-</html> 
-<script>
-function openCity(evt, cityName) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " active";
-}
-
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
-</script>
-   
+@endsection
