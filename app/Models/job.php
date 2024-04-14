@@ -18,6 +18,7 @@ class job extends Model
         'lamviec',
         'diachi',
         'loaihopdong',
+        'kinhnghiem',
         'kynang',
         'nganhnghe',
         'luong',

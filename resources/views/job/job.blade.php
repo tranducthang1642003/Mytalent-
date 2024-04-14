@@ -13,6 +13,27 @@
     <script src="https://unpkg.com/vanilla-tags-input"></script>
 </head>
 <body>
+@php
+use Illuminate\Support\Facades\Auth;
+@endphp
+
+@auth
+    
+<span class="text-white">
+    <small class="text-white mx-2">
+        Xin chào, {{ Auth::user()->email }}
+    </small>
+</span>
+
+     
+
+    @csrf
+</form>
+    @else
+        <a href="/login" class="text-white"><small class="text-white mx-2">Đăng nhập</small></a> /
+        <a href="/register" class="text-white"><small class="text-white mx-2">Đăng ký</small></a>
+    @endauth
+</div>
     <header>
 <div class="menu">
     <div class="left">

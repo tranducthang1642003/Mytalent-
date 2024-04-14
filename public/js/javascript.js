@@ -29,8 +29,8 @@ function addInput() {
   const newInputContainer = document.createElement('div');
   newInputContainer.classList.add('input-container');
   newInputContainer.innerHTML = `
-  <input type="text" class="txt1" placeholder="Nhập" name="truonghoc[]"  class="btn3">
-    <button onclick="removeInput(this)">Xóa</button>
+  <input type="text" class="txt" placeholder="Nhập" name="school[]"  class="btn3">
+    <button onclick="removeInput(this)" class="xoa"><i class="fa-solid fa-xmark"></i></button>
   `;
 
   // Thêm input mới vào inputsContainer
@@ -53,51 +53,43 @@ function addInput1() {
 
   // Tạo một input mới
   const newInputContainer = document.createElement('div');
-  newInputContainer.classList.add('input-container');
+  newInputContainer.classList.add('input-container1');
   newInputContainer.innerHTML = `
-    <input type="text" class="txt1" placeholder="Nhập vào đây" name="vitri[]">
-  
-    
+  <input type="text" class="txt" placeholder="Nhập" name="location[]"  class="btn3">
+    <button onclick="removeInput(this)" class="xoa"><i class="fa-solid fa-xmark"></i></button>
   `;
+
   // Thêm input mới vào inputsContainer
   inputsContainer.appendChild(newInputContainer);
 }
 
-function removeInput(button) {5
+function removeInput(button) {
   // Lấy ra div chứa input và nút Xóa
   const inputContainer = button.parentNode;
   
   // Xóa div chứa input và nút Xóa
   inputContainer.parentNode.removeChild(inputContainer);
 }
-function editInput(button) {
-  // Lấy ra div chứa input và nút Sửa
-  const inputContainer = button.parentNode;
-  
-  // Sửa nội dung của inputContainer
-  inputContainer.innerHTML = `
-  <dib class ="khung">
-  <div class="an" >
-  <h2>
-  <p><div class="from"></p>
-  <label>kĩ năng</label>
-  <div class="from-txt">
-  <input type="text" class="txt" placeholder="Nhập">
-  </div>
-</div>
-</h2>
+//
+function addInputlink() {
+  const inputsContainer = document.getElementById('inputs-containerlink');
 
-</div>
-<button onclick="an(this)">ẩn</button>
-</div>
+  // Tạo một input mới
+  const newInputContainer = document.createElement('div');
+  newInputContainer.classList.add('input-containerlink');
+  newInputContainer.innerHTML = `
+  <input type="text" class="txt" placeholder="Nhập" name="Link[]"  class="btn3">
+    <button onclick="removeInput(this)" class="xoa"><i class="fa-solid fa-xmark"></i></button>
+  `;
 
-`;
+  // Thêm input mới vào inputsContainer
+  inputsContainer.appendChild(newInputContainer);
 }
 
-function an(button) {
-  // Lấy ra div chứa nút "ẩn"
-  const divToHide = button.previousElementSibling;
+function removeInput(button) {
+  // Lấy ra div chứa input và nút Xóa
+  const inputContainer = button.parentNode;
   
-  // Ẩn div
-  divToHide.style.display = 'none';
+  // Xóa div chứa input và nút Xóa
+  inputContainer.parentNode.removeChild(inputContainer);
 }

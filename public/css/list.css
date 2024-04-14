@@ -44,7 +44,7 @@ header {
   cursor: pointer;
   transition: 0.3s;
   font-size: 15px;
-  width: 35%;
+  width: 16%;
   border-radius: 5px;
   height: 35px;
 }
@@ -313,13 +313,33 @@ input[type=file i] {
   display: none;
 }
 
+.filter-form {
+  display: none;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+#filter-button:active + .filter-form {
+  display: block;
+  opacity: 1;
+}
+
 footer {
-  width: 80%;
+  width: 40%;
   margin: auto;
   display: flex;
-  height: 111px;
-  justify-content: center;
-  flex-direction: row-reverse;
+  height: 85px;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding-bottom: 50px;
+}
+
+.xoa {
+  position: absolute;
+  position: absolute;
+  margin-top: 1%;
+  margin-left: -1.5%;
+  border: none;
 }
 
 .text-Yello {
@@ -748,7 +768,7 @@ footer {
   display: inline-block;
   border: 0;
   border-radius: 20px;
-  width: 12%;
+  width: 25%;
   height: 40px;
   background-color: rgb(88, 88, 255);
 }
@@ -806,6 +826,15 @@ header {
   width: 90%;
   float: left;
   height: 60px;
+}
+
+.filter-form {
+  display: none;
+  /* Thêm các thuộc tính CSS khác để tùy chỉnh giao diện của biểu mẫu */
+}
+
+#filter-button:active + .filter-form {
+  display: block;
 }
 
 .right {
@@ -1068,4 +1097,17 @@ thead {
 
 tbody {
   height: 40px;
+}
+
+.filter-form {
+  width: 45%;
+  justify-content: center;
+  flex-direction: row-reverse;
+  background-color: #a7c3da;
+  height: 450px;
+  position: absolute;
+  z-index: 99999;
+  margin-left: 25%;
+  box-shadow: 3px 3px 3px 3px #f1f1f1;
+  margin-top: -15%;
 }

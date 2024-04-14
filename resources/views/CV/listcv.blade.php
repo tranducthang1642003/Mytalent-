@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/brands.min.css" integrity="sha512-DJLNx+VLY4aEiEQFjiawXaiceujj5GA7lIY8CHCIGQCBPfsEG0nGz1edb4Jvw1LR7q031zS5PpPqFuPA8ihlRA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/fontawesome.min.css">
     <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@2.0.1/dist/js/multi-select-tag.js"></script>
+  
     <script src="https://unpkg.com/vanilla-tags-input"></script>
 </head>
 <body>
@@ -47,10 +48,10 @@
 <hr>
 <section>
 <div class="text-clo-1">
-<div class="search">
-<form action="{{ route('jobs.filter') }}" method="GET">
-    <input type="text" placeholder="Enter job title" id="nganhnghe" name="nganhnghe">
-    <button type="submit">Tìm kiếm</button>
+    <div class="search">
+    <form class="example"  style="max-width:300px">
+  <input type="text" placeholder="Search.." name="search2">
+  <button type="submit"><i class="fa fa-search"></i></button>
 </form>
     </div>
 </div>
@@ -79,110 +80,46 @@
     <div id="Đăng ký" class="tabcontent"></div>
     </div>
         <div class="table">
-        @foreach($jobs as $job)
+      
             <table class="table table-striped">
+          
                 <thead>
+                      @foreach($cv as $cv)
                     <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Vị trí</th>
-                        <th scope="col">Số lần lọc</th>
-                        <th scope="col">Nhà tuyển dụng</th>
-                        <th scope="col">Trạng thái</th>
-                        <th scope="col">Ngày tạo</th>
-                        <th scope="col">Ngày hết hạn</th>
-                        <th scope="col">thao tác</th>
+                        <th scope="col">STT</th>
+                        <th scope="col">Ứng viên</th>
+                        <th scope="col">Số điẹne thoại</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">vị trí </th>
+                        <th scope="col">kĩ năng</th>
+                        <th scope="col">Ngày tải lên</th>
+                        <th scope="col">Thao tác</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{{$job->id}}</td>
-                        <td>{{$job->vitr}} </td>
-                        <td>03</td>
-                        <td>{{$job->congty}}</td>
-                        <td class="{{ $job->trangthai == 'Đang tuyển' ? 'bg-Green-light-2' : 'text-danger' }}"> {{ $job->trangthai }}</td>
-                        <td>{{$job->created_at}}</td>
-                        <td>{{$job->created_at}}</td><td>
-                        <button id="filter-button" onclick="handleFilterClick({{ $job->id }})">
-    <i class="fa-solid fa-pen-nib"></i>
-</button>
-</td>
-
-        </tr>
-
-
-
-
-        
+                        <td>{{$cv->id}}</td>
+                        <td>{{$cv->name}} </td>
+                        <td>{{$cv->phone}}</td>
+                        <td>{{$cv->email}}</td>
+                        <td> {{$cv->skills }}</td>
+                        <td> {{$cv->skills }}</td>
+                        <td>{{$cv->created_at}}</td>
+                        <td>thao tác</td>
+        </tr>   
+        @endforeach
                 </tbody>
+             
             </table>
-            @endforeach
+         
            </div>
-
-           <div id="filter-form" class="filter-form">
-       <!-- Trong file 'cvs.index.blade.php' -->
-<form action="{{ route('jobs.filter') }}" method="POST">
-    @csrf
-    <input type="hidden" name="id" value="{{ $job->id }}">
-
-    <!-- Trường lọc kỹ năng -->
-    <label for="kynang">Kỹ năng:</label>
-    <input type="text" id="kynang" name="kynang">
-
-    <!-- Trường lọc ngành nghề -->
-    <label for="nganhnghe">Ngành nghề:</label>
-    <input type="text" id="nganhnghe" name="nganhnghe">
-
-    <!-- Trường lọc mức lương -->
-    <label for="luong">Mức lương:</label>
-    <input type="text" id="luong" name="luong">
-
-    <!-- Nút lọc -->
-    <button type="submit">Lọc</button>
-</form>
-
-
-
-
-
-
-</div>
-
+     
         </section>
     </div>
- 
-
-
-
-
-
-
+    <!-- l -->
+  
 
 </body>
 </html>
 
-<script>
-function toggleForm() {
-  var form = document.getElementById("filter-form");
-  if (form.style.display === "none") {
-    form.style.display = "block";
-    setTimeout(function(){ form.style.opacity = "1"; }, 100);
-  } else {
-    form.style.opacity = "0";
-    setTimeout(function(){ form.style.display = "none"; }, 1000);
-  }
-}
-</script>
 
-<script>
-function handleFilterClick(jobId) {
-    var form = document.getElementById("filter-form");
-  if (form.style.display === "none") {
-    form.style.display = "block";
-    setTimeout(function(){ form.style.opacity = "1"; }, 100);
-  } else {
-    form.style.opacity = "0";
-    setTimeout(function(){ form.style.display = "none"; }, 1000);
-  }
-    event.preventDefault();
-}
-</script>

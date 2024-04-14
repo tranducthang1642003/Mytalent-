@@ -5,27 +5,37 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class cv extends Model
+class Cv extends Model
 {
-    
-    protected $table = 'cv'; 
     use HasFactory;
+
+    protected $table = 'cv';
+    
     protected $fillable = [
         'name',
         'gioitinh',
-        'sdt',
+        'phone',
         'email',
         'date',
-        'diachi',
+        'Address',
+        'Education',
+        'school',
+        'Language',
+        'Certificate',
+        'location',
+        'career',
+        'skills',
+        'Currentsalary',
+        'Desiredsalary',
+        'Image',
         'file',
-        'link',
-        'daihoc',
-        'truonghoc',
-        'hinhthucluong',
-        'chungchi',
-        'nghanhnghe',
-        'luong',
-        'mucluong',
-        'vitri',
+        'keyword',
+        'Link',
+        'job_id',
     ];
+
+    public function job()
+    {
+        return $this->belongsTo(Job::class);
+    }
 }

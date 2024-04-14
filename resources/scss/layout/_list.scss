@@ -14,7 +14,14 @@ header{
     float: left;
     height: 60px;
 }
+.filter-form {
+  display: none;
+  /* Thêm các thuộc tính CSS khác để tùy chỉnh giao diện của biểu mẫu */
+}
 
+#filter-button:active + .filter-form {
+  display: block;
+}
 .right{
     width: 50%;
     float: right;
@@ -278,3 +285,17 @@ tbody{
 }
 
 
+.filter-form{
+  width: 45%;
+ 
+  justify-content: center;
+  flex-direction: row-reverse;
+  background-color: #a7c3da;
+  height: 450px;
+  position: absolute;
+z-index: 99999;
+margin-left: 25%;
+box-shadow: 3px 3px 3px 3px #f1f1f1;
+margin-top: -15%;
+
+}

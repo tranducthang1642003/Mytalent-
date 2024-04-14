@@ -50,6 +50,9 @@
 </div>
 </div>
 
+@if(session('success'))
+    {!! session('success') !!}
+@endif
 
 
 <div id="TTCB" class="tabcontent"></div>
@@ -82,7 +85,7 @@
     <p><div class="from"></p>
     <label>Số điện thoại <span class ="text-red-light-1">*</span></label>
     <div class="from-txt">
-    <input type="text" class="txt" placeholder="Nhập" name="sdt">
+    <input type="text" class="txt" placeholder="Nhập" name="phone">
     </div>
     </div>
     <!-- f -->
@@ -96,7 +99,7 @@
  <p><div class="from"></p>
     <label>ngày sinh <span class ="text-red-light-1">*</span></label>
     <div class="from-txt">
-    <input type="text" class="txt" placeholder="Nhập" name="date">
+    <input type="date" class="txt" placeholder="Nhập" name="date">
     </div>
     </div>
 
@@ -104,9 +107,106 @@
  <p><div class="from"></p>
     <label>Địa chỉ hiện tại </label>
     <div class="from-txt">
-    <input type="text" class="txt" placeholder="Nhập" name="diachi">
+    <input type="text" class="txt" placeholder="Nhập" name="Address">
     </div>
     </div>
+
+
+</div>
+
+    <div class="text-from"><h3>Trình độ học vấn </h3></div>
+<div class="form-txt">
+<div class="from-col-password">
+  <p><div class="from"></p>
+  <label>Trình độ học vấn </label>
+    <div class="from-txt">
+      <input type="radio" name="Education" id="0">
+      <label for="0">đại học</label>
+      <input type="radio" name="Education" id="1">
+      <label for="1">cao đẳng</label>
+      <input type="radio" name="Education" id="2">
+      <label for="2">trung cấp</label>
+      <input type="radio" name="Education" id="3">
+      <label for="3">khác</label>
+    </div>
+    </div>
+    <!-- f -->
+    <p><div class="from"></p>
+    <label>Trường học </label>
+    <div class="from-txt">
+    <input type="list" class="txt" list="items" placeholder="Nhập" name="school[]">
+    <datalist id="items">
+      <option value="Trường công nghệ thông">
+      <option value="Trường đại học mở">
+      <option value="Sư phạm kĩ thuật">
+      <option value="Cao thắng">
+      <option value="Đại học FPT">
+      <option value="Cao đẳng điện lực">
+      <option value="Cao đẳng việt mỹ">
+</datalist>
+    </div> 
+    <div id="inputs-container" style="padding-bottom: 3%;">
+  <!-- Initial input -->
+</div>
+ <input type="button"  onclick="addInput()" name="school[]" class="btn3" value="">
+    </div>
+    <!-- f -->
+
+
+    <p><div class="from"></p>
+    <label>Ngoại Ngữ </label>
+    <div class="from-txt">
+    <input type="text" class="txt"  placeholder="nhập" name="Language">
+    </div>
+</div>
+        <p><div class="from"></p>
+    <label>Chứng chỉ khác</label>
+    <div class="from-txt">
+    <input type="text" class="txt" placeholder="Nhập" name="Certificate">
+    </div>
+</div>
+
+<p><div class="from"></p>
+    <label> vị trí </label>
+    <div class="from-txt">
+   
+    </div>
+    <div id="inputs-container1" style="padding-bottom: 3%;" >
+  <!-- Initial input -->
+</div>
+<input type="button"  onclick="addInput1()" class="btn3" value="">
+    </div>
+    <!-- f -->
+
+
+    <p><div class="from"></p>
+    <label>Nghành nghề </label>
+    <div class="from-txt">
+    <input type="text" class="txt"  placeholder="nhập" name="career">
+    </div>
+</div>
+        <p><div class="from"></p>
+    <label>kĩ năng</label>
+    <div class="from-txt">
+    <input type="text" class="txt" placeholder="Nhập" name="skills">
+    </div>
+</div>
+
+<p><div class="from"></p>
+    <label>Mức lương hiện tại </label>
+    <div class="from-txt">
+    <input type="text" class="txt" placeholder="Nhập" name="Currentsalary">
+    </div>
+</div>
+
+<p><div class="from"></p>
+    <label>Mức lương mong muốn</label>
+    <div class="from-txt">
+    <input type="text" class="txt" placeholder="Nhập" name="Desiredsalary">
+    </div>
+</div>
+</div>
+</div>
   </div>
 </div>
 </div>
@@ -114,19 +214,17 @@
 
 
 
-<!-- trinh do hojc -->
-
 
 
 <div class="main-right">
 <section>
-<!-- <div class="from">
+<div class="from">
 <label for="file" style="width: 30%;">
 <div class="text-file">Ảnh đại diện</div>
 <div class="txt-img">
     <div class="icons"><i class="fa-solid fa-upload fa-bounce" style="color: #000000;"></i></div>
      <div class=""><span class="txt-tetx">Tải ảnh lên</span></div>
-    <input type="file" name="file" id="file">
+    <input type="file" name="Image" id="file">
     </label>
     </div>
     <div class="txt-text1">Chưa chọn 
@@ -149,12 +247,13 @@
     </div>
     </div>
     </section>
+
   <div class="from">
     <label class="text-file">Từ khóa *</label>
     <div class="from-txt1">
-    <input type="text" class="txt1" placeholder="Nhập">
+    <input type="text" class="txt1" placeholder="Nhập" name="keyword">
     </div>
-    </div> -->
+    </div>
 
 </div>
 
@@ -166,135 +265,22 @@
     <input type="text" class="txt1" placeholder="Nhập" name="link">
     <input type="text" class="txt1" placeholder="Nhập"  name="link">
     <input type="text" class="txt1" placeholder="Nhập"  name="link">
+
+    <div id="inputs-containerlink" style="padding-bottom: 3%;" >
+  <!-- Initial input -->
+</div>
+<input type="button"  onclick="addInputlink()" class="btn3" value="">
+    </div>
     </div>
     
 </div>
 </section>
 
-
-
-
-
-
-
-
-
-
-
-
-<section>
-<div class="main-left">
-<div class="from-register">
-<div class="text-from"><h3>Trình độ học vấn </h3></div>
-<div class="form-txt">
-<div class="from-col-password">
-  <p><div class="from"></p>
-  <label>Trình độ học vấn </label>
-    <div class="from-txt">
-      <input type="radio" name="daihoc" id="0">
-      <label for="0">đại học</label>
-      <input type="radio" name="daihoc" id="1">
-      <label for="1">cao đẳng</label>
-      <input type="radio" name="daihoc" id="2">
-      <label for="2">trung cấp</label>
-      <input type="radio" name="daihoc" id="3">
-      <label for="3">khác</label>
-    </div>
-    </div>
-    <!-- f -->
-    <p><div class="from"></p>
-    <label>Trường học </label>
-    <div class="from-txt">
-    <input type="list" class="txt" list="items" placeholder="Nhập" name="truonghoc[]">
-    <datalist id="items">
-      <option value="Trường công nghệ thông">
-      <option value="Trường đại học mở">
-      <option value="Sư phạm kĩ thuật">
-      <option value="Cao thắng">
-      <option value="Đại học FPT">
-      <option value="Cao đẳng điện lực">
-      <option value="Cao đẳng việt mỹ">
-</datalist>
-    </div> 
-    <div id="inputs-container" style="padding:10px">
-  <!-- Initial input -->
-</div>
- <input type="button"  onclick="addInput()" name="truonghoc[]" class="btn3" value="">
-    </div>
-    <!-- f -->
-
-
-    <p><div class="from"></p>
-    <label>Ngoại Ngữ </label>
-    <div class="from-txt">
-    <input type="text" class="txt" id="tag-input1" placeholder="nhập" name="ngoaingu">
-    </div>
-</div>
-        <p><div class="from"></p>
-    <label>Chứng chỉ khác</label>
-    <div class="from-txt">
-    <input type="text" class="txt" placeholder="Nhập" name="chungchi">
-    </div>
-</div>
-</div>
-</section>
-
-
-
-<section>
-<div class="main-left">
-<div class="from-register">
-    <!-- f -->
-    <p><div class="from"></p>
-    <label> vị trí </label>
-    <div class="from-txt">
-   
-    </div>
-    <div id="inputs-container1" style="padding:10px">
-  <!-- Initial input -->
-</div>
-<input type="button"  onclick="addInput1()" class="btn3" value="">
-    </div>
-    <!-- f -->
-
-
-    <p><div class="from"></p>
-    <label>Nghành nghề </label>
-    <div class="from-txt">
-    <input type="text" class="txt" id="tag-input1" placeholder="nhập" name="nghanhnghe">
-    </div>
-</div>
-        <p><div class="from"></p>
-    <label>kĩ năng</label>
-    <div class="from-txt">
-    <input type="text" class="txt" placeholder="Nhập" name="kynang">
-    </div>
-</div>
-
-<p><div class="from"></p>
-    <label>Mức lương hiện tại </label>
-    <div class="from-txt">
-    <input type="text" class="txt" placeholder="Nhập" name="luong">
-    </div>
-</div>
-
-<p><div class="from"></p>
-    <label>Mức lương mong muốn</label>
-    <div class="from-txt">
-    <input type="text" class="txt" placeholder="Nhập" name="mucluong">
-    </div>
-</div>
-
-</div>
-
-</section>
-
-
-
 </article>
+<br>
 <footer>
-<input type="submit" value="">
-<input type="reset" class="btn1"  value="Xóa ">
+<input type="submit" value="Lưu và thêm mới " class="btn">
+<input type="reset" class="btn"  value="Xóa ">
               </div>
             </form>
             </div>
@@ -303,6 +289,6 @@
 </body>
 </html>
 <script src="/js/javascript.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@2.0.1/dist/js/multi-select-tag.js"></script>   
+
 
 

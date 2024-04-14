@@ -25,7 +25,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/js_job/job';
 
     /**
      * Create a new controller instance.
@@ -36,4 +36,9 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+ public function showlogin1 (){
+    return view('auth.login');
+ }
+
 }

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.filter-form {
+  display: none;
+  /* Thêm các thuộc tính CSS khác để tùy chỉnh giao diện của biểu mẫu */
+}
+
+#filter-button:active + .filter-form {
+  display: block;
+}
+</style>
+<script>
+function toggleForm() {
+  var form = document.getElementById("filter-form");
+  if (form.style.display === "none") {
+    form.style.display = "block";
+  } else {
+    form.style.display = "none";
+  }
+}
+</script>
+</head>
+<body>
+
+<button id="filter-button" onclick="toggleForm()">Lọc</button>
+
+<div id="filter-form" class="filter-form">
+  <!-- Thêm các trường nhập liệu và menu thả xuống của bạn vào đây -->
+  <label for="fname">Tên:</label><br>
+  <input type="text" id="fname" name="fname"><br>
+  <label for="lname">Họ:</label><br>
+  <input type="text" id="lname" name="lname">
+  <button onclick="toggleForm()">Đóng</button>
+</div>
+
+</body>
+</html>

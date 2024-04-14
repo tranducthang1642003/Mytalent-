@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>camr onw </h1>
-    <p>{{$get_user_emai}}</p>
+    <p>{{$get_user_email}}</p>
     <p>{{$validToken}}</p>
 </body>
 </html>

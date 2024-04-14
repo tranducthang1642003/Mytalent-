@@ -20,6 +20,7 @@ return new class extends Migration
         $table->string('diachi');
         $table->string('loaihopdong');
         $table->string('kynang');
+        $table->string('kinhnghiem');
         $table->string('nganhnghe');
         $table->double('luong');
         $table->boolean('hinhthucluong');
@@ -28,7 +29,6 @@ return new class extends Migration
         $table->string('trangthai')->default('Đang tuyển');
         $table->rememberToken();
         $table->timestamps();
-      
        });
    
     }
@@ -38,6 +38,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('jobs');
     }
 };
