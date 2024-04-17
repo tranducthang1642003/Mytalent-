@@ -6,7 +6,7 @@ use App\Http\Controllers\job\add_job;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Auth\loginController;
-
+// use Modules\Blog\Http\Controllers\BlogController;
 
 
 
@@ -30,8 +30,6 @@ Route::prefix('cv')->group(function(){
 
 
 });
-
-
 
 
 Route::prefix('js_job')->group(function(){

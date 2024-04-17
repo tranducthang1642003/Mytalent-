@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "genealabs/laravel-caffeine": "^11.0",
         "laravel/framework": "^11.0",
         "laravel/tinker": "^2.9",
         "laravel/ui": "^4.5"
@@ -22,6 +23,7 @@
     "autoload": {
         "psr-4": {
             "App\\": "app/",
+            "Modules\\": "modules/",
             "App\\Mail\\": "app/Mail/"
         }
     },
@@ -51,8 +53,10 @@
         "branch-alias": {
             "dev-master": "11.x-dev"
         },
-        "laravel": {
-            "dont-discover": []
+        "merge-plugin": {
+            "include": [
+                "Modules/*/composer.json"
+            ]
         }
     },
     "config": {
