@@ -84,7 +84,7 @@
             <table class="table table-striped">
           
                 <thead>
-                      @foreach($cv as $cv)
+                    
                     <tr>
                         <th scope="col">STT</th>
                         <th scope="col">Ứng viên</th>
@@ -98,14 +98,25 @@
                 </thead>
                 <tbody>
                     <tr>
+                    @foreach($cv as $cv)
                         <td>{{$cv->id}}</td>
                         <td>{{$cv->name}} </td>
                         <td>{{$cv->phone}}</td>
                         <td>{{$cv->email}}</td>
                         <td> {{$cv->skills }}</td>
-                        <td> {{$cv->skills }}</td>
+                        <td> {{$cv->keyword }}</td>
                         <td>{{$cv->created_at}}</td>
-                        <td>thao tác</td>
+                        <td>
+                        <a href="{{ route('cv.edit', $cv->id) }}" class="btn btn-primary btn-sm">Sửa</a>
+
+                        <form action="{{ route('cv.destroycv', $cv->id) }}" method="POST" style="display: inline;">
+                        @csrf
+                          @method('DELETE')
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có chắc chắn muốn xóa CV này?')">Xóa</button>
+                    </form>
+
+                        </td>
+                      
         </tr>   
         @endforeach
                 </tbody>

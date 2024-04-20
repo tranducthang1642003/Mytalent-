@@ -76,34 +76,36 @@
                         <div id="Đăng nhập" class="tabcontent"></div>
                         <div id="Đăng ký" class="tabcontent"></div>
                     </div>
-                    <div class="table">
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">id</th>
-                                        <th scope="col">Skills</th>
-                                        <th scope="col">Career</th>
-                                        <th scope="col">Desired Salary</th>
-                                        <th scope="col">Nhà tuyển dụng</th>
-                                        <th scope="col">Ngày tạo</th>
-                                        <th scope="col">Ngày hết hạn</th>
-                                        <th scope="col">thao tác</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($cvs as $cv)
-                                        <tr>
-                                            <td>{{ $cv->id }}</td>
-                                            <td>{{ $cv->skills }}</td>
-                                            <td>{{ $cv->career }}</td>
-                                            <td>{{ $cv->name }}</td>
-                                            <td>{{ $match_scores[$cv->id] }}</td> 
-                                           
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                     
+            
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">CV ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Email</th>
+            <th scope="col">Job ID</th>
+            <th scope="col">Match Percentage</th>
+            <!-- Add more columns as needed -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($matchPercentages as $cvId => $jobMatches)
+            @foreach($jobMatches as $jobId => $matchPercentage)
+                <tr>
+                    <td>{{ $cvId }}</td>
+                    <td>{{ $cvs->where('id', $cvId)->first()->name }}</td>
+                    <td>{{ $cvs->where('id', $cvId)->first()->phone }}</td>
+                    <td>{{ $cvs->where('id', $cvId)->first()->email }}</td>
+                    <td>{{ $jobId }}</td>
+                    <td>{{ $matchPercentage }}%</td>
+                    <!-- Add more fields as needed -->
+                </tr>
+            @endforeach
+        @endforeach
+    </tbody>
+</table>
+
                     </div>
                 </section>
             </div>

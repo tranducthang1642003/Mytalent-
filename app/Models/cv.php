@@ -38,4 +38,9 @@ class Cv extends Model
     {
         return $this->belongsTo(Job::class);
     }
+
+    public function keywords()
+    {
+        return $this->belongsToMany(Keyword::class, 'cv_keyword');
+    }
 }

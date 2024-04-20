@@ -22,8 +22,12 @@ class job extends Model
         'kynang',
         'nganhnghe',
         'luong',
-        'hinhthucluong',
-        'tukhoa',
+        'keyword',
         'link',
     ];
+    public function keywords()
+    {
+        return $this->belongsToMany(Keyword::class, 'job_keyword');
+    }
+
 }

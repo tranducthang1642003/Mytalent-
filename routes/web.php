@@ -27,8 +27,12 @@ Route::prefix('cv')->group(function(){
  Route::get('/add',[addcv::class,'showaddcv'])->name('cv_job');
  Route::post('/add',[addcv::class,'cvJob'])->name('cv_job');
  Route::get('/listcv',[addcv::class,'showcv']);
+ Route::delete('/cv/{id}', [addcv::class, 'destroycv'])->name('cv.destroycv');
 
+ Route::get('/cv/{id}/edit', [addcv::class, 'edit'])->name('cv.edit');
 
+ Route::put('/cv/{id}', [addcv::class, 'cvupdate'])->name('cvupdate');
+ 
 });
 
 
@@ -36,9 +40,9 @@ Route::prefix('js_job')->group(function(){
     Route::get('/job',[ add_job::class,'showadd_job'])->name('job');
     Route::post('/job',[add_job::class,'job']);
     Route::get('/list',[add_job::class,'showlist']);
-    Route::get('/jobs/search', [add_job::class, 'filter'])->name('jobs.filter');
-    Route::post('jobs.filter', [add_job::class, 'filter'])->name('jobs.filter');
-    // Trong phương thức filter của controller
+    Route::get('/job/search', [add_job::class, 'filterJobsAndCvs'])->name('job.filter');
+    Route::post('job.filter', [add_job::class, 'filterJobsAndCvs'])->name('job.filter');
+    Route::delete('/job/{id}', [add_job::class, 'destroyjob'])->name('job.destroyjob');
 
 
    });  

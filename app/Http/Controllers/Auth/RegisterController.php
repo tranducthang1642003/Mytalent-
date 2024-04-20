@@ -100,7 +100,7 @@ class RegisterController extends Controller
     
         if (Auth::attempt($credentials)) {
             // Authentication passed
-            return redirect()->intended('/verify-token'); // Chuyển hướng đến trang verify-token
+            return redirect()->intended('/verify-tokenă'); // Chuyển hướng đến trang verify-token
         }
     
         // Authentication failed

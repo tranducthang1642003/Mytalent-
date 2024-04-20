@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\job;
 use App\Models\Cv;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\Keyword;
 use Illuminate\Http\Request;
 use App\Models\job;
 class ListingController
@@ -26,27 +26,28 @@ class add_job
 
     //them danh sách 
     public function job(Request $request){
-// Xử lý giá trị của hình thức lương trước khi lưu vào cơ sở dữ liệu
-$hinhthucluong = $request->has('hinhthucluong') ? 1 : 0;
-
-job::create([
-    'vitri' => $request->vitri,
-    'congty' =>  $request->congty,
-    'soluong' =>  $request->soluong,
-    'lamviec' => $request->lamviec,
-    'kinhnghiem' => $request->kinhnghiem,
-    'diachi' => $request->diachi,
-    'loaihopdong' => $request->loaihopdong,
-    'kynang' => $request->kynang,
-    'nganhnghe' => $request->nganhnghe,
-    'luong' => $request->luong,
-    'hinhthucluong' => $hinhthucluong, // Sử dụng giá trị đã xử lý
-    'tukhoa' => $request->tukhoa,
-    'link' => $request->link,
-]);
-
-        return redirect()->route('job.job')->with('success', 'Job added successfully');
+        $job = job::create([
+            'vitri' => $request->vitri,
+            'congty' =>  $request->congty,
+            'soluong' =>  $request->soluong,
+            'lamviec' => $request->lamviec,
+            'kinhnghiem' => $request->kinhnghiem,
+            'diachi' => $request->diachi,
+            'loaihopdong' => $request->loaihopdong,
+            'kynang' => $request->kynang,
+            'nganhnghe' => $request->nganhnghe,
+            'luong' => $request->luong,
+            'link' => $request->link,
+        ]);
+        $keywords = explode(',', $request->keyword); 
+        foreach ($keywords as $keyword) {
+            $keywordModel = Keyword::firstOrCreate(['keyword' => trim($keyword)]);
+            $job->keywords()->attach($keywordModel->id);
+        }
+        return redirect()->view('job.job')->with('success', 'Job added successfully');
     }
+    
+    
     
 //show danh sách
 
@@ -55,37 +56,76 @@ public function showlist(){
     return view('job.list', ['jobs' => $jobs]);
 }
 
-
-    // Các phương thức khác
-
-    public function filter(Request $request)
-    {
-        // Lấy thông tin từ Job
-        $job = job::find($request->id);
-     
-       // Tạo truy vấn lọc CV
-        $query = Cv::query();
-        if ($job->kynang) {
-            $query->where('skills', 'like', '%' . $job->kynang . '%');
-        }
-        if ($job->nganhnghe) {
-            $query->where('career', $job->nganhnghe);
-        }
-        if ($job->luong) {
-            $query->where('Currentsalary', '<=', $job->luong);
-        }
-        $cvs = $query->get();
-        
-        $match_scores = [];
-        foreach ($cvs as $cv) {
-            // Tính toán mức độ phù hợp của từng cột và lưu vào mảng
-            $match_score = 0; // Thực hiện tính toán mức độ phù hợp ở đây
-            $match_scores[$cv->id] = $match_score;
-        }
-        
-        // Trả về kết quả
-        return view('job.list1', ['cvs' => $cvs, 'match_scores' => $match_scores]);
+public function filterJobsAndCvs(Request $request) {
+    $cvQuery = Cv::query();
+$cvs = $cvQuery->get();
+    $location = $request->input('location');
+    $Currentsalary = $request->input('Currentsalary');
+    $experience = $request->input('experience');
+    $skills = $request->input('skills');
+    $keywords = $request->input('keywords');
+    $jobQuery = Job::query();
+    if ($location) {
+        $jobQuery->where('vitri', $location);
     }
+    if ($Currentsalary) {
+        $jobQuery->where('luong', '<=', $Currentsalary);
+    }
+    if ($experience) {
+        $jobQuery->where('kinhnghiem', 'like', '%' . $experience . '%');
+    }
+    if ($skills) {
+        $jobQuery->where('kynang', 'like', '%' . $skills . '%');
+    }
+    if ($keywords) {
+        $jobQuery->whereHas('keywords', function ($query) use ($keywords) {
+            $query->whereIn('keyword', explode(',', $keywords));
+        });
+    }
+    $jobs = $jobQuery->get();
+    $cvQuery = Cv::query();
+    $cvs = $cvQuery->get();
+    $matchPercentages = [];
+    foreach ($cvs as $cv) {
+        foreach ($jobs as $job) {
+            $matchPercentages[$cv->id][$job->id] = $this->calculateKeywordMatch($cv, $job);
+        }
+    }
+    return view('job.list1', ['jobs' => $jobs, 'cvs' => $cvs, 'matchPercentages' => $matchPercentages]);
+}
+public function calculateKeywordMatch($cv, $job) {
+    // Lấy danh sách từ khóa từ cv và job
+    $cvKeywords = $cv->keywords()->pluck('keyword')->toArray();
+    $jobKeywords = $job->keywords()->pluck('keyword')->toArray();
+
+    // Tính tổng số từ khóa
+    $totalKeywords = count($cvKeywords) + count($jobKeywords);
+
+    // Đếm số lượng từ xuất hiện trong cả cv và job
+    $commonKeywords = array_intersect($cvKeywords, $jobKeywords);
+    $numCommonKeywords = count($commonKeywords);
+
+    // Tính và trả về tỷ lệ phần trăm của số từ xuất hiện chung so với tổng số từ khóa
+    $matchPercentage = ($numCommonKeywords / $totalKeywords) * 100;
+    return $matchPercentage;
+}
+
+ 
+
+public function destroyjob($id)
+{
+    // Find the danh muc by id
+    $job = job:: findOrFail($id);
+
+    // Delete the danh muc
+    $job->delete();
+
+    // Redirect back with a success message
+    return redirect()->route('cv/listcv ')->with('success', 'Danh mục đã được xóa thành công.');
+}
+
+
+
 }
 
 

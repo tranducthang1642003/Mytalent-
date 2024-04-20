@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/fontawesome.min.css">
     <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@2.0.1/dist/js/multi-select-tag.js"></script>
     <script src="https://unpkg.com/vanilla-tags-input"></script>
+    <link rel="stylesheet" href="https://unpkg.com/@yaireo/tagify/dist/tagify.css">
+     <script src="https://unpkg.com/@yaireo/tagify"></script>
 </head>
 <body>
     <header>
@@ -48,7 +50,7 @@
 <section>
 <div class="text-clo-1">
 <div class="search">
-<form action="{{ route('jobs.filter') }}" method="GET">
+<form action="{{ route('job.filter') }}" method="GET">
     <input type="text" placeholder="Enter job title" id="nganhnghe" name="nganhnghe">
     <button type="submit">Tìm kiếm</button>
 </form>
@@ -79,7 +81,7 @@
     <div id="Đăng ký" class="tabcontent"></div>
     </div>
         <div class="table">
-        @foreach($jobs as $job)
+     
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -94,6 +96,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                @foreach($jobs as $job)
                     <tr>
                         <td>{{$job->id}}</td>
                         <td>{{$job->vitr}} </td>
@@ -105,38 +108,55 @@
                         <button id="filter-button" onclick="handleFilterClick({{ $job->id }})">
     <i class="fa-solid fa-pen-nib"></i>
 </button>
+
+<form action="{{ route('job.destroyjob', $job->id) }}" method="POST" style="display: inline;">
+                        @csrf
+                          @method('DELETE')
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có chắc chắn muốn xóa JOB này?')">Xóa</button>
+                    </form>
+
 </td>
 
         </tr>
-
+        @endforeach
 
 
 
         
                 </tbody>
             </table>
-            @endforeach
+   
            </div>
 
            <div id="filter-form" class="filter-form">
        <!-- Trong file 'cvs.index.blade.php' -->
-<form action="{{ route('jobs.filter') }}" method="POST">
+<form action="{{ route('job.filter') }}" method="POST">
     @csrf
-    <input type="hidden" name="id" value="{{ $job->id }}">
+    <div class="form-group">
+        <label for="location">Vị trí:</label>
+        <input type="text" class="form-control" id="location" name="location">
+    </div>
+    <div class="form-group">
+        <label for="Currentsalary">Lương:</label>
+        <input type="number" class="form-control" id="Currentsalary" name="Currentsalary">
+    </div>
 
-    <!-- Trường lọc kỹ năng -->
-    <label for="kynang">Kỹ năng:</label>
-    <input type="text" id="kynang" name="kynang">
+    <div class="form-group">
+        <label for="skills">Kỹ năng:</label>
+        <input type="text" class="form-control" id="skills" name="skills">
+    </div>
+    <div class="form-group">
+        <label for="keywords">Từ khóa:</label>
+        <input type="text" class="form-control"  name="keyword" placeholder="Nhập từ khóa, phân tách bằng dấu phẩy" id="keywordInput" >
 
-    <!-- Trường lọc ngành nghề -->
-    <label for="nganhnghe">Ngành nghề:</label>
-    <input type="text" id="nganhnghe" name="nganhnghe">
+    <div id="keywords">
+    <span onclick="updateInput(this)"><button type="button">IT</button></span>
+    <span onclick="updateInput(this)"><button type="button">LOSIRP</button></span>
+    <span onclick="updateInput(this)"><button type="button">BACKEND</button></span>
+    <span onclick="updateInput(this)"><button type="button">FONEAND</button></span>
 
-    <!-- Trường lọc mức lương -->
-    <label for="luong">Mức lương:</label>
-    <input type="text" id="luong" name="luong">
-
-    <!-- Nút lọc -->
+</div>
+    </div>
     <button type="submit">Lọc</button>
 </form>
 
@@ -160,18 +180,7 @@
 </body>
 </html>
 
-<script>
-function toggleForm() {
-  var form = document.getElementById("filter-form");
-  if (form.style.display === "none") {
-    form.style.display = "block";
-    setTimeout(function(){ form.style.opacity = "1"; }, 100);
-  } else {
-    form.style.opacity = "0";
-    setTimeout(function(){ form.style.display = "none"; }, 1000);
-  }
-}
-</script>
+
 
 <script>
 function handleFilterClick(jobId) {
@@ -185,4 +194,18 @@ function handleFilterClick(jobId) {
   }
     event.preventDefault();
 }
+</script>
+
+<script>
+    // Khởi tạo Tagify
+    var input = document.querySelector('#keywordInput');
+    var tagify = new Tagify(input);
+
+    function updateInput(element) {
+        // Lấy từ khóa từ phần tử được nhấp
+        var keyword = element.textContent;
+
+        // Thêm từ khóa vào trường input
+        tagify.addTags([keyword]);
+    }
 </script>

@@ -8,9 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/brands.min.css" integrity="sha512-DJLNx+VLY4aEiEQFjiawXaiceujj5GA7lIY8CHCIGQCBPfsEG0nGz1edb4Jvw1LR7q031zS5PpPqFuPA8ihlRA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/fontawesome.min.css">
-    <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@2.0.1/dist/js/multi-select-tag.js"></script>
-  
-    <script src="https://unpkg.com/vanilla-tags-input"></script>
+    <link rel="stylesheet" href="https://unpkg.com/@yaireo/tagify/dist/tagify.css">
+     <script src="https://unpkg.com/@yaireo/tagify"></script>
 </head>
 <body>
     <header>
@@ -28,7 +27,31 @@
 <div class="right">
 <div class="step"><h3>30 Credist </h3></div>
 <div class="step"><h3>VN</h3></div>
-<div class="step"><h3>Nhật nguyễn </h3></div>
+<div class="step"><h3>
+@php
+use Illuminate\Support\Facades\Auth;
+@endphp
+
+@auth
+    
+<span class="text-white">
+    <small class="text-white mx-2">
+       {{ Auth::user()->email }}
+    </small>
+</span>
+
+     
+
+    @csrf
+</form>
+    @else
+        <a href="/login" class="text-white"><small class="text-white mx-2">Đăng nhập</small></a> /
+        <a href="/register" class="text-white"><small class="text-white mx-2">Đăng ký</small></a>
+    @endauth
+</div>
+
+
+</h3></div>
 </div>
 </div>
 </header>
@@ -148,7 +171,7 @@
     <div id="inputs-container" style="padding-bottom: 3%;">
   <!-- Initial input -->
 </div>
- <input type="button"  onclick="addInput()" name="school[]" class="btn3" value="">
+ <input type="button"  onclick="addInput()" name="school[]" class="btn3" value="+">
     </div>
     <!-- f -->
 
@@ -174,7 +197,8 @@
     <div id="inputs-container1" style="padding-bottom: 3%;" >
   <!-- Initial input -->
 </div>
-<input type="button"  onclick="addInput1()" class="btn3" value="">
+<input type="button"  onclick="addInput1()" class="btn3" value="+">
+
     </div>
     <!-- f -->
 
@@ -249,10 +273,22 @@
     </section>
 
   <div class="from">
+  <div class="from">
+
     <label class="text-file">Từ khóa *</label>
     <div class="from-txt1">
-    <input type="text" class="txt1" placeholder="Nhập" name="keyword">
+    <input type="text" class="form-control"  name="keyword" placeholder="Nhập từ khóa, phân tách bằng dấu phẩy" id="keywordInput" >
+
+    <div id="keywords">
+    <span onclick="updateInput(this)"><button type="button">IT</button></span>
+    <span onclick="updateInput(this)"><button type="button">LOSIRP</button></span>
+    <span onclick="updateInput(this)"><button type="button">BACKEND</button></span>
+    <span onclick="updateInput(this)"><button type="button">FONEAND</button></span>
+
+</div>
+
     </div>
+</div>
     </div>
 
 </div>
@@ -292,3 +328,16 @@
 
 
 
+<script>
+    // Khởi tạo Tagify
+    var input = document.querySelector('#keywordInput');
+    var tagify = new Tagify(input);
+
+    function updateInput(element) {
+        // Lấy từ khóa từ phần tử được nhấp
+        var keyword = element.textContent;
+
+        // Thêm từ khóa vào trường input
+        tagify.addTags([keyword]);
+    }
+</script>

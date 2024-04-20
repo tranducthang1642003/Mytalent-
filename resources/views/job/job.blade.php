@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/brands.min.css" integrity="sha512-DJLNx+VLY4aEiEQFjiawXaiceujj5GA7lIY8CHCIGQCBPfsEG0nGz1edb4Jvw1LR7q031zS5PpPqFuPA8ihlRA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/fontawesome.min.css">
-    <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@2.0.1/dist/js/multi-select-tag.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/@yaireo/tagify/dist/tagify.css">
+     <script src="https://unpkg.com/@yaireo/tagify"></script>
   
     <script src="https://unpkg.com/vanilla-tags-input"></script>
 </head>
@@ -140,7 +141,18 @@ use Illuminate\Support\Facades\Auth;
     <p><div class="from"></p>
     <label class="text-file">Từ khóa *</label>
     <div class="from-txt">
-    <input type="text" name="tukhoa" class="txt1" placeholder="Nhập">
+    <input type="text" class="form-control"  name="keyword" placeholder="Nhập từ khóa, phân tách bằng dấu phẩy" id="keywordInput" >
+
+    <div id="keywords">
+    <span onclick="updateInput(this)"><button type="button">IT</button></span>
+    <span onclick="updateInput(this)"><button type="button">LOSIRP</button></span>
+    <span onclick="updateInput(this)"><button type="button">BACKEND</button></span>
+    <span onclick="updateInput(this)"><button type="button">FONEAND</button></span>
+
+</div>
+
+
+
     </div>
     </div>
     <p><div class="from"></p>
@@ -233,3 +245,16 @@ use Illuminate\Support\Facades\Auth;
 <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@2.0.1/dist/js/multi-select-tag.js"></script>   
 
 
+<script>
+    // Khởi tạo Tagify
+    var input = document.querySelector('#keywordInput');
+    var tagify = new Tagify(input);
+
+    function updateInput(element) {
+        // Lấy từ khóa từ phần tử được nhấp
+        var keyword = element.textContent;
+
+        // Thêm từ khóa vào trường input
+        tagify.addTags([keyword]);
+    }
+</script>

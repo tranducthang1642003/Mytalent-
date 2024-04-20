@@ -13,8 +13,6 @@ return new class extends Migration
     {
         Schema::create('cv', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('job_id')->nullable(); 
-            $table->foreign('job_id')->references('id')->on('job')->onDelete('cascade');
             $table->string('name');
             $table->string('gioitinh');
             $table->string('phone');
@@ -32,12 +30,8 @@ return new class extends Migration
             $table->string('Desiredsalary');
             $table->string('Image');
             $table->string('file');
-            $table->text('keyword');
-            $table->text('Link');
-            $table->rememberToken();
             $table->timestamps();
         });
-        
     }
 
     /**
