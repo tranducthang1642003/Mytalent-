@@ -12,35 +12,49 @@ class Cv extends Model
     protected $table = 'cv';
     
     protected $fillable = [
-        'name',
-        'gioitinh',
-        'phone',
-        'email',
-        'date',
+        'Name',
+        'Gioitinh',
+        'Phone',
+        'Email',
+        'Date',
         'Address',
         'Education',
-        'school',
+        'School',
         'Language',
         'Certificate',
-        'location',
-        'career',
-        'skills',
+        'Location',
+        'Career',
+        'Skills',
         'Currentsalary',
         'Desiredsalary',
         'Image',
-        'file',
-        'keyword',
+        'File',
+        'Keyword',
         'Link',
-        'job_id',
+        'Feight',
+        'Weight',
+        'Maritalstatus',
+        'Hometown',
+        'checkock',
+
     ];
 
     public function job()
     {
         return $this->belongsTo(Job::class);
     }
+    public function setCheckockAttribute($value)
+    {
+        $this->attributes['checkock'] = json_encode($value);
+    }
 
+    public function getCheckockAttribute($value)
+    {
+        return $this->attributes['checkock'] = json_decode($value);
+    }
     public function keywords()
     {
         return $this->belongsToMany(Keyword::class, 'cv_keyword');
     }
+    
 }

@@ -10,39 +10,47 @@ class addcv
     public function showAddCv()
     {
         return view('CV.addcv');
+      
     }
+
+
+
 
     public function cvJob(Request $request){
         // Get the input data
-        $location = $request->input('location');
-        $school = $request->input('school');
-        $Link = $request->input('Link');
+        
+        $Location = $request->input('Location');
+        $School = $request->input('School');
+        $checkock = $request->input('checkock');
     
         // Serialize arrays before assigning them to the database columns
-        $location = serialize($location);
-        $school = serialize($school);
-        $Link = serialize($Link);
-    
+        $Location = serialize($Location);
+        $School = serialize($School);
+       
+        $input['checkock'] = $request->input('checkock');
         // Create a new Cv instance
         $cv = Cv::create([
-            'name' => $request->name,
-            'gioitinh' => $request->gioitinh,
-            'phone' => $request->phone,
-            'email' => $request->email,
-            'date' => $request->date,
+            'Name' => $request->Name,
+            'Gioitinh' => $request->Gioitinh,
+            'Phone' => $request->Phone,
+            'Email' => $request->Email,
+            'Date' => $request->Date,
             'Address' => $request->Address,
             'Education' => $request->Education,
-            'school' => $school, 
+            'School' => $School, 
             'Language' => $request->Language, 
             'Certificate' => $request->Certificate,
-            'location' => $location,
-            'career' => $request->career,
-            'skills' => $request->skills,
+            'Location' => $Location,
+            'Career' => $request->Career,
+            'Skills' => $request->Skills,
             'Currentsalary' => $request->Currentsalary,
             'Desiredsalary' => $request->Desiredsalary,
             'Image' => $request->Image,
-            
-            'Link' => $Link,
+            'Feight' => $request->Feight,
+            'Weight' => $request->Weight,
+            'Maritalstatus' => $request->Maritalstatus,
+            'Hometown' => $request->Hometown,
+            'checkock' =>$checkock,
            
         ]);
     
@@ -57,8 +65,12 @@ class addcv
             // Add the keyword to the CV
             $cv->keywords()->attach($keywordModel->id);
         }
-    
+
+         
+        
+     
         return redirect()->route('cv_job')->with('success', 'CV added successfully');
+     
     }
     
     public function showcv(){
@@ -71,14 +83,13 @@ class addcv
 
     public function destroycv($id)
     {
-        // Find the danh muc by id
+        // Find the 
         $cv = Cv:: findOrFail($id);
     
-        // Delete the danh muc
+        // Delete
         $cv->delete();
-    
-        // Redirect back with a success message
-        return redirect()->route('cv_job ')->with('success', 'Danh mục đã được xóa thành công.');
+
+        return redirect ('cv/listcv')->with('success', 'Danh mục đã được xóa thành công.');
     }
  
     public function edit($id)

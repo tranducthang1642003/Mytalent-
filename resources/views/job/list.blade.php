@@ -96,29 +96,32 @@
                     </tr>
                 </thead>
                 <tbody>
-                @foreach($jobs as $job)
-                    <tr>
-                        <td>{{$job->id}}</td>
-                        <td>{{$job->vitr}} </td>
-                        <td>03</td>
-                        <td>{{$job->congty}}</td>
-                        <td class="{{ $job->trangthai == 'Đang tuyển' ? 'bg-Green-light-2' : 'text-danger' }}"> {{ $job->trangthai }}</td>
-                        <td>{{$job->created_at}}</td>
-                        <td>{{$job->created_at}}</td><td>
-                        <button id="filter-button" onclick="handleFilterClick({{ $job->id }})">
-    <i class="fa-solid fa-pen-nib"></i>
-</button>
+    @foreach($jobs as $job)
+    <tr>
+        <td>{{$job->id}}</td>
+        <td>{{$job->vitri}} </td>
+        <td>03</td>
+        <td>{{$job->congty}}</td>
+        <td class="{{ $job->trangthai == 'Đang tuyển' ? 'bg-Green-light-2' : 'text-danger' }}"> {{ $job->trangthai }}</td>
+        <td>{{$job->created_at}}</td>
+        <td>{{$job->created_at}}</td>
+        <td>
+            <button id="filter-button" class="btn4" onclick="handleFilterClick({{ $job->id }})">
+                <i class="fa-solid fa-pen-nib"></i>
+            </button>
+            
+            <form action="{{ route('job.destroyjob', $job->id) }}" method="POST" style="display: inline;">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn4" onclick="return confirm('Bạn có chắc chắn muốn xóa JOB này?')">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </form>
 
-<form action="{{ route('job.destroyjob', $job->id) }}" method="POST" style="display: inline;">
-                        @csrf
-                          @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có chắc chắn muốn xóa JOB này?')">Xóa</button>
-                    </form>
-
-</td>
-
-        </tr>
-        @endforeach
+            <button type="button" class="btn4"> <a href="{{ route('job.edit', $job->id) }}" ><i class="fa-solid fa-pen-to-square"></i></a></button>
+        </td>
+    </tr>
+@endforeach
 
 
 
@@ -130,34 +133,27 @@
 
            <div id="filter-form" class="filter-form">
        <!-- Trong file 'cvs.index.blade.php' -->
-<form action="{{ route('job.filter') }}" method="POST">
+       <form action="{{ route('job.filter') }}" method="post">
     @csrf
+    <label for="location">Vị trí:</label><br>
+    <input type="text" id="location" name="location"><br>
+    <label for="Currentsalary">Lương:</label><br>
+    <input type="text" id="Currentsalary" name="Currentsalary"><br>
+    <label for="skills">Kỹ năng:</label><br>
+    <input type="text" id="skills" name="skills"><br>
     <div class="form-group">
-        <label for="location">Vị trí:</label>
-        <input type="text" class="form-control" id="location" name="location">
-    </div>
-    <div class="form-group">
-        <label for="Currentsalary">Lương:</label>
-        <input type="number" class="form-control" id="Currentsalary" name="Currentsalary">
-    </div>
-
-    <div class="form-group">
-        <label for="skills">Kỹ năng:</label>
-        <input type="text" class="form-control" id="skills" name="skills">
-    </div>
-    <div class="form-group">
-        <label for="keywords">Từ khóa:</label>
+        <label for="keyword">Từ khóa:</label>
         <input type="text" class="form-control"  name="keyword" placeholder="Nhập từ khóa, phân tách bằng dấu phẩy" id="keywordInput" >
 
     <div id="keywords">
-    <span onclick="updateInput(this)"><button type="button">IT</button></span>
-    <span onclick="updateInput(this)"><button type="button">LOSIRP</button></span>
-    <span onclick="updateInput(this)"><button type="button">BACKEND</button></span>
-    <span onclick="updateInput(this)"><button type="button">FONEAND</button></span>
+    <span onclick="updateInput(this)" name="keyword"><button type="button">IT</button></span>
+    <span onclick="updateInput(this)" name="keyword"><button type="button">LOSIRP</button></span>
+    <span onclick="updateInput(this)"name="keyword"><button type="button">BACKEND</button></span>
+    <span onclick="updateInput(this)"name="keyword"><button type="button">FONEAND</button></span>
 
 </div>
-    </div>
-    <button type="submit">Lọc</button>
+
+    <input type="submit" class="btn" value="Lọc và sắp xếp">
 </form>
 
 

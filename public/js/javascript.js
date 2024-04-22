@@ -1,26 +1,19 @@
 function openCity(evt, cityName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
   }
-  
-  // Get the element with id="defaultOpen" and click on it
-  var tagInput1 = new TagsInput({
-    selector: 'tag-input1',
-    duplicate: false,
-    max: 10
-});
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
 
-
-new MultiSelectTag('countries')
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
 
 function addInput() {
   const inputsContainer = document.getElementById('inputs-container');
@@ -29,7 +22,7 @@ function addInput() {
   const newInputContainer = document.createElement('div');
   newInputContainer.classList.add('input-container');
   newInputContainer.innerHTML = `
-  <input type="text" class="txt" placeholder="Nhập" name="school[]"  class="btn3">
+  <input type="text" class="txt" placeholder="Nhập" name="School[]"  class="btn3">
     <button onclick="removeInput(this)" class="xoa"><i class="fa-solid fa-xmark"></i></button>
   `;
 
@@ -55,7 +48,7 @@ function addInput1() {
   const newInputContainer = document.createElement('div');
   newInputContainer.classList.add('input-container1');
   newInputContainer.innerHTML = `
-  <input type="text" class="txt" placeholder="Nhập" name="location[]"  class="btn3">
+  <input type="text" class="txt" placeholder="Nhập" name="Location[]"  class="btn3">
     <button onclick="removeInput(this)" class="xoa"><i class="fa-solid fa-xmark"></i></button>
   `;
 

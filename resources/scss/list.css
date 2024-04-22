@@ -75,7 +75,8 @@ header {
 }
 
 article {
-  width: 98%;
+  width: 90%;
+  min-height: 1300px;
   margin: auto;
   border-radius: 10px;
 }
@@ -241,6 +242,71 @@ input[type=file i] {
   margin-right: 5px;
   margin-bottom: 7px;
   box-shadow: 0 5px 15px -2px rgba(145, 145, 145, 0.7);
+}
+
+.mult-select-tag {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --tw-shadow-color: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+  --border-color: rgb(218, 221, 224);
+  font-family: Verdana, sans-serif;
+}
+
+.mult-select-tag .wrapper {
+  width: 100%;
+}
+
+.mult-select-tag .input {
+  flex: 1;
+  background: transparent;
+  border-radius: 0.25rem;
+  padding: 0.45rem;
+  margin: 10px;
+  color: #2d3748;
+  outline: 0;
+  border: 1px solid var(--border-color);
+}
+
+.mult-select-tag button:first-child {
+  width: 1rem;
+  height: 90%;
+}
+
+.mult-select-tag ul {
+  list-style-type: none;
+  padding: 0.5rem;
+  margin: 0;
+}
+
+.mult-select-tag ul li {
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.mult-select-tag .item-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid rgb(210, 210, 210);
+  padding: 5px 10px 0px 10px;
+  margin-top: 1.5%;
+}
+
+.mult-select-tag .item-close-svg {
+  width: 1rem;
+  margin-left: 0.5rem;
+  height: 1rem;
+  cursor: pointer;
+  border-radius: 9999px;
+  display: block;
 }
 
 .hidden {
@@ -763,3 +829,304 @@ a {
   height: 30px;
   background-color: rgb(9, 235, 103);
 }
+
+body {
+  margin: 0 auto;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+header {
+  width: 100%;
+  height: 60px;
+  background-color: blue;
+}
+
+.left {
+  width: 90%;
+  float: left;
+  height: 60px;
+}
+
+.filter-form {
+  display: none;
+  /* Thêm các thuộc tính CSS khác để tùy chỉnh giao diện của biểu mẫu */
+}
+
+#filter-button:active + .filter-form {
+  display: block;
+}
+
+.right {
+  width: 50%;
+  float: right;
+  display: flex;
+  justify-content: center;
+}
+
+.step {
+  width: 20%;
+}
+
+.tab {
+  overflow: hidden;
+}
+
+.menu {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  align-items: baseline;
+  flex-wrap: nowrap;
+}
+
+.tab button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 15px;
+  background-color: rgb(0, 34, 255);
+  width: 20%;
+  border-radius: 5px;
+  height: 35px;
+}
+
+.tab1 button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 12px;
+  width: 10%;
+  border-radius: 5px;
+  height: 40px;
+}
+
+.tab button:hover {
+  color: rgb(255, 255, 255);
+}
+
+.tab button.active {
+  color: rgb(255, 255, 255);
+  background-color: rgb(181, 181, 181);
+  opacity: 1;
+}
+
+.tabcontent {
+  display: none;
+  border-top: none;
+}
+
+article {
+  width: 90%;
+  min-height: 1300px;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.col-2 {
+  line-height: 1.5;
+  min-height: 500px;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px 3px rgb(233, 233, 233);
+}
+
+.text-1 {
+  font-weight: 900;
+  padding: 20px 0px 0px 33px;
+}
+
+.main-left {
+  float: left;
+  width: 75%;
+  min-height: 100px;
+  background-color: rgb(255, 255, 255);
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px 3px rgb(222, 217, 217);
+}
+
+.main-right {
+  float: right;
+  width: 23%;
+  min-height: 500px;
+  background-color: rgb(255, 255, 255);
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px 3px rgb(222, 217, 217);
+}
+
+.from-register {
+  width: 60%;
+  min-height: 350px;
+  margin: auto;
+  border-radius: 10px;
+}
+
+label {
+  font-size: 15px;
+  padding: 5px;
+  font-weight: 900;
+}
+
+.txt {
+  width: 100%;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid rgb(210, 210, 210);
+  padding: 5px 10px 0px 10px;
+  margin-top: 1.5%;
+}
+
+.txt-img {
+  width: 30%;
+  height: 100px;
+  border-radius: 5px;
+  border: 1px solid rgb(210, 210, 210);
+  background-color: rgb(212, 212, 212);
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  float: left;
+  margin-left: 30px;
+}
+
+.txt-link {
+  width: 30%;
+  height: 100px;
+  border-radius: 5px;
+  border: 1px solid rgb(210, 210, 210);
+  background-color: rgb(212, 212, 212);
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  margin-left: 30px;
+}
+
+.text-file {
+  float: none;
+  margin-left: 10%;
+}
+
+.txt-text1 {
+  width: 50%;
+  height: 110px;
+  display: grid;
+  align-content: center;
+  float: right;
+  margin-right: 5%;
+}
+
+.txt-text {
+  font-size: 10px;
+}
+
+.icons {
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+}
+
+.txt1 {
+  width: 80%;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid rgb(210, 210, 210);
+  padding: 5px 5px 0px 10px;
+  margin-top: 1.5%;
+  margin-left: 10%;
+}
+
+footer {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  height: 111px;
+  justify-content: center;
+  flex-direction: row-reverse;
+}
+
+.search {
+  padding: 0px 0px 0px 33px;
+}
+
+.text-clo-1 {
+  float: left;
+  width: 65%;
+  height: 60px;
+}
+
+.text-clo-2 {
+  float: right;
+  width: 35%;
+  height: 60px;
+}
+
+.vitri {
+  padding: 15px;
+}
+
+form.example input[type=text] {
+  padding: 7px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 7px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #0b7dda;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  padding: 33px;
+}
+
+thead {
+  background-color: aquamarine;
+  height: 40px;
+  text-align: left;
+}
+
+tbody {
+  height: 40px;
+}
+
+.filter-form {
+  width: 45%;
+  justify-content: center;
+  flex-direction: row-reverse;
+  background-color: #a7c3da;
+  height: 450px;
+  position: absolute;
+  z-index: 99999;
+  margin-left: 25%;
+  box-shadow: 3px 3px 3px 3px #f1f1f1;
+  margin-top: -15%;
+}/*# sourceMappingURL=list.css.map */

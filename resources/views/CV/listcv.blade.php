@@ -90,8 +90,8 @@
                         <th scope="col">Ứng viên</th>
                         <th scope="col">Số điẹne thoại</th>
                         <th scope="col">Email</th>
-                        <th scope="col">vị trí </th>
                         <th scope="col">kĩ năng</th>
+                        <th scope="col">Ngày tải lên</th>
                         <th scope="col">Ngày tải lên</th>
                         <th scope="col">Thao tác</th>
                     </tr>
@@ -107,12 +107,12 @@
                         <td> {{$cv->keyword }}</td>
                         <td>{{$cv->created_at}}</td>
                         <td>
-                        <a href="{{ route('cv.edit', $cv->id) }}" class="btn btn-primary btn-sm">Sửa</a>
+                        <a href="{{ route('cv.edit', $cv->id) }}" class="btn2">Sửa</a>
 
                         <form action="{{ route('cv.destroycv', $cv->id) }}" method="POST" style="display: inline;">
                         @csrf
                           @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có chắc chắn muốn xóa CV này?')">Xóa</button>
+                        <button type="submit" class="btn2" onclick="return confirm('Bạn có chắc chắn muốn xóa CV này?')">Xóa</button>
                     </form>
 
                         </td>

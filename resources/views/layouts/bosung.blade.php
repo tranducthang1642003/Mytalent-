@@ -1,0 +1,108 @@
+<section>
+
+<div class="main-left" style="float: none; margin: auto; padding: 0px">
+<div class="from-register">
+<div class="text-from"><h3>Yêu câu úng viên</h3></div>
+<div class="form-txt">
+  <p><div class="from"></p>
+    <label>Chiều cao <span class ="text-red-light-1">*</span></label>
+    <div class="from-txt">
+    <input type="text" class="txt" placeholder="Nhập" name="Feight" >
+    </div>
+  
+    <!-- f -->
+    <!-- f -->
+    <p><div class="from"></p>
+    <label>Cân nặng<span class ="text-red-light-1">*</span></label>
+    <div class="from-txt">
+    <input type="text" class="txt" placeholder="Nhập" name="Weight">
+    </div>
+    
+    <!-- f -->
+    <p><div class="from"></p>
+    <label>Tình trạng hôn nhân <span class ="text-red-light-1">*</span></label>
+    <div class="from-txt">
+    <input type="text" class="txt" placeholder="Nhập" name="Maritalstatus">
+    </div>
+   
+ <!-- f -->
+ <p><div class="from"></p>
+    <label>Quê quán  <span class ="text-red-light-1">*</span></label>
+    <div class="from-txt">
+    <input type="text" class="txt" placeholder="Nhập" name="Hometown">
+    </div>
+  
+ <!-- f -->
+</div>
+  </div>
+</div>
+</section>
+<div class="main-left" style="float: none; margin: auto; padding: 0px">
+    <div class="from-register" >
+    <div class="text-from"><h3>Quyền lợi ứng viên</h3></div>
+    <div class="text-from"><h4>Top phúc lợi mong muốn</h4></div>
+    <div class="form-txt">
+    <div class="from-col-password" style="float: left">
+      <p><div class="from"></p>
+        <input type="checkbox" class="" placeholder="Nhập" name="checkock[]" >
+        <label>Giải thưởng</label>
+        </div>
+        <p><div class="from"></p>
+            <input type="checkbox" class="" placeholder="Nhập" name="checkock[]" >
+            <label>Căn tin</label>
+            </div>
+            <p><div class="from"></p>
+                <input type="checkbox" class="" placeholder="Nhập" name="checkock[]" >
+                <label>Trông Trẻ</label>
+                </div>
+
+                <p><div class="from"></p>
+                    <input type="checkbox" class="" placeholder="Nhập" name="checkock[]" >
+                    <label>Nghỉ phép</label>
+                    </div>
+
+                    <p><div class="from"></p>
+                        <input type="checkbox" class="" placeholder="Nhập" name="checkock[]" >
+                        <label>Đào tạo </label>
+                        </div>
+                        <p><div class="from"></p>
+                            <input type="checkbox" class="" placeholder="Nhập" name="checkock[]" >
+                            <label>Lap top</label>
+                            </div>
+                            <p><div class="from"></p>
+                                <input type="checkbox" class="" placeholder="Nhập" name="checkock[]" >
+                                <label>Giải thưởng</label>
+                                </div>
+        </div>
+        <!-- f -->
+        <div class="from-col-password1" style="float: right">
+            <p><div class="from"></p>
+              <input type="checkbox" class="" placeholder="Nhập" name="checkock[]" >
+              <label>   Thưởng</label>
+              </div>
+              <p><div class="from"></p>
+                  <input type="checkbox" class="" placeholder="Nhập" name="checkock[]" >
+                  <label>Khám sức khỏe</label>
+                  </div>
+                  <p><div class="from"></p>
+                      <input type="checkbox" class="" placeholder="Nhập" name="checkock[]" >
+                      <label>Điện thoại </label>
+                      </div>
+      
+                      <p><div class="from"></p>
+                          <input type="checkbox" class="" placeholder="Nhập" name="checkock[]" >
+                          <label>Hoạt động nhóm</label>
+                          </div>
+      
+                          <p><div class="from"></p>
+                              <input type="checkbox" class="" placeholder="Nhập" name="checkock[]" >
+                              <label>Trợ cấp đi lại </label>
+                              </div>
+                              <p><div class="from"></p>
+                                  <input type="checkbox" class="" placeholder="Nhập" name="checkock[]" >
+                                  <label>Thư viện </label>
+                                  </div>
+                                  <p><div class="from"></p>
+                                      <input type="checkbox" class="" placeholder="Nhập" name="checkock[]" >
+                                      <label>Khác </label>
+          

@@ -84,8 +84,8 @@
             <th scope="col">Name</th>
             <th scope="col">Phone</th>
             <th scope="col">Email</th>
-            <th scope="col">Job ID</th>
-            <th scope="col">Match Percentage</th>
+            <th scope="col">mức độ phù hợp từ khóa </th>
+            <th scope="col">Từ khóa </th>
             <!-- Add more columns as needed -->
         </tr>
     </thead>
@@ -97,15 +97,21 @@
                     <td>{{ $cvs->where('id', $cvId)->first()->name }}</td>
                     <td>{{ $cvs->where('id', $cvId)->first()->phone }}</td>
                     <td>{{ $cvs->where('id', $cvId)->first()->email }}</td>
-                    <td>{{ $jobId }}</td>
                     <td>{{ $matchPercentage }}%</td>
-                    <!-- Add more fields as needed -->
+                 <td>
+    @if($keywords)
+        @foreach(explode(',', $keywords) as $keyword)
+            <span class="badge badge-primary">{{ $keyword }}</span>
+        @endforeach
+    @else
+        <span class="text-muted">Không có từ khóa đã lọc.</span>
+    @endif</td>
                 </tr>
             @endforeach
         @endforeach
     </tbody>
 </table>
-
+ 
                     </div>
                 </section>
             </div>

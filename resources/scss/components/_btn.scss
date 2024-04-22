@@ -22,6 +22,18 @@ height: 30px;
 background-color: rgb(88, 88, 255);
 }
 
+@mixin btn4(){
+    text-decoration:none;
+    cursor: pointer;
+    display: inline-block;
+    border: 0;
+    display: inline-block;
+    border-radius: 3px;
+width: 25%;
+height: 30px;
+background-color: rgb(9, 235, 103);
+}
+
 
 @mixin btn3(){
     text-decoration:none;
@@ -45,4 +57,7 @@ height: 40px;
 }
 .btn3{
     @include btn3;
+}
+.btn4{
+    @include btn4;
 }
