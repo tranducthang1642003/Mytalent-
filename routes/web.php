@@ -7,6 +7,10 @@ use App\Http\Controllers\job\add_job;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Auth\loginController;
+use App\Http\Controllers\filter;
+
+
+
 Route::prefix('login')->group(function(){
     Route::post('/login', [LoginController::class, 'login'])->name('login1');
     Route::post('/login1', [RegisterController::class, 'login1']);
@@ -28,7 +32,7 @@ Route::prefix('cv')->group(function(){
  Route::get('/cv/{id}/edit', [addcv::class, 'Edit'])->name('cv.Edit');
  Route::put('/cv/{id}', [addcv::class, 'Cv_Update'])->name('Cv_Update');
  Route::get('/add',[addcv::class,'Show_Add_Cv'])->name('cv_job');
- Route::post('/add',[addcv::class,'Cv_Job'])->name('cv_job');
+
  Route::get('/listcv',[addcv::class,'Show_Cv']);
 
 });
@@ -38,15 +42,19 @@ Route::prefix('js_job')->group(function(){
  Route::post('/job',[add_job::class,'Job']);
  Route::get('/list',[add_job::class,'Show_List']);
 
- Route::get('/job/search', [add_job::class, 'filterJobsAndCvs'])->name('job.filter');
- Route::get('/job/search', [add_job::class, 'filterJobsAndCvs'])->name('job.filter');
 
+
+ Route::get('/job/search', [add_job::class, 'filterJobsAndCvs'])->name('job.filter');
+ Route::post('/job/search', [add_job::class, 'filterJobsAndCvs'])->name('job.filter');
+ 
  Route::delete('/job/{id}', [add_job::class, 'destroyjob'])->name('job.destroyjob');
  route::get('/job/{id}/edit', [add_job::class,'edit'])->name('job.edit');
  route::put('/job/{id}', [add_job::class,'jobupdate'])->name('jobupdate');
    });  
- Route::get('/jobs/search', [add_job::class, 'filter'])->name('jobs.filter');
- Route::post('jobs.filter', [add_job::class, 'filter'])->name('jobs.filter');
-    // Trong phương thức filter của controller
+
+
+
+Route::get('/filter', [filter::class, 'showFilterForm'])->name('showFilterForm');
+Route::get('/filter', [filter::class, 'filterCv'])->name('filter');
 
 

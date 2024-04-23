@@ -17,18 +17,14 @@ class addcv
 
 
     public function Cv_Job(Request $request){
-        // Get the input data
         
         $Location = $request->input('Location');
         $School = $request->input('School');
         $checkock = $request->input('checkock');
-    
-        // Serialize arrays before assigning them to the database columns
         $Location = serialize($Location);
         $School = serialize($School);
        
         $input['checkock'] = $request->input('checkock');
-        // Create a new Cv instance
         $cv = Cv::create([
             'Name' => $request->Name,
             'Gioitinh' => $request->Gioitinh,
@@ -54,21 +50,11 @@ class addcv
            
         ]);
     
-        // Get the keywords from the request
-        $keywords = explode(',', $request->keyword); // Assuming keywords are sent as a comma-separated string
-    
-        // Add keywords to the CV
+        $keywords = explode(',', $request->keyword); 
         foreach ($keywords as $keyword) {
-            // Create or find the keyword in the database
             $keywordModel = Keyword::firstOrCreate(['keyword' => trim($keyword)]);
-    
-            // Add the keyword to the CV
             $cv->keywords()->attach($keywordModel->id);
         }
-
-         
-        
-     
         return redirect()->route('cv_job')->with('success', 'CV added successfully');
      
     }

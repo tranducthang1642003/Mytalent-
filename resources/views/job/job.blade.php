@@ -135,7 +135,7 @@ use Illuminate\Support\Facades\Auth;
     <div class="from-txt">
     <input type="text" class="form-control"  name="keyword" placeholder="Nhập từ khóa, phân tách bằng dấu phẩy" id="keywordInput" >
 
-    <div id="keywords">
+    <div id="keyword">
     <span onclick="updateInput(this)"><button type="button">IT</button></span>
     <span onclick="updateInput(this)"><button type="button">LOSIRP</button></span>
     <span onclick="updateInput(this)"><button type="button">BACKEND</button></span>

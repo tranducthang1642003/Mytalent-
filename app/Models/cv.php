@@ -8,9 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Cv extends Model
 {
     use HasFactory;
-
     protected $table = 'cv';
-    
     protected $fillable = [
         'Name',
         'Gioitinh',
@@ -28,16 +26,18 @@ class Cv extends Model
         'Currentsalary',
         'Desiredsalary',
         'Image',
-        'File',
-        'Keyword',
-        'Link',
         'Feight',
         'Weight',
         'Maritalstatus',
         'Hometown',
         'checkock',
-
     ];
+
+    // public function keywords()
+    // {
+    //     return $this->belongsToMany(Keyword::class);
+    // }
+
 
     public function job()
     {
@@ -54,7 +54,7 @@ class Cv extends Model
     }
     public function keywords()
     {
-        return $this->belongsToMany(Keyword::class, 'cv_keyword');
+        return $this->belongsToMany(Keyword::class, 'cv_keywords');
     }
-    
+
 }

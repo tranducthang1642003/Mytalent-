@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cv_keyword', function (Blueprint $table) {
+        Schema::create('cv_keywords', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('cv_id');
             $table->unsignedBigInteger('keyword_id');
+            $table->timestamps();
+    
             $table->foreign('cv_id')->references('id')->on('cv')->onDelete('cascade');
             $table->foreign('keyword_id')->references('id')->on('keywords')->onDelete('cascade');
-            $table->timestamps();
         });
     }
 
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cv_keyword');
+        Schema::dropIfExists('cv_keywords');
     }
 };

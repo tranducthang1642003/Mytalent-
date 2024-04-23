@@ -106,7 +106,7 @@
         <td>{{$job->created_at}}</td>
         <td>{{$job->created_at}}</td>
         <td>
-            <button id="filter-button" class="btn4" onclick="handleFilterClick()">
+            <button id="filter-button" class="btn4" onclick="handleFilterClick({})">
                 <i class="fa-solid fa-pen-nib"></i>
             </button>
             
@@ -131,16 +131,37 @@
    
            </div>
 
-           <div id="filter-form" class="filter-form">
-       <form action="{{ route('job.filter') }}" method="GET">
-    @csrf
-    <label for="Location">Vị trí:</label><br>
-    <input type="text" id="location" name="Location"><br>
-    <label for="Currentsalary">Lương:</label><br>
-    <input type="text" id="Currentsalary" name="Currentsalary"><br>
-    <label for="Skills">Kỹ năng:</label><br>
-    <input type="text" id="skills" name="Skills"><br>
-    <div class="form-group">
+ <!-- filter-form.blade.php -->
+
+<!-- filter-form.blade.php -->
+
+<form action="{{ route('filter') }}" method="GET">
+    <div>
+        <label for="job">Chọn công việc:</label>
+        <select name="job" id="job">
+            <option value="">-- Chọn công việc --</option>
+            @foreach($jobs as $job)
+                <option value="{{ $job->id }}">{{ $job->vitri }}</option>
+            @endforeach
+        </select>
+    </div>
+    <div>
+        <label for="kinang">Kỹ năng:</label>
+        <input type="text" name="kinang" id="kinang">
+    </div>
+    <div>
+        <label for="luong">Lương từ:</label>
+        <input type="text" name="luong" id="luong">
+    </div>
+    <div>
+        <label for="keyword">Từ khóa:</label>
+        <input type="text" name="keyword" id="keyword">
+    </div>
+    <button type="submit">Lọc</button>
+</form>
+
+    
+    {{-- <div class="form-group">
         <label for="keyword">Từ khóa:</label>
         <input type="text" class="form-control"  name="keywords" placeholder="Nhập từ khóa, phân tách bằng dấu phẩy" id="keywordInput" >
 
@@ -153,7 +174,7 @@
 </div>
 
     <input type="submit" class="btn" value="Lọc và sắp xếp">
-</form>
+</form> --}}
 
 
 
@@ -177,8 +198,8 @@
 
 
 
-<script>
-function handleFilterClick() {
+{{-- <script>
+function handleFilterClick(Job) {
     var form = document.getElementById("filter-form");
   if (form.style.display === "none") {
     form.style.display = "block";
@@ -189,9 +210,9 @@ function handleFilterClick() {
   }
     event.preventDefault();
 }
-</script>
+</script> --}}
 
-<script>
+{{-- <script>
     // Initialize Tagify on the input field with id 'keywordInput'
     var input = document.querySelector('#keywordInput');
     var tagify = new Tagify(input);
@@ -201,4 +222,4 @@ function handleFilterClick() {
         var keyword = element.textContent; // Get the keyword from the clicked element
         tagify.addTags([keyword]); // Add the keyword to the Tagify input
     }
-</script>
+</script> --}}

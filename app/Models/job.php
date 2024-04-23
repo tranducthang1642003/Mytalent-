@@ -5,29 +5,29 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class job extends Model
+class Job extends Model
 {
-    protected $table = 'job'; 
     use HasFactory;
+
+    protected $table = 'job'; 
     protected $fillable = [
-        
         'vitri',
         'congty',
         'soluong',
-        'motangan',
         'lamviec',
+        'kinhnghiem',
         'diachi',
         'loaihopdong',
-        'kinhnghiem',
         'kynang',
         'nganhnghe',
         'luong',
-        'keyword',
         'link',
+        'keyword',
     ];
+
+
     public function keywords()
     {
-        return $this->belongsToMany(Keyword::class, 'job_keyword');
+        return $this->belongsToMany(Keyword::class, 'job_keywords');
     }
-
 }

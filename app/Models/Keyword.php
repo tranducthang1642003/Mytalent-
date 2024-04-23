@@ -2,24 +2,23 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Keyword extends Model
 {
-    use HasFactory;
-
-    protected $fillable = [
-        'keywords',
-    ];
-
-    public function jobs()
+    protected $fillable = ['keyword']; 
+    /**
+     * Tạo hoặc cập nhật từ khóa.
+     *
+     * @param string $keyword
+     * @return Keyword
+     */
+    public static function createOrUpdate($keyword)
     {
-        return $this->belongsToMany(Job::class, 'job_keyword');
+        return static::firstOrCreate(['keyword' => trim($keyword)]);
     }
-
-    public function cvs()
+    public function cv()
     {
-        return $this->belongsToMany(Cv::class, 'cv_keyword');
+        return $this->belongsToMany(Cv::class, 'cv_keywords');
     }
 }

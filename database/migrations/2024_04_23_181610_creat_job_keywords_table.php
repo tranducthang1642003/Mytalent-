@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('job_keyword', function (Blueprint $table) {
+        Schema::create('job_keywords', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('job_id');
-            $table->unsignedBigInteger('keyword_id');
-            $table->foreign('job_id')->references('id')->on('job')->onDelete('cascade');
-            $table->foreign('keyword_id')->references('id')->on('keywords')->onDelete('cascade');
+            $table->unsignedBigInteger('keyword_id'); 
             $table->timestamps();
+
+            $table->foreign('job_id')->references('id')->on('job')->onDelete('cascade');
+            $table->foreign('keyword_id')->references('id')->on('keywords')->onDelete('cascade'); 
         });
     }
 
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('job_keyword');
+        Schema::dropIfExists('job_keywords');
     }
 };
