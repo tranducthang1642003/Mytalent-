@@ -7,7 +7,7 @@ use App\Models\Cv;
 use App\Models\Keyword;
 class addcv
 {
-    public function showAddCv()
+    public function Show_Add_Cv()
     {
         return view('CV.addcv');
       
@@ -16,7 +16,7 @@ class addcv
 
 
 
-    public function cvJob(Request $request){
+    public function Cv_Job(Request $request){
         // Get the input data
         
         $Location = $request->input('Location');
@@ -73,7 +73,7 @@ class addcv
      
     }
     
-    public function showcv(){
+    public function Show_Cv(){
         $cv = Cv::all();
         $job = job::all();
         
@@ -81,7 +81,7 @@ class addcv
     }
     
 
-    public function destroycv($id)
+    public function Destroy_Cv($id)
     {
         // Find the 
         $cv = Cv:: findOrFail($id);
@@ -92,13 +92,13 @@ class addcv
         return redirect ('cv/listcv')->with('success', 'Danh mục đã được xóa thành công.');
     }
  
-    public function edit($id)
+    public function Edit($id)
     {
         $cv = Cv::find($id);
         return view('CV.cvedit', compact('cv'));
     }
     
-    public function cvupdate(Request $request, $id)
+    public function Cv_Update(Request $request, $id)
     {
         // Tìm CV theo ID
         $cv = Cv::findOrFail($id);

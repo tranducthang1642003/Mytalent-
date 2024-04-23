@@ -20,11 +20,11 @@
       <p><div class="from"></p>
       <label>Giới tính <span class ="text-red-light-1">*</span></label>
       <div class="from-txt">
-        <input type="radio" name="Gioitinh" id="0" name="Gioitinh">
+        <input type="radio" name="Gioitinh" id="0" name="Gioitinh" value="nam">
         <label for="0">Nam</label>
-        <input type="radio" name="Gioitinh" id="1" name="Gioitinh">
+        <input type="radio" name="Gioitinh" id="1" name="Gioitinh" value="nu">
         <label for="1">Nữ</label>
-        <input type="radio" name="Gioitinh" id="2" name="Gioitinh">
+        <input type="radio" name="Gioitinh" id="2" name="Gioitinh" value="khac">
         <label for="2">Khác</label>
       </div>
       <!-- f -->

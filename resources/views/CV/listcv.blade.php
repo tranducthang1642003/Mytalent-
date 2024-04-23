@@ -100,16 +100,16 @@
                     <tr>
                     @foreach($cv as $cv)
                         <td>{{$cv->id}}</td>
-                        <td>{{$cv->name}} </td>
-                        <td>{{$cv->phone}}</td>
-                        <td>{{$cv->email}}</td>
-                        <td> {{$cv->skills }}</td>
-                        <td> {{$cv->keyword }}</td>
-                        <td>{{$cv->created_at}}</td>
+                        <td>{{$cv->Name}} </td>
+                        <td>{{$cv->Phone}}</td>
+                        <td>{{$cv->Email}}</td>
+                        <td> {{$cv->Skills }}</td>
+                        <td> {{$cv->Keyword }}</td>
+                        <td>{{$cv->Created_at}}</td>
                         <td>
-                        <a href="{{ route('cv.edit', $cv->id) }}" class="btn2">Sửa</a>
+                        <a href="{{ route('cv.Edit', $cv->id) }}" class="btn2">Sửa</a>
 
-                        <form action="{{ route('cv.destroycv', $cv->id) }}" method="POST" style="display: inline;">
+                        <form action="{{ route('Cv_Destroy_Cv', $cv->id) }}" method="POST" style="display: inline;">
                         @csrf
                           @method('DELETE')
                         <button type="submit" class="btn2" onclick="return confirm('Bạn có chắc chắn muốn xóa CV này?')">Xóa</button>

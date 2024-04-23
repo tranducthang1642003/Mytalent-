@@ -106,7 +106,7 @@
         <td>{{$job->created_at}}</td>
         <td>{{$job->created_at}}</td>
         <td>
-            <button id="filter-button" class="btn4" onclick="handleFilterClick({{ $job->id }})">
+            <button id="filter-button" class="btn4" onclick="handleFilterClick()">
                 <i class="fa-solid fa-pen-nib"></i>
             </button>
             
@@ -132,24 +132,23 @@
            </div>
 
            <div id="filter-form" class="filter-form">
-       <!-- Trong file 'cvs.index.blade.php' -->
-       <form action="{{ route('job.filter') }}" method="post">
+       <form action="{{ route('job.filter') }}" method="GET">
     @csrf
-    <label for="location">Vị trí:</label><br>
-    <input type="text" id="location" name="location"><br>
+    <label for="Location">Vị trí:</label><br>
+    <input type="text" id="location" name="Location"><br>
     <label for="Currentsalary">Lương:</label><br>
     <input type="text" id="Currentsalary" name="Currentsalary"><br>
-    <label for="skills">Kỹ năng:</label><br>
-    <input type="text" id="skills" name="skills"><br>
+    <label for="Skills">Kỹ năng:</label><br>
+    <input type="text" id="skills" name="Skills"><br>
     <div class="form-group">
         <label for="keyword">Từ khóa:</label>
-        <input type="text" class="form-control"  name="keyword" placeholder="Nhập từ khóa, phân tách bằng dấu phẩy" id="keywordInput" >
+        <input type="text" class="form-control"  name="keywords" placeholder="Nhập từ khóa, phân tách bằng dấu phẩy" id="keywordInput" >
 
     <div id="keywords">
     <span onclick="updateInput(this)" name="keyword"><button type="button">IT</button></span>
     <span onclick="updateInput(this)" name="keyword"><button type="button">LOSIRP</button></span>
     <span onclick="updateInput(this)"name="keyword"><button type="button">BACKEND</button></span>
-    <span onclick="updateInput(this)"name="keyword"><button type="button">FONEAND</button></span>
+    <span onclick="updateInput(this)"name="keywords"><button type="button">FONEAND</button></span>
 
 </div>
 
@@ -179,7 +178,7 @@
 
 
 <script>
-function handleFilterClick(jobId) {
+function handleFilterClick() {
     var form = document.getElementById("filter-form");
   if (form.style.display === "none") {
     form.style.display = "block";
@@ -193,15 +192,13 @@ function handleFilterClick(jobId) {
 </script>
 
 <script>
-    // Khởi tạo Tagify
+    // Initialize Tagify on the input field with id 'keywordInput'
     var input = document.querySelector('#keywordInput');
     var tagify = new Tagify(input);
 
+    // Function to update input field with clicked keyword
     function updateInput(element) {
-        // Lấy từ khóa từ phần tử được nhấp
-        var keyword = element.textContent;
-
-        // Thêm từ khóa vào trường input
-        tagify.addTags([keyword]);
+        var keyword = element.textContent; // Get the keyword from the clicked element
+        tagify.addTags([keyword]); // Add the keyword to the Tagify input
     }
 </script>

@@ -10,11 +10,16 @@ class Keyword extends Model
     use HasFactory;
 
     protected $fillable = [
-        'keyword',
+        'keywords',
     ];
 
-    public function job()
+    public function jobs()
     {
         return $this->belongsToMany(Job::class, 'job_keyword');
+    }
+
+    public function cvs()
+    {
+        return $this->belongsToMany(Cv::class, 'cv_keyword');
     }
 }

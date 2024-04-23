@@ -9,23 +9,21 @@ use App\Models\job;
 class ListingController
 {
     // Hiển thị danh sách CV và danh sách công việc
-    public function showLists()
+    public function Show_List()
     {
         $cvs = Cv::all();
         $jobs = Job::all();
-        
         return view('lists', ['cvs' => $cvs, 'jobs' => $jobs]);
     }
 }
-
 class add_job
 {
-    public function showadd_job(){
+    public function Show_Add_Job(){
         return view('job.job');
     }
 
     //them danh sách 
-    public function job(Request $request){
+    public function Job(Request $request){
         $job = job::create([
             'vitri' => $request->vitri,
             'congty' =>  $request->congty,
@@ -39,7 +37,7 @@ class add_job
             'luong' => $request->luong,
             'link' => $request->link,
         ]);
-        $keywords = explode(',', $request->keyword); 
+        $keywords = explode(',', $request->keywords); 
         foreach ($keywords as $keyword) {
             $keywordModel = Keyword::firstOrCreate(['keyword' => trim($keyword)]);
             $job->keywords()->attach($keywordModel->id);
@@ -50,25 +48,25 @@ class add_job
     
     
 //show job
-public function showlist(){
+public function Show_List(){
     $jobs = job::all();
     return view('job.list', ['jobs' => $jobs]);
 }
 
 
 
-public function filterJobsAndCvs(Request $request) {
+public function filterJobsAndCvs(Request $request) 
+{
     $Location = $request->input('Location');
-    $CurrentSalary = $request->input('Currentsalary');
+    $Currentsalary = $request->input('Currentsalary');
     $Skills = $request->input('Skills');
     $keywords = $request->input('keyword');
     $jobQuery = Job::query();
-
     if ($Location) {
-        $jobQuery->where('vitri', $Location);
+        $jobQuery->where('vitri', 'like', '%' . $Location . '%');
     }
-    if ($currentSalary) {
-        $jobQuery->where('luong', '<=', $currentSalary);
+    if ($Currentsalary) {
+        $jobQuery->where('luong', 'like', '%' . $Currentsalary . '%');
     }
     if ($Skills) {
         $jobQuery->where('kynang', 'like', '%' . $Skills . '%');
@@ -78,35 +76,28 @@ public function filterJobsAndCvs(Request $request) {
             $query->whereIn('keyword', explode(',', $keywords));
         });
     }
-    $jobs = $jobQuery->get();
-    // Lấy danh sách CV
-    $cvQuery = Cv::query();
-    $cvs = $cvQuery->get();
-    // Tính phần trăm khớp từ khóa và lọc công việc
-    $matchPercentages = [];
-    foreach ($cvs as $cv) {
-        foreach ($jobs as $job) {
-            $matchPercentages[$cv->id][$job->id] = $this->calculateKeywordMatch($cv, $job);
-        }
-    }
-    return view('job.list1', ['jobs' => $jobs, 'cvs' => $cvs, 'matchPercentages' => $matchPercentages, 'keywords' => $keywords]);
+   dd($request->all);
+    // $jobs = $jobQuery->get();
+    // $cvs = Cv::all();
+    // $commonKeywordsList = [];
+    // foreach ($cvs as $cv) {
+    //     foreach ($jobs as $job) {
+    //         $commonKeywordsList[$cv->id][$job->id] = $this->calculateKeywordMatch($cv, $job);
+    //     }
+    // }
+    // return view('job.list1', ['jobs'=>$jobs, 'cvs' => $cvs,  'commonKeywordsList' => $commonKeywordsList, 'keywords' => $keywords,'job' => $job,  ]);
+    return view('job.list1',);
 }
-public function calculateKeywordMatch($cv, $job) {
-    // Lấy danh sách từ khóa từ cv và job
-    $cvKeywords = $cv->keywords()->pluck('keyword')->toArray();
-    $jobKeywords = $job->keywords()->pluck('keyword')->toArray();
-    // Tính tổng số từ khóa
-    $totalKeywords = count($cvKeywords) + count($jobKeywords);
-    // Đếm số lượng từ xuất hiện trong cả cv và job
-    $commonKeywords = array_intersect($cvKeywords, $jobKeywords);
-    $numCommonKeywords = count($commonKeywords);
-    // Tính và trả về tỷ lệ phần trăm của số từ xuất hiện chung so với tổng số từ khóa
-    $matchPercentage = ($numCommonKeywords / $totalKeywords) *100;
-    return $matchPercentage;
-}
+
+
+// public function calculateKeywordMatch($cv, $job) {
+//     $cv_Keywords = $cv->keywords()->pluck('keyword')->toArray();
+//     $job_Keywords = $job->keywords()->pluck('keyword')->toArray();
+//     $commonKeywords = array_intersect($cv_Keywords, $job_Keywords);
+//     return $commonKeywords;
+// }
 
  
-
 public function destroyjob($id)
 {
     $job = job:: findOrFail($id);
@@ -138,6 +129,3 @@ public function jobupdate(request $request,$id){
 }
 
 }
-
-
-

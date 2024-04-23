@@ -57,7 +57,7 @@ use Illuminate\Support\Facades\Auth;
 <br>
 
 <article>
-<form action="{{ route('cvupdate', $cv->id) }}" method="POST">
+<form action="{{ route('Cv_Update', $cv->id) }}" method="POST">
     @csrf
     @method('PUT')
 <section>
@@ -90,35 +90,35 @@ use Illuminate\Support\Facades\Auth;
   <p><div class="from"></p>
     <label>Tên ứng viên <span class ="text-red-light-1">*</span></label>
     <div class="from-txt">
-    <input type="text" id="name" name="name" value="{{ $cv->name }}">
+    <input type="text" id="name" name="Name" class="txt" value="{{ $cv->Name }}">
     </div>
     </div>
     <!-- f -->
     <p><div class="from"></p>
     <label>Giới tính <span class ="text-red-light-1">*</span></label>
     <div class="from-txt">
-    <input type="text" id="gioitinh" name="gioitinh" value="{{ $cv->gioitinh }}">
+    <input type="text" id="gioitinh" name="Gioitinh" class="txt" value="{{ $cv->Gioitinh }}">
     </div>
     </div>
     <!-- f -->
     <p><div class="from"></p>
     <label>Số điện thoại <span class ="text-red-light-1">*</span></label>
     <div class="from-txt">
-    <input type="text" class="txt" placeholder="Nhập" name="phone" value="{{ $cv->phone }}">
+    <input type="text" class="txt" placeholder="Nhập" name="Phone" value="{{ $cv->Phone }}">
     </div>
     </div>
     <!-- f -->
     <p><div class="from"></p>
     <label>Email <span class ="text-red-light-1">*</span></label>
     <div class="from-txt">
-    <input type="email" class="txt" placeholder="Nhập" name="email" value="{{ $cv->email }}">
+    <input type="email" class="txt" placeholder="Nhập" name="Email" value="{{ $cv->Email }}">
     </div>
     </div>
  <!-- f -->
  <p><div class="from"></p>
     <label>ngày sinh <span class ="text-red-light-1">*</span></label>
     <div class="from-txt">
-    <input type="date" class="txt" placeholder="Nhập" name="date" value="{{ $cv->date }} ">
+    <input type="date" class="txt" placeholder="Nhập" name="Date" value="{{ $cv->Date }} ">
     </div>
     </div>
 
@@ -139,13 +139,13 @@ use Illuminate\Support\Facades\Auth;
   <p><div class="from"></p>
   <label>Trình độ học vấn </label>
     <div class="from-txt">
-      <input type="radio" name="Education" id="0" value="{{ $cv->Education }}">
+      <input type="radio" name="Education" id="0" value="{{ $cv->Education }}" value="daihoc">
       <label for="0">đại học</label>
-      <input type="radio" name="Education" id="1" value="{{ $cv->Education }}">
+      <input type="radio" name="Education" id="1" value="{{ $cv->Education }}" value="caodang">
       <label for="1">cao đẳng</label>
-      <input type="radio" name="Education" id="2"value="{{ $cv->Education }}">
+      <input type="radio" name="Education" id="2"value="{{ $cv->Education }}" value="trungcap">
       <label for="2">trung cấp</label>
-      <input type="radio" name="Education" id="3"value="{{ $cv->Education }}">
+      <input type="radio" name="Education" id="3"value="{{ $cv->Education }}" value="khac">
       <label for="3">khác</label>
     </div>
     </div>
@@ -153,7 +153,7 @@ use Illuminate\Support\Facades\Auth;
     <p><div class="from"></p>
     <label>Trường học </label>
     <div class="from-txt">
-    <input type="list" class="txt" list="items" placeholder="Nhập" name="school[]" value="{{ $cv->school }}">
+    <input type="list" class="txt" list="items" placeholder="Nhập" name="School[]" value="{{ $cv->School }}">
     <datalist id="items">
       <option value="Trường công nghệ thông">
       <option value="Trường đại học mở">
@@ -202,13 +202,13 @@ use Illuminate\Support\Facades\Auth;
     <p><div class="from"></p>
     <label>Nghành nghề </label>
     <div class="from-txt">
-    <input type="text" class="txt"  placeholder="nhập" name="career" value="{{ $cv->career }}">
+    <input type="text" class="txt"  placeholder="nhập" name="Career" value="{{ $cv->Career }}">
     </div>
 </div>
         <p><div class="from"></p>
     <label>kĩ năng</label>
     <div class="from-txt">
-    <input type="text" class="txt" placeholder="Nhập" name="skills" value="{{ $cv->skills }}" >
+    <input type="text" class="txt" placeholder="Nhập" name="skills" value="{{ $cv->Skills }}" >
     </div>
 </div>
 

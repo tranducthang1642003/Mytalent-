@@ -84,34 +84,26 @@
             <th scope="col">Name</th>
             <th scope="col">Phone</th>
             <th scope="col">Email</th>
-            <th scope="col">mức độ phù hợp từ khóa </th>
+            <th scope="col">từ khóa lọc xuất hinej</th>
             <th scope="col">Từ khóa </th>
-            <!-- Add more columns as needed -->
         </tr>
     </thead>
     <tbody>
-        @foreach($matchPercentages as $cvId => $jobMatches)
-            @foreach($jobMatches as $jobId => $matchPercentage)
-                <tr>
-                    <td>{{ $cvId }}</td>
-                    <td>{{ $cvs->where('id', $cvId)->first()->name }}</td>
-                    <td>{{ $cvs->where('id', $cvId)->first()->phone }}</td>
-                    <td>{{ $cvs->where('id', $cvId)->first()->email }}</td>
-                    <td>{{ $matchPercentage }}%</td>
-                 <td>
-    @if($keywords)
-        @foreach(explode(',', $keywords) as $keyword)
-            <span class="badge badge-primary">{{ $keyword }}</span>
-        @endforeach
-    @else
-        <span class="text-muted">Không có từ khóa đã lọc.</span>
-    @endif</td>
+        @foreach($jobs  as $job)
+            <div>
+                <h4>{{ $job->vitri}}</h4>
+            </div>
+    @endforeach
+                    @foreach($commonKeywordsList as $cvId => $jobKeywords)
+                        @foreach($jobKeywords as $jobId => $keywords)
+                                    @foreach($keywords as $keyword)
+                                       {{ $keywords }}</li>
+                                    @endforeach     
+                        @endforeach
+                @endforeach</td>
                 </tr>
-            @endforeach
-        @endforeach
     </tbody>
 </table>
- 
                     </div>
                 </section>
             </div>
