@@ -10,216 +10,90 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/fontawesome.min.css">
     <link rel="stylesheet" href="https://unpkg.com/@yaireo/tagify/dist/tagify.css">
      <script src="https://unpkg.com/@yaireo/tagify"></script>
-  
     <script src="https://unpkg.com/vanilla-tags-input"></script>
 </head>
 <body>
 
     <header>
-<div class="menu">
-    <div class="left">
-   <div class="tab">
-   <button class="tablinks" style=" border: none; background-color: #0000f7; font-weight: 900; font-size: 30px; color: white;">Mytalent</button>
-   <button class="tablinks"><a href="/js_job/job"> Thêm vị trí </a></button>
-   <button class="tablinks" > <a href="/cv/add">thêm cv </button></a>
-</div>
-<div id="Đăng nhập" class="tabcontent">
-
-</div>
-<div id="Đăng ký" class="tabcontent"></div>
-</div>
-
-<div class="right">
-<div class="step"><h3>30 Credist </h3></div>
-<div class="step"><h3>VN</h3></div>
-<div class="step"><h3>@php
-use Illuminate\Support\Facades\Auth;
-@endphp
-
-@auth
-    
-<span class="text-white">
-    <small class="text-white mx-2">
-       {{ Auth::user()->email }}
-    </small>
-</span>
-
-     
-
-    @csrf
-</form>
-    @else
-    
-    @endauth
-</div></h3></div>
-</div>
-</div>
+        <div class="menu">
+            <div class="img"><img src="/Image/logo.png" alt=""></div>
+            <div class="left">
+           <div class="tab">
+         
+           <button type="button"class="tablinks"> <a href="/cv/listcv">  Danh Sách ứng viên</button></a>
+           <button class="tablinks" > <a href="/js_job/list">Danh Sách vị trí </button></a>
+        </div>
+        <div id="Đăng" class="">
+        
+        </div>
+        <div id="Đăng" class=""></div>
+        </div>
+        
+        <div class="right">
+            
+      <input type="submit" value="30 Credist" class="btn2" style="width: 30%;background: white; height: 30px; font-size: 17px; color: black;">
+            <input type="submit" value="VN" class="btn2" style="width: 15%;
+            height: 30px;
+            background: no-repeat;
+            border: none;
+            color: white;
+            font-weight: 900;">
+        <div class="step">@php
+        use Illuminate\Support\Facades\Auth;
+        @endphp
+        @auth
+            <small class="">
+             <h4>{{ Auth::user()->email }}</h4>  
+            </small>
+       
+            @csrf
+            @else
+            
+            @endauth
+        </div>
+        </div>
 </header>
 <br>
 <article>
-<form method="POST" action="{{ route('job') }}" enctype="multipart/form-data">
-                          @csrf
+
 <section>
-<div class="col-1">
-<div class="text-1"> Danh sách CV / Thêm thông tin</div>
-<div class="text-1">Thông tin CV</div>
-<div class="left">
-   <div class="tab1">
-    <button type="button"class="tablinks"> <a href="/js_job/list">  Danh Sách job</button></a>
-    <button type="button"class="tablinks"> <a href="/cv/listcv">  Danh Sách ứng viên</button></a>
-</div>
+    <div class="col-1">
+        <div class="text-2"> <span>Danh sách vị trí  </span> / Thêm Vị trí </div>
+        <div class="text-3"><i class="fa-solid fa-arrow-left"></i>  <span style="padding-left: 20px">Thông tin vị trí</span> </div>
+        <div class="left">
+           <div class="tab1">
+    
+                <button class="tablinks" onclick="openCity(event, 'Đăng nhập')"id="defaultOpen">Thông tin cơ bản</button>
+                <button class="tablinks" onclick="openCity(event, 'Đăng ký')" >Thông tin bổ xung</button>
+                </div>
+        </div>
+        </div>
 
-<div class="main-left">
-<div class="from-register">
-<div class="text-from"><h3>Thông tin cơ bản</h3></div>
-<div class="form-txt">
-<div class="from-col-password">
-  <p><div class="from"></p>
-    <label>Vị trí tuyển dụng <span class ="text-red-light-1">*</span></label>
-    <div class="from-txt">
-    <input type="text" name="vitri" class="txt" placeholder="Nhập">
-    </div>
-    </div>
-    <!-- f -->
-    <p><div class="from"></p>
-    <label>Tên công ty<span class ="text-red-light-1">*</span></label>
-    <div class="from-txt">
-    <input type="text" name="congty" class="txt" placeholder="Nhập">
-    </div>
-    </div>
-    <!-- f -->
-    <p><div class="from"></p>
-    <label>Số lượng tuyển dụng  <span class ="text-red-light-1">*</span></label>
-    <div class="from-txt">
-    <input type="text" class="txt" name="soluong" placeholder="Nhập">
-    </div>
-    </div>
-    <!-- f -->
-    <p><div class="from"></p>
-    <label>Hình thức việc làm<span class ="text-red-light-1">*</span></label>
-    <div class="from-txt">
-    <input type="text" class="txt" name="lamviec" placeholder="Nhập">
-    </div>
-    </div>
- <!-- f -->
- <p><div class="from"></p>
-    <label>Địa chỉ <span class ="text-red-light-1">*</span></label>
-    <div class="from-txt">
-    <input type="text" name="diachi" class="txt" placeholder="Nhập">
-    </div>
-    </div>
 
- <!-- f -->
- <p><div class="from"></p>
-    <label>Loại hợp đồng</label>
-    <div class="from-txt">
-    <input type="text" name="loaihopdong" class="txt"  placeholder="Nhập">
+        
+    <section>
+    <div id="Đăng nhập" class="tabcontent">
+        @include('job.layout')
     </div>
+    </section>
+    
+    <section>
+    <div id="Đăng ký" class="tabcontent">
+        @include('layouts.bosung')
     </div>
-
-    <p><div class="from"></p>
-    <label>Mô tả công việc</label>
-    <div class="from-txt">
-    <input type="text" name="mota" class="txt" placeholder="Nhập">
-    </div>
-    </div>
+    </section>
+    
     <br>
-  </div>
-</div>
-</div>
-</div>
-
-<div class="main-right">
-    <p><div class="from"></p>
-    <label class="text-file">Từ khóa *</label>
-    <div class="from-txt">
-    <input type="text" class="form-control"  name="keyword" placeholder="Nhập từ khóa, phân tách bằng dấu phẩy" id="keywordInput" >
-
-    <div id="keyword">
-    <span onclick="updateInput(this)"><button type="button">IT</button></span>
-    <span onclick="updateInput(this)"><button type="button">LOSIRP</button></span>
-    <span onclick="updateInput(this)"><button type="button">BACKEND</button></span>
-    <span onclick="updateInput(this)"><button type="button">FONEAND</button></span>
-</div>
-    </div>
-    </div>
-    <p><div class="from"></p>
-    <label class="text-file">link *</label>
-    <div class="from-txt">
-    <input type="text" name="link" class="txt1" placeholder="Nhập">
-    </div>
-    </div>
-</div>
-<div class="main-left">
-<section>
-<div class="from-register">
-<div class="text-from"><h3>Thông tin vị trí</h3></div>
-<div class="form-txt">
-<div class="from-col-password">
-  <p><div class="from"></p>
-  <label>Kinh nghiệm yêu cầu </label>
-    <div class="from-txt">
-    <input type="text" name="kinhnghiem" class="txt" placeholder="Nhập">
-    </div>
-    </div>
-    <!-- f -->
-    <p><div class="from"></p>
-    <label>Kỹ Năng </label>
-    <div class="from-txt">
-    <input type="list" class="txt" name="kynang"  list="tag" placeholder="Nhập" >
-    <datalist id="tag" >
-      <option value="Backend">
-      <option value="Fonfend">
-      <option value="Teamword">
-      <option value="leadership">
-      <option value="problemsolvings">
-      <option value="interpersonal">
-</datalist>
-    </div>
-    </div>
-
-    <p><div class="from"></p>
-    <label>Nghành nghề</label>
-    <div class="from-txt">
-    <input type="text" name="nganhnghe" class="txt" >
-    </div>
-</div>
-
-        <p><div class="from"></p>
-    <label>Mức lương</label>
-    <div class="from-txt">
-    <input type="text" name="luong" class="txt" placeholder="Nhập">
-    </div>
-</div>
-
-<p><div class="from"></p>
-    <label>Hình thức lương <span class ="text-red-light-1">*</span></label>
-    <div class="from-txt">
-      <input type="radio" name="hinhthucluong" id="0">
-      <label for="0">NET</label>
-      <input type="radio" name="hinhthucluong" id="1">
-      <label for="1">GROSS</label>
-    </div>
-    <br>
-    </div>
-  
-</div>
-</div>
-</div>
-</div>
-</section>
+    <section>
 
 
 
-</article>
-<br>
+
 
 <footer>
 <button type="submit" class="btn">Lưu và thêm mới </button>
 <input type="reset" class="btn1"  value="Xóa ">
-              </div>
             </form>
-            </div>
 </footer>
 
 </body>

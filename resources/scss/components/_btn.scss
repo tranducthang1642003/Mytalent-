@@ -17,10 +17,28 @@ background-color: rgb(88, 88, 255);
     border: 0;
     display: inline-block;
     border-radius: 3px;
-width: 35%;
-height: 30px;
+width: 31%;
+height: 35px;
 background-color: rgb(88, 88, 255);
+border: solid 1px rgb(0, 4, 249);
 }
+
+
+@mixin btn5(){
+    text-decoration:none;
+    cursor: pointer;
+    display: inline-block;
+    border: 0;
+    display: inline-block;
+    border-radius: 3px;
+width: 31%;
+height: 35px;
+border: solid 1px rgb(0, 4, 249);
+color: blue;
+font-size: 15px;
+background-color: rgb(255, 255, 255);
+}
+
 
 @mixin btn4(){
     text-decoration:none;
@@ -60,4 +78,7 @@ height: 40px;
 }
 .btn4{
     @include btn4;
+}
+.btn5{
+    @include btn5;
 }

@@ -16,10 +16,9 @@
 <div class="menu">
     <div class="left">
    <div class="tab">
-   <button class="tablinks" style=" border: none; background-color: #0000f7; font-weight: 900; font-size: 30px; color: white;">Mytalent</button>
-
-   <button type="button"class="tablinks"> <a href="/js_job/list">  Danh Sách job</button></a>
-   <button class="tablinks" > <a href="/cv/add">thêm cv </button></a>
+    <button class="tablinks" style=" border: none;  font-weight: 900; font-size: 30px; color: white;">Mytalent<span class="logo">Global</span></button>
+   <button type="button"class="tablinks"> <a href="/cv/listcv">  Danh Sách ứng viên</button></a>
+   <button class="tablinks" > <a href="/js_job/list">Danh Sách vị trí </button></a>
 </div>
 <div id="Đăng" class="">
 
@@ -28,8 +27,12 @@
 </div>
 
 <div class="right">
-<div class="step"><h3>30 Credist </h3></div>
-<div class="step"><h3>VN</h3></div>
+    <input type="submit" value="30 Credist" class="btn3" style="width: 30%; font-size: 17px; color: black;">
+    <input type="submit" value="VN" class="btn2" style="width: 15%;
+    height: 40px;
+    color: white;
+    font-weight: 900;
+    background: content-box;">
 <div class="step"><h3>@php
 use Illuminate\Support\Facades\Auth;
 @endphp
@@ -52,8 +55,8 @@ use Illuminate\Support\Facades\Auth;
 
 <div class="da"></div>
 <div class="col-1">
-    <div class="text-1"> Danh sách CV / Thêm thông tin</div>
-    <div class="text-1">Thông tin CV</div>
+    <div class="text-2"> <span>Danh sách CV </span> / Thêm CV</div>
+    <div class="text-1"><i class="fa-solid fa-arrow-left"></i>  Thông tin CV</div>
     <div class="left">
        <div class="tab1">
 
@@ -77,14 +80,14 @@ use Illuminate\Support\Facades\Auth;
 </div>
 </section>
 
-
+<br>
+<section>
 <footer>
-    <input type="submit" value="Lưu và thêm mới " class="btn">
-    <input type="reset" class="btn"  value="Xóa ">
+    <input type="submit" value="Lưu và thêm mới " class="btn3" style="width: 10%">
+    <input type="reset" class="btn"  value="Xóa "style="width: 10%">
                   </div>
-                
-            
   </footer>
+</section>
 </form>
 </body>
 </html> 

@@ -1,12 +1,10 @@
 <article>
 
   <section>
-
-  
   @if(session('success'))
       {!! session('success') !!}
   @endif  
-  <div class="main-left">
+  <div class="main-left-cv">
   <div class="from-register">
   <div class="text-from"><h3>Thông tin ứng viên</h3></div>
   <div class="form-txt">
@@ -45,16 +43,18 @@
    <p><div class="from"></p>
       <label>ngày sinh <span class ="text-red-light-1">*</span></label>
       <div class="from-txt">
-      <input type="date" class="txt" placeholder="Nhập" name="Date">
+      <input type="month" class="txt" placeholder="Nhập" name="Date">
       </div>
    
   
    <!-- f -->
+   
    <p><div class="from"></p>
       <label>Địa chỉ hiện tại </label>
       <div class="from-txt">
       <input type="text" class="txt" placeholder="Nhập" name="Address">
       </div>
+
 
   
       <div class="text-from"><h3>Trình độ học vấn </h3></div>
@@ -91,7 +91,7 @@
       <div id="inputs-container" style="padding-bottom: 3%;">
     <!-- Initial input -->
   </div>
-   <input type="button"  onclick="addInput()" name="school[]" class="btn3" value="+">
+   <input type="button"  onclick="addInput()" name="school[]" class="btn3" value="+ Thêm Trường">
     
       <!-- f -->
   
@@ -116,7 +116,7 @@
       <div id="inputs-container1" style="padding-bottom: 3%;" >
     <!-- Initial input -->
   </div>
-  <input type="button"  onclick="addInput1()" class="btn3" value="+">
+  <input type="button"  onclick="addInput1()" class="btn3" value="+ Thêm vị trí">
   
    
       <!-- f -->
@@ -145,9 +145,17 @@
   <p><div class="from"></p>
       <label>Mức lương mong muốn</label>
       <div class="from-txt">
-      <input type="text" class="txt" placeholder="Nhập" name="Desiredsalary">
+      <input type="text" class="txt" placeholder="Nhập" name="Desiredsalary" >
       </div>
-  </div>
+
+
+
+  
+  <p><div class="from"></p>
+    <label>Kinh nghiệm</label>
+    <div class="from-txt">
+    <input type="text" class="txt" placeholder="Nhập" name="Experience">
+    </div>
   </div>
   </div>
     </div>
@@ -156,6 +164,8 @@
  
 
   <div class="main-right">
+
+
     <section>
     <div class="from">
     <label for="file" style="width: 30%;">
@@ -171,12 +181,13 @@
         </div>
         </section> 
     
-    
+
+
     
         <section>
     <div class="from">
     <label for="file" style="width: 30%;">
-    <div class="text-file"><h>File đính kèm</h></div>
+    <div class="text-file">File đính kèm</div>
     <div class="txt-link">
         <div class="icons"></div>
          <div class=""><span class="txt-tetx">+</span></div>
@@ -184,10 +195,12 @@
         </label>
         </div>
         </section>
-        <section>
+
+
+<section>
         <label class="text-file">Từ khóa *</label>
         <div class="from-txt1">
-        <input type="text" class="form-control"  name="keyword" placeholder="Nhập từ khóa, phân tách bằng dấu phẩy" id="keywordInput" >
+        <input type="text" class="form-control txt"  name="keyword" placeholder="Nhập từ khóa, phân tách bằng dấu phẩy" id="keywordInput" >
     
         <div id="keywords">
         <span onclick="updateInput(this)"><button type="button">IT</button></span>
@@ -197,19 +210,19 @@
     
     </div>
         </div>
-      </section>
+      </section> 
       
     <section>
    
     <div class="from">
-        <label class="text-file">Liên kết</label>
+        <label class="text-file">Liên kết bài đăng </label>
         <div class="from-txt1">
-        <input type="text" class="txt1" placeholder="Nhập" name="link">
-        <input type="text" class="txt1" placeholder="Nhập"  name="link">
-        <input type="text" class="txt1" placeholder="Nhập"  name="link">
-    
+          <div class="link"><i class="fa-brands fa-invision go"></i><input type="text" class="txt1" placeholder="Liên kết"  name="link" ></div>
+          <div class="link"><i class="fa-brands fa-facebook go"></i><input type="text" class="txt1" placeholder="Liên kết"  name="link" ></div>
+          <div class="link"><i class="fa-solid fa-globe go"></i><input type="text" class="txt1" placeholder="Liên kết"  name="link" ></div>
+
         <div id="inputs-containerlink" style="padding-bottom: 3%;" ></div>
-    <input type="button"  onclick="addInputlink()" class="btn3" value="+">
+    <input type="button"  onclick="addInputlink()" class="btn3" value="Thêm liên kết">
         </div>
         </div>
         

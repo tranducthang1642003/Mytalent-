@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Cv;
 use App\Models\Job;
-use App\Models\CvKeyword; // Change to CvKeyword
+use App\Models\CvKeyword;
 use App\Models\Keyword;
 
 class filter extends Controller
@@ -27,20 +27,17 @@ class filter extends Controller
             return redirect()->back()->with('error', 'Không tìm thấy công việc.');
         }
         $jobKeywords = $job->keywords->pluck('keyword');
-   
         $cvKeywords = Keyword::whereHas('cv', function ($query) use ($kinang, $luong) {
             $query->where('Skills', 'like', '%' . $kinang . '%')
                   ->where('Currentsalary', '>=', $luong);
         })->pluck('keyword');
-    
+        // phần tử chung giữa hai mảng từ khóa
         $commonKeywordsCount = $cvKeywords->intersect($jobKeywords)->count();
-        $totalKeywordsCount = $cvKeywords->count() * $jobKeywords->count();
-        $averageMatchPercentage = $totalKeywordsCount ? ($commonKeywordsCount / $totalKeywordsCount) * 100 : 0;
-        
+        $totalKeywordsCount = $cvKeywords->count() + $jobKeywords->count();
+        $averageMatchPercentage = $totalKeywordsCount ? ($commonKeywordsCount / $totalKeywordsCount) *100 : 0;
         $matchingCvs = Cv::where('Skills', 'like', '%' . $kinang . '%')
         ->where('Currentsalary', '>=', $luong)
         ->get();
-    
         return view('job.list1', compact('averageMatchPercentage', 'jobKeywords', 'cvKeywords','matchingCvs'));
     }
     

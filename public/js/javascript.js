@@ -71,8 +71,9 @@ function addInputlink() {
   const newInputContainer = document.createElement('div');
   newInputContainer.classList.add('input-containerlink');
   newInputContainer.innerHTML = `
-  <input type="text" class="txt" placeholder="Nhập" name="Link[]"  class="btn3">
+  <div class="link"><i class="fa-solid fa-globe go"></i><input type="text" class="txt1" placeholder="URL LINH"  name="link" >
     <button onclick="removeInput(this)" class="xoa"><i class="fa-solid fa-xmark"></i></button>
+    </div>
   `;
 
   // Thêm input mới vào inputsContainer

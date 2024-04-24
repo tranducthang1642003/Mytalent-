@@ -18,7 +18,7 @@
 <div class="menu">
     <div class="left">
    <div class="tab">
-   <button class="tablinks" style=" border: none; background-color: #0000f7; font-weight: 900; font-size: 30px; color: white;">Mytalent</button>
+   <button class="tablinks" style=" border: none; background-color: #0000f7; font-weight: 900; font-size: 30px; color: white;">Mytalent<span class="logo">Global</span></button>
    <button class="tablinks" onclick="openCity(event, 'Đăng nhập')">Danh Sách Ứng viên</button>
    <button class="tablinks" onclick="openCity(event, 'Đăng ký')" id="defaultOpen">Danh Sách vị Trí</button>
 </div>
@@ -131,10 +131,7 @@
    
            </div>
 
- <!-- filter-form.blade.php -->
-
-<!-- filter-form.blade.php -->
-
+<div class="filter-form" id="filter-form">
 <form action="{{ route('filter') }}" method="GET">
     <div>
         <label for="job">Chọn công việc:</label>
@@ -153,39 +150,24 @@
         <label for="luong">Lương từ:</label>
         <input type="text" name="luong" id="luong">
     </div>
-    <div>
+   
         <label for="keyword">Từ khóa:</label>
-        <input type="text" name="keyword" id="keyword">
+        <input type="text" class="form-control"  name="keyword" placeholder="Nhập từ khóa, phân tách bằng dấu phẩy" id="keywordInput" >
+
+        <div id="keyword">
+        <span onclick="updateInput(this)"><button type="button">IT</button></span>
+        <span onclick="updateInput(this)"><button type="button">LOSIRP</button></span>
+        <span onclick="updateInput(this)"><button type="button">BACKEND</button></span>
+        <span onclick="updateInput(this)"><button type="button">FONEAND</button></span>
     </div>
     <button type="submit">Lọc</button>
+    </div>
+   
 </form>
-
-    
-    {{-- <div class="form-group">
-        <label for="keyword">Từ khóa:</label>
-        <input type="text" class="form-control"  name="keywords" placeholder="Nhập từ khóa, phân tách bằng dấu phẩy" id="keywordInput" >
-
-    <div id="keywords">
-    <span onclick="updateInput(this)" name="keyword"><button type="button">IT</button></span>
-    <span onclick="updateInput(this)" name="keyword"><button type="button">LOSIRP</button></span>
-    <span onclick="updateInput(this)"name="keyword"><button type="button">BACKEND</button></span>
-    <span onclick="updateInput(this)"name="keywords"><button type="button">FONEAND</button></span>
-
 </div>
-
-    <input type="submit" class="btn" value="Lọc và sắp xếp">
-</form> --}}
-
-
-
-
-
-
-</div>
-
         </section>
     </div>
- 
+</div>
 
 
 
@@ -195,10 +177,7 @@
 
 </body>
 </html>
-
-
-
-{{-- <script>
+<script>
 function handleFilterClick(Job) {
     var form = document.getElementById("filter-form");
   if (form.style.display === "none") {
@@ -210,9 +189,9 @@ function handleFilterClick(Job) {
   }
     event.preventDefault();
 }
-</script> --}}
+</script>
 
-{{-- <script>
+<script>
     // Initialize Tagify on the input field with id 'keywordInput'
     var input = document.querySelector('#keywordInput');
     var tagify = new Tagify(input);
@@ -222,4 +201,4 @@ function handleFilterClick(Job) {
         var keyword = element.textContent; // Get the keyword from the clicked element
         tagify.addTags([keyword]); // Add the keyword to the Tagify input
     }
-</script> --}}
+</script>

@@ -14,43 +14,62 @@
 </head>
 <body>
     <header>
-<div class="menu">
-    <div class="left">
-   <div class="tab">
-   <button class="tablinks" style=" border: none; background-color: #0000f7; font-weight: 900; font-size: 30px; color: white;">Mytalent</button>
-   <button class="tablinks" onclick="openCity(event, 'Đăng nhập')">Danh Sách Ứng viên</button>
-   <button class="tablinks" onclick="openCity(event, 'Đăng ký')" id="defaultOpen">Danh Sách vị Trí</button>
-</div>
-<div id="Đăng nhập" class="tabcontent"></div>
-<div id="Đăng ký" class="tabcontent"></div>
-</div>
-
-<div class="right">
-<div class="step"><h3>30 Credist </h3></div>
-<div class="step"><h3>VN</h3></div>
-<div class="step"><h3>Nhật nguyễn </h3></div>
-</div>
-</div>
+        <div class="menu">
+            <div class="left">
+           <div class="tab">
+            <button class="tablinks" style=" border: none;  font-weight: 900; font-size: 30px; color: white;">Mytalent<span class="logo">Global</span></button>
+           <button type="button"class="tablinks"> <a href="/cv/listcv">  Danh Sách ứng viên</button></a>
+           <button class="tablinks" > <a href="/js_job/list">Danh Sách vị trí </button></a>
+        </div>
+        <div id="Đăng" class="">
+        
+        </div>
+        <div id="Đăng" class=""></div>
+        </div>
+        
+        <div class="right">
+            <input type="submit" value="30 Credist" class="btn3" style="width: 30%; font-size: 17px; color: black;">
+            <input type="submit" value="VN" class="btn2" style="width: 15%;
+            height: 40px;
+            color: white;
+            font-weight: 900;
+            background: content-box;">
+        <div class="step"><h3>@php
+        use Illuminate\Support\Facades\Auth;
+        @endphp
+        @auth
+        <span class="text-white">
+            <small class="text-white mx-2">
+               {{ Auth::user()->email }}
+            </small>
+        </span>
+            @csrf
+            @else
+            
+            @endauth
+        </h3></div>
+        </div>
 </header>
 <br>
 <article>
 <section>
 <div class="col-2">
     <div class="text-clo-1">
-<div class="text-1"> Danh Sách Vị trí</div>
+<div class="text-1"> Danh Sách Ứng viên</div>
 </div>
     <div class="text-clo-2">
         <div class="vitri">
-<button class="btn2">Thêm vị trí</button>
-<button class="btn2">Thêm vị trí</button>
+<button class="btn5">Xuất file </button>
+<button class="btn5">Tải Cv</button>
+<button class="btn2"> <a href="/cv/add"> Thêm Cv </a></button>
 </div>
 </div>
 <hr>
 <section>
 <div class="text-clo-1">
     <div class="search">
-    <form class="example"  style="max-width:300px">
-  <input type="text" placeholder="Search.." name="search2">
+    <form class="example"  style="max-width:295px">
+  <input type="text" placeholder="Tìm kiếm " name="search2">
   <button type="submit"><i class="fa fa-search"></i></button>
 </form>
     </div>
@@ -70,28 +89,19 @@
 </div>
 </section>
 
+
+
 <section>
-    <div class="left">
-       <div class="tab1">
-       <button class="tablinks" onclick="openCity(event, 'Đăng nhập')">Danh Sách Ứng viên</button>
-       <button class="tablinks" onclick="openCity(event, 'Đăng ký')" id="defaultOpen">Danh Sách vị Trí</button>
-    </div>
-    <div id="Đăng nhập" class="tabcontent"></div>
-    <div id="Đăng ký" class="tabcontent"></div>
-    </div>
         <div class="table">
-      
             <table class="table table-striped">
-          
                 <thead>
-                    
                     <tr>
                         <th scope="col">STT</th>
                         <th scope="col">Ứng viên</th>
                         <th scope="col">Số điẹne thoại</th>
                         <th scope="col">Email</th>
-                        <th scope="col">kĩ năng</th>
-                        <th scope="col">Ngày tải lên</th>
+                        <th scope="col">Vị trí</th>
+                        <th scope="col">Kinh Ngiệm</th>
                         <th scope="col">Ngày tải lên</th>
                         <th scope="col">Thao tác</th>
                     </tr>
@@ -100,23 +110,23 @@
                     <tr>
                     @foreach($cv as $cv)
                         <td>{{$cv->id}}</td>
-                        <td>{{$cv->Name}} </td>
+                        <td><div class="bg-Navy-light-2">{{$cv->Name}}</div> </td>
                         <td>{{$cv->Phone}}</td>
                         <td>{{$cv->Email}}</td>
-                        <td> {{$cv->Skills }}</td>
-                        <td> {{$cv->Keyword }}</td>
-                        <td>{{$cv->Created_at}}</td>
+                        <td> {{$cv->Location }}</td>
+                        <td> {{$cv->Experience }}</td>
+                        <td>{{$cv->updated_at}} <span class="text-Yello-light-2">NEW</span> </div></td>
                         <td>
-                        <a href="{{ route('cv.Edit', $cv->id) }}" class="btn2">Sửa</a>
+                        
+<button type="button" {{ route('cv.Edit', $cv->id) }} class="btn5"><i class="fa-solid fa-pen"></i></button>
+
 
                         <form action="{{ route('Cv_Destroy_Cv', $cv->id) }}" method="POST" style="display: inline;">
                         @csrf
                           @method('DELETE')
-                        <button type="submit" class="btn2" onclick="return confirm('Bạn có chắc chắn muốn xóa CV này?')">Xóa</button>
+                        <button type="submit" class="btn2" onclick="return confirm('Bạn có chắc chắn muốn xóa CV này?')"><i class="fa-solid fa-trash"></i></button>
                     </form>
-
-                        </td>
-                      
+                </td>
         </tr>   
         @endforeach
                 </tbody>

@@ -70,7 +70,7 @@ header{
   }
 
   .tab button:hover {
-   color: rgb(255, 255, 255);
+   color: rgb(0, 36, 240);
 
   }
   .tab button.active {
@@ -94,15 +94,13 @@ article{
 
  .col-2{
   line-height: 1.5;
-
-   min-height: 500px;
-    
+   min-height:370px;
     margin: auto;
     border-radius: 10px;
     box-shadow: 3px 3px 3px 3px rgb(233, 233, 233);
  }
  .text-1{
-  font-weight: 900;
+  font-weight: 400;
   padding: 20px 0px 0px 33px ;
  }
 .main-left{
@@ -237,12 +235,12 @@ footer{
     padding: 15px;
 }
 form.example input[type=text] {
-  padding: 7px;
+  padding: 5px;
   font-size: 17px;
   border: 1px solid grey;
   float: left;
   width: 80%;
-  background: #f1f1f1;
+  background: #ffffff;
 }
 * {
     box-sizing: border-box;
@@ -250,7 +248,7 @@ form.example input[type=text] {
 form.example button {
   float: left;
   width: 20%;
-  padding: 7px;
+  padding: 5px;
   background: #2196F3;
   color: white;
   font-size: 17px;
@@ -284,9 +282,19 @@ tbody{
     height: 40px;
 }
 
+th{
+  padding: 7px;
+}
+
+td{
+  padding: 7px;
+  font-size: 17px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 500;
+}
 
 .filter-form{
-  width: 45%;
+  width: 47%;
  
   justify-content: center;
   flex-direction: row-reverse;
