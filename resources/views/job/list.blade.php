@@ -131,10 +131,6 @@
    
            </div>
 
- <!-- filter-form.blade.php -->
-
-<!-- filter-form.blade.php -->
-
 <form action="{{ route('filter') }}" method="GET">
     <div>
         <label for="job">Chọn công việc:</label>
