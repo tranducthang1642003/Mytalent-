@@ -131,7 +131,7 @@
    
            </div>
 
-<div class="filter-form" id="filter-form">
+
 <form action="{{ route('filter') }}" method="GET">
     <div>
         <label for="job">Chọn công việc:</label>
