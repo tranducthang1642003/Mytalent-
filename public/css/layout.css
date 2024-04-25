@@ -2,7 +2,7 @@
 body {
   margin: 0 auto;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  background-color: rgb(245, 245, 245);
+  background: rgb(245, 245, 245);
 }
 
 header {
@@ -169,7 +169,7 @@ label {
 
 .txt {
   width: 93%;
-  height: 38px;
+  height: 40px;
   border-radius: 5px;
   border: 1px solid rgb(210, 210, 210);
   padding: 5px 10px 0px 10px;
@@ -178,10 +178,6 @@ label {
 
 .from-txt1 {
   padding: 5px 0px 6px 6px;
-}
-
-.from {
-  height: 160px;
 }
 
 .txt-img {
@@ -306,10 +302,9 @@ input[type=file i] {
 footer {
   width: 100%;
   display: flex;
-  height: 76px;
   align-items: flex-end;
   justify-content: flex-end;
-  padding-bottom: 42px;
+  padding-bottom: 20px;
 }
 
 .xoa {
@@ -380,6 +375,23 @@ a {
   width: 200px;
   /* margin: auto; */
   padding-left: 45px;
+}
+
+.col-xoa {
+  width: 100%;
+  height: 60px;
+  background: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.col-3 {
+  width: 12%;
+}
+
+.col-4 {
+  width: 5%;
 }
 
 .text-Yello {
@@ -802,6 +814,36 @@ a {
   color: #f0f0f0;
 }
 
+.text-xanh {
+  color: #0000FF;
+}
+
+.text-xanh-light-1 {
+  color: #0000f7;
+}
+
+.text-hover-xanh-light-1:hover {
+  color: #0000f7;
+  border-top: 2px solid blue;
+}
+
+.bg-xanh-light-1 {
+  color: #0000f7;
+}
+
+.text-xanh-light-2 {
+  color: #0000f0;
+}
+
+.text-hover-xanh-light-2:hover {
+  color: #0000f0;
+  border-top: 2px solid blue;
+}
+
+.bg-xanh-light-2 {
+  color: #0000f0;
+}
+
 .btn {
   text-decoration: none;
   cursor: pointer;
@@ -877,4 +919,36 @@ a {
   color: blue;
   font-size: 15px;
   background-color: rgb(255, 255, 255);
+}
+
+.btnxoa {
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  border: 1px solid rgb(255, 0, 0);
+  display: inline-block;
+  border-radius: 3px;
+  width: 81%;
+  height: 32px;
+  color: rgb(255, 0, 0);
+  background-color: rgb(255, 255, 255);
+  font-size: 12px;
+}
+
+.btnthem {
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid rgb(93, 0, 255);
+  border-radius: 3px;
+  width: 88%;
+  height: 32px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(52, 9, 224);
+  font-size: 12px;
+}
+
+.btnk {
+  border: none;
+  background: none;
+  font-size: 20px;
 }

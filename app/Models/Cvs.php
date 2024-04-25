@@ -5,31 +5,31 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cv extends Model
+class Cvs extends Model
 {
     use HasFactory;
-    protected $table = 'cv';
+    protected $table = 'cvs';
     protected $fillable = [
-        'Name',
-        'Gioitinh',
-        'Phone',
-        'Email',
-        'Date',
-        'Address',
-        'Education',
-        'School',
-        'Language',
-        'Certificate',
-        'Location',
-        'Career',
-        'Skills',
-        'Currentsalary',
-        'Desiredsalary',
-        'Image',
-        'Feight',
-        'Weight',
-        'Maritalstatus',
-        'Hometown',
+        'name',
+        'sex',
+        'phone',
+        'email',
+        'date',
+        'address',
+        'education',
+        'school',
+        'language',
+        'certificate',
+        'location',
+        'career',
+        'skills',
+        'currentsalary',
+        'desiredsalary',
+        'image',
+        'feight',
+        'weight',
+        'maritalstatus',
+        'hometown',
         'checkock',
     ];
 
@@ -41,7 +41,7 @@ class Cv extends Model
 
     public function job()
     {
-        return $this->belongsTo(Job::class);
+        return $this->belongsTo(Jobs::class);
     }
     public function setCheckockAttribute($value)
     {

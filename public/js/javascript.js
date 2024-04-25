@@ -10,10 +10,10 @@ function openCity(evt, cityName) {
   }
   document.getElementById(cityName).style.display = "block";
   evt.currentTarget.className += " active";
-}
+  
+};
 
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
+
 
 function addInput() {
   const inputsContainer = document.getElementById('inputs-container');
@@ -25,11 +25,9 @@ function addInput() {
   <input type="text" class="txt" placeholder="Nhập" name="School[]"  class="btn3">
     <button onclick="removeInput(this)" class="xoa"><i class="fa-solid fa-xmark"></i></button>
   `;
-
-  // Thêm input mới vào inputsContainer
   inputsContainer.appendChild(newInputContainer);
-}
-
+};
+document.getElementById("defaultOpen").click();
 function removeInput(button) {
   // Lấy ra div chứa input và nút Xóa
   const inputContainer = button.parentNode;
@@ -38,6 +36,8 @@ function removeInput(button) {
   inputContainer.parentNode.removeChild(inputContainer);
 }
 //
+
+
 
 
 
@@ -86,7 +86,7 @@ function removeInput(button) {
   
   // Xóa div chứa input và nút Xóa
   inputContainer.parentNode.removeChild(inputContainer);
-}
+};
 
 
 

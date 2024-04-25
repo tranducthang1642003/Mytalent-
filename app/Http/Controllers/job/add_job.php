@@ -5,8 +5,8 @@ use App\Models\Cv;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Keyword;
 use Illuminate\Http\Request;
-use App\Models\job;
-class ListingController
+use App\Models\Jobs;
+class add_job
 {
     // Hiển thị danh sách CV và danh sách công việc
     public function Show_List()
@@ -15,45 +15,43 @@ class ListingController
         $jobs = Job::all();
         return view('lists', ['cvs' => $cvs, 'jobs' => $jobs]);
     }
-}
-class add_job
-{
+
+
+
     public function Show_Add_Job(){
         return view('job.job');
     }
 
     public function Job(Request $request)
     {
-        // Create the job
-        $job = job::create([
-            'vitri' => $request->vitri,
-            'congty' => $request->congty,
-            'soluong' => $request->soluong,
-            'lamviec' => $request->lamviec,
-            'kinhnghiem' => $request->kinhnghiem,
-            'diachi' => $request->diachi,
-            'loaihopdong' => $request->loaihopdong,
-            'kynang' => $request->kynang,
-            'nganhnghe' => $request->nganhnghe,
-            'luong' => $request->luong,
-            'link' => $request->link,
+      
+        $jobs = Jobs::all();
+        $job = Jobs::create([
+            'locations' => $request->locations,
+            'company' => $request->company,
+            'quantity' => $request->quantity,
+            'work' => $request->work,
+            'addresss' => $request->addresss,
+            'contract' => $request->contract,
+            'skill' => $request->skill,
+            'experience' => $request->experience,
+            'career' => $request->career,
+            'wage' => $request->wage,
+            'salary' => $request->salary,
+            'link'=>$request->link,
+            'jobdescription'=>$request->jobdescription,
         ]);
-
+    
         $keywords = explode(',', $request->keyword); 
         foreach ($keywords as $keyword) {
             $keywordModel = Keyword::firstOrCreate(['keyword' => trim($keyword)]);
-            $job->keywords()->attach($keywordModel->id);
+            $jobs->keywords()->attach($keywordModel->id);
         }
-        return view('job.job');
+        return view('job.list', ['jobs' => $jobs]);
     }
-    
-    
-    
 //show job
-public function Show_List(){
-    $jobs = job::all();
-    return view('job.list', ['jobs' => $jobs]);
-}
+
+
 
 
 
@@ -71,17 +69,18 @@ public function edit($id){
 public function jobupdate(request $request,$id){
     $job =job::findOrFail($id);
 
-    $job->vitri = $request->input('vitri');
-    $job->congty = $request->input('congty');
-    $job->soluong = $request->input('soluong');
-    $job->lamviec = $request->input('lamviec');
-    $job->kinhnghiem = $request->input('kinhnghiem');
-    $job->diachi = $request->input('diachi');
-    $job->loaihopdong = $request->input('loaihopdong');
-    $job->kynang = $request->input('kynang');
-    $job->nganhnghe = $request->input('nganhnghe');
-    $job->luong = $request->input('luong');
-    $job->link = $request->input('link');
+    $job->Locations = $request->input('Locations');
+    $job->Company = $request->input('Company');
+    $job->quantity = $request->input('quantity');
+    $job->Work = $request->input('Work');
+    $job->Addresss = $request->input('Addresss');
+    $job->Contract = $request->input('Contract');
+    $job->Skill = $request->input('Skill');
+    $job->Experience = $request->input('Experience');
+    $job->Career = $request->input('Career');
+    $job->Wage = $request->input('Wage');
+    $job->salaryform = $request->input('salaryform');
+    $job->Link = $request->input('Link');
     $job->trangthai = $request->input('trangthai');
     $job->save();
     return view('job.job', ['job' => $job]);

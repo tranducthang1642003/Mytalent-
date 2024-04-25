@@ -62,36 +62,41 @@
         <div class="text-3"><i class="fa-solid fa-arrow-left"></i>  <span style="padding-left: 20px">Thông tin vị trí</span> </div>
         <div class="left">
            <div class="tab1">
-    
                 <button class="tablinks" onclick="openCity(event, 'Đăng nhập')"id="defaultOpen">Thông tin cơ bản</button>
                 <button class="tablinks" onclick="openCity(event, 'Đăng ký')" >Thông tin bổ xung</button>
                 </div>
         </div>
         </div>
+    </section>
+<article>
 
-
-        
+    <form method="POST" action="{{ route('job') }}" enctype="multipart/form-data">
+        @csrf
     <section>
     <div id="Đăng nhập" class="tabcontent">
-        @include('job.layout')
+        @include('job.layouts.layout')
     </div>
     </section>
-    
+</article>
+
+
+
     <section>
     <div id="Đăng ký" class="tabcontent">
-        @include('layouts.bosung')
+        @include('job.layouts.additional')
     </div>
     </section>
 
 
 <section>
 <footer>
-<button type="submit" class="btn">Lưu và thêm mới </button>
-<input type="reset" class="btn1"  value="Xóa ">
-</form>
 </footer>
 </section>
-
+<div class="col-xoa">
+   <div class="col-4"> <input type="reset" class="btnxoa"  value="Xóa "></div>
+   <div class="col-3"> <button type="submit" class="btnthem">Lưu và thêm mới </button></div>
+</div>
+</from>
 
 </body>
 </html>

@@ -2,7 +2,7 @@
 body {
   margin: 0 auto;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  background-color: rgb(245, 245, 245);
+  background: rgb(245, 245, 245);
 }
 
 header {
@@ -169,7 +169,7 @@ label {
 
 .txt {
   width: 93%;
-  height: 38px;
+  height: 40px;
   border-radius: 5px;
   border: 1px solid rgb(210, 210, 210);
   padding: 5px 10px 0px 10px;
@@ -178,10 +178,6 @@ label {
 
 .from-txt1 {
   padding: 5px 0px 6px 6px;
-}
-
-.from {
-  height: 160px;
 }
 
 .txt-img {
@@ -306,10 +302,9 @@ input[type=file i] {
 footer {
   width: 100%;
   display: flex;
-  height: 76px;
   align-items: flex-end;
   justify-content: flex-end;
-  padding-bottom: 42px;
+  padding-bottom: 20px;
 }
 
 .xoa {
@@ -380,6 +375,23 @@ a {
   width: 200px;
   /* margin: auto; */
   padding-left: 45px;
+}
+
+.col-xoa {
+  width: 100%;
+  height: 60px;
+  background: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.col-3 {
+  width: 12%;
+}
+
+.col-4 {
+  width: 5%;
 }
 
 .text-Yello {
@@ -802,6 +814,36 @@ a {
   color: #f0f0f0;
 }
 
+.text-xanh {
+  color: #0000FF;
+}
+
+.text-xanh-light-1 {
+  color: #0000f7;
+}
+
+.text-hover-xanh-light-1:hover {
+  color: #0000f7;
+  border-top: 2px solid blue;
+}
+
+.bg-xanh-light-1 {
+  color: #0000f7;
+}
+
+.text-xanh-light-2 {
+  color: #0000f0;
+}
+
+.text-hover-xanh-light-2:hover {
+  color: #0000f0;
+  border-top: 2px solid blue;
+}
+
+.bg-xanh-light-2 {
+  color: #0000f0;
+}
+
 .btn {
   text-decoration: none;
   cursor: pointer;
@@ -879,21 +921,41 @@ a {
   background-color: rgb(255, 255, 255);
 }
 
+.btnxoa {
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  border: 1px solid rgb(255, 0, 0);
+  display: inline-block;
+  border-radius: 3px;
+  width: 81%;
+  height: 32px;
+  color: rgb(255, 0, 0);
+  background-color: rgb(255, 255, 255);
+  font-size: 12px;
+}
+
+.btnthem {
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid rgb(93, 0, 255);
+  border-radius: 3px;
+  width: 88%;
+  height: 32px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(52, 9, 224);
+  font-size: 12px;
+}
+
+.btnk {
+  border: none;
+  background: none;
+  font-size: 20px;
+}
+
 body {
   margin: 0 auto;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-}
-
-header {
-  width: 100%;
-  height: 60px;
-  background-color: blue;
-}
-
-.left {
-  width: 90%;
-  float: left;
-  height: 60px;
 }
 
 .filter-form {
@@ -905,11 +967,23 @@ header {
   display: block;
 }
 
+header {
+  width: 100%;
+  height: 52px;
+  background: rgb(47, 84, 235);
+}
+
+.left {
+  width: 91%;
+  float: left;
+}
+
 .right {
   width: 50%;
   float: right;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .step {
@@ -921,11 +995,13 @@ header {
 }
 
 .menu {
-  height: 80px;
+  height: 52px;
   display: flex;
   align-items: center;
-  align-items: baseline;
   flex-wrap: nowrap;
+  flex-direction: row;
+  align-content: stretch;
+  justify-content: space-evenly;
 }
 
 .tab button {
@@ -933,11 +1009,11 @@ header {
   outline: none;
   cursor: pointer;
   transition: 0.3s;
-  font-size: 15px;
-  background-color: rgb(0, 34, 255);
-  width: 20%;
-  border-radius: 5px;
-  height: 35px;
+  font-size: 12px;
+  width: 24%;
+  border-radius: 3%;
+  height: 33px;
+  background: none;
 }
 
 .tab1 button {
@@ -945,20 +1021,19 @@ header {
   outline: none;
   cursor: pointer;
   transition: 0.3s;
-  font-size: 12px;
+  font-size: 15px;
   width: 10%;
-  border-radius: 5px;
   height: 40px;
+  background: none;
 }
 
-.tab button:hover {
-  color: rgb(0, 36, 240);
+.tab1 button:hover {
+  color: rgb(0, 8, 255);
 }
 
-.tab button.active {
-  color: rgb(255, 255, 255);
-  background-color: rgb(181, 181, 181);
-  opacity: 1;
+.tab1 button.active {
+  color: blue;
+  border-bottom: 3px solid blue;
 }
 
 .tabcontent {
@@ -967,7 +1042,7 @@ header {
 }
 
 article {
-  width: 90%;
+  width: Fixed 1, 391px;
   min-height: 1300px;
   margin: auto;
   border-radius: 10px;
@@ -975,15 +1050,17 @@ article {
 
 .col-2 {
   line-height: 1.5;
+  background-color: rgb(255, 255, 255);
   min-height: 370px;
   margin: auto;
-  border-radius: 10px;
-  box-shadow: 3px 3px 3px 3px rgb(233, 233, 233);
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px 1px rgb(233, 233, 233);
+  margin-top: 20px;
 }
 
 .text-1 {
   font-weight: 400;
-  padding: 20px 0px 0px 33px;
+  padding: 0px 0px 0px 33px;
 }
 
 .main-left {
@@ -1021,7 +1098,7 @@ label {
 
 .txt {
   width: 100%;
-  height: 30px;
+  height: 40px;
   border-radius: 5px;
   border: 1px solid rgb(210, 210, 210);
   padding: 5px 10px 0px 10px;
@@ -1097,19 +1174,27 @@ footer {
 }
 
 .search {
-  padding: 0px 0px 0px 33px;
+  padding: 20px 0px 0px 33px;
+  width: 850px;
+  float: left;
 }
 
-.text-clo-1 {
+.text-col-2 {
+  padding: 20px 0px 0px 33px;
+  width: 471px;
+  float: right;
+}
+
+.text-col-1 {
   float: left;
   width: 65%;
-  height: 60px;
+  height: 64px;
 }
 
 .text-clo-2 {
   float: right;
   width: 35%;
-  height: 60px;
+  height: 64px;
 }
 
 .vitri {
@@ -1155,6 +1240,7 @@ form.example::after {
   width: 100%;
   border-collapse: collapse;
   padding: 33px;
+  margin-top: 30px;
 }
 
 thead {
@@ -1169,13 +1255,24 @@ tbody {
 
 th {
   padding: 7px;
+  font-weight: bolder;
+  width: Fill 210.75px px;
+  height: Fill 40px px;
+  gap: 0px;
+  border: 1px 0px 0px 1px;
+  opacity: 0px;
+}
+
+#cars {
+  height: 35px;
+  width: 115px;
 }
 
 td {
   padding: 7px;
-  font-size: 17px;
+  font-size: 15px;
   font-family: "Times New Roman", Times, serif;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .filter-form {

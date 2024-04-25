@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Cv;
 use Illuminate\Http\Request;
-use App\Models\job;
-use App\Models\Cv; 
+use App\Models\Jobs;
+use App\Models\Cvs; 
 use App\Models\Keyword;
 class addcv
 {
@@ -18,52 +18,52 @@ class addcv
 
     public function Cv_Job(Request $request){
         
-        $Location = $request->input('Location');
-        $School = $request->input('School');
+        $location = $request->input('location');
+        $school = $request->input('school');
         $checkock = $request->input('checkock');
-        $Location = serialize($Location);
-        $School = serialize($School);
+        $location = serialize($location);
+        $school = serialize($school);
        
         $input['checkock'] = $request->input('checkock');
-        $cv = Cv::create([
-            'Name' => $request->Name,
-            'Gioitinh' => $request->Gioitinh,
-            'Phone' => $request->Phone,
-            'Email' => $request->Email,
-            'Date' => $request->Date,
-            'Address' => $request->Address,
-            'Education' => $request->Education,
-            'School' => $School, 
-            'Language' => $request->Language, 
-            'Certificate' => $request->Certificate,
-            'Location' => $Location,
-            'Career' => $request->Career,
-            'Skills' => $request->Skills,
-            'Currentsalary' => $request->Currentsalary,
-            'Desiredsalary' => $request->Desiredsalary,
-            'Image' => $request->Image,
-            'Feight' => $request->Feight,
-            'Weight' => $request->Weight,
-            'Maritalstatus' => $request->Maritalstatus,
-            'Hometown' => $request->Hometown,
+        $Cvs = Cvs::create([
+            'name' => $request->name,
+            'sex' => $request->sex,
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'date' => $request->date,
+            'address' => $request->address,
+            'education' => $request->education,
+            'school' => $school, 
+            'language' => $request->language, 
+            'certificate' => $request->certificate,
+            'location' => $location,
+            'career' => $request->career,
+            'skills' => $request->skills,
+            'currentsalary' => $request->currentsalary,
+            'desiredsalary' => $request->desiredsalary,
+            'image' => $request->image,
+            'feight' => $request->feight,
+            'weight' => $request->weight,
+            'maritalstatus' => $request->maritalstatus,
+            'hometown' => $request->hometown,
             'checkock' =>$checkock,
            
         ]);
     
-        $keywords = explode(',', $request->keyword); 
-        foreach ($keywords as $keyword) {
-            $keywordModel = Keyword::firstOrCreate(['keyword' => trim($keyword)]);
-            $cv->keywords()->attach($keywordModel->id);
+        $keywords = explode(',', $request->keywords); 
+        foreach ($keywords as $keywords) {
+            $keywordModel = Keyword::firstOrCreate(['keyword' => trim($keywords)]);
+            $Cvs->keywords()->attach($keywordModel->id);
         }
         return redirect()->route('cv_job')->with('success', 'CV added successfully');
      
     }
     
     public function Show_Cv(){
-        $cv = Cv::all();
-        $job = job::all();
+        $cvs = Cvs::all();
+        $jobs = Jobs::all();
         
-        return view('CV.listcv', ['cv' => $cv, 'job' => $job]);
+        return view('CV.listcv', ['cvs' => $cvs, 'jobs' => $jobs]);
     }
     
 

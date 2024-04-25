@@ -563,6 +563,36 @@ label {
   color: #f0f0f0;
 }
 
+.text-xanh {
+  color: #0000FF;
+}
+
+.text-xanh-light-1 {
+  color: #0000f7;
+}
+
+.text-hover-xanh-light-1:hover {
+  color: #0000f7;
+  border-top: 2px solid blue;
+}
+
+.bg-xanh-light-1 {
+  color: #0000f7;
+}
+
+.text-xanh-light-2 {
+  color: #0000f0;
+}
+
+.text-hover-xanh-light-2:hover {
+  color: #0000f0;
+  border-top: 2px solid blue;
+}
+
+.bg-xanh-light-2 {
+  color: #0000f0;
+}
+
 .btn {
   text-decoration: none;
   cursor: pointer;
