@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('cvs', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('gioitinh');
+            $table->string('set');
             $table->string('phone');
             $table->string('email');
             $table->date('date');
@@ -35,7 +35,8 @@ return new class extends Migration
             $table->string('maritalstatus');
             $table->string('hometown');
             $table->string('checkock');
-            $table->timestamps();
+            $table->timestamp('updated_at')->useCurrent(); 
+            
         });
     }
 
@@ -44,6 +45,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cv');
+        Schema::dropIfExists('cvs');
     }
 };

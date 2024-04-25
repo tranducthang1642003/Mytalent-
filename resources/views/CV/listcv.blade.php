@@ -82,10 +82,8 @@
                         <td>{{$cvs->updated_at}} <span class="text-Yello-light-2">NEW</span> </div></td>
                         <td>
                         
-<button type="button" {{ route('cv.Edit', $cvs->id) }} class="btnk"><i class="fa-solid fa-pen" style="color: #121212;"></i></button>
-
-
-                        <form action="{{ route('Cv_Destroy_Cv', $cvs->id) }}" method="POST" style="display: inline;">
+                            <a href="{{ route('cv.edit', $cvs->id) }}"><i class="fa-solid fa-pen" style="color: #121212;"></i></a>
+                            <form action="{{ route('cv.destroy', $cvs->id) }}" method="POST" style="display: inline;">
                         @csrf
                           @method('DELETE')
                         <button type="submit" class="btnk" onclick="return confirm('Bạn có chắc chắn muốn xóa CV này?')"><i class="fa-solid fa-trash" style="color: #dd0303;"></i></button>

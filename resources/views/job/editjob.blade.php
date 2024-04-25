@@ -16,60 +16,25 @@
 <body>
 
     <header>
-<div class="menu">
-    <div class="left">
-   <div class="tab">
-   <button class="tablinks" style=" border: none; background-color: #0000f7; font-weight: 900; font-size: 30px; color: white;">Mytalent</button>
-   <button class="tablinks"><a href="/js_job/job"> Thêm vị trí </a></button>
-   <button class="tablinks" > <a href="/job/add">thêm job </button></a>
-</div>
-<div id="Đăng nhập" class="tabcontent">
-
-</div>
-<div id="Đăng ký" class="tabcontent"></div>
-</div>
-
-<div class="right">
-<div class="step"><h3>30 Credist </h3></div>
-<div class="step"><h3>VN</h3></div>
-<div class="step"><h3>@php
-use Illuminate\Support\Facades\Auth;
-@endphp
-
-@auth
-    
-<span class="text-white">
-    <small class="text-white mx-2">
-       {{ Auth::user()->email }}
-    </small>
-</span>
-
-     
-
-    @csrf
-</form>
-    @else
-    
-    @endauth
-</div></h3></div>
-</div>
-</div>
+@include('layouts.menu')
 </header>
 <br>
-<article>
-<form action="{{ route('jobupdate', $job->id) }}" method="POST">
-    @csrf
-    @method('PUT')
-<section>
-<div class="col-1">
-<div class="text-1"> Danh sách job / Thêm thông tin</div>
-<div class="text-1">Thông tin job</div>
-<div class="left">
-   <div class="tab1">
-    <button type="button"class="tablinks"> <a href="/js_job/list">  Danh Sách job</button></a>
-    <button type="button"class="tablinks"> <a href="/job/listcv">  Danh Sách ứng viên</button></a>
-</div>
 
+<section>
+    <div class="col-1">
+        <div class="text-2"><span>Danh sách vị trí</span> / Thêm Vị trí</div>
+        <div class="text-3"><i class="fa-solid fa-arrow-left"></i> <span style="padding-left: 20px">Thông tin vị trí</span></div>
+        <div class="left">
+            <div class="tab1">
+              
+            </div>
+        </div>
+    </div>
+</section>
+<article>
+    <form action="{{ route('job.edit', $job->id) }}" method="GET">
+        @csrf
+        @method('PUT')
 <div class="main-left">
 <div class="from-register">
 <div class="text-from"><h3>Thông tin cơ bản</h3></div>
@@ -78,21 +43,21 @@ use Illuminate\Support\Facades\Auth;
   <p><div class="from"></p>
     <label>Vị trí tuyển dụng <span class ="text-red-light-1">*</span></label>
     <div class="from-txt">
-    <input type="text" name="vitri" class="txt" placeholder="Nhập" value="{{ $job->vitri }}">
+    <input type="text" name="locations" class="txt" placeholder="Nhập" value="{{ $job->locations }}">
     </div>
     </div>
     <!-- f -->
     <p><div class="from"></p>
     <label>Tên công ty<span class ="text-red-light-1">*</span></label>
     <div class="from-txt">
-    <input type="text" name="congty" class="txt" placeholder="Nhập"   value="{{ $job->congty }}" >
+    <input type="text" name="company" class="txt" placeholder="Nhập"   value="{{ $job->company }}" >
     </div>
     </div>
     <!-- f -->
     <p><div class="from"></p>
     <label>Số lượng tuyển dụng  <span class ="text-red-light-1">*</span></label>
     <div class="from-txt">
-    <input type="text" class="txt" name="soluong" placeholder="Nhập"   value="{{ $job->soluong }}">
+    <input type="text" class="txt" name="quantity" placeholder="Nhập"   value="{{ $job->quantity }}">
     </div>
     </div>
     <!-- f -->

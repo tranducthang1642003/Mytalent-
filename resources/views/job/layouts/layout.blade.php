@@ -65,25 +65,20 @@
     </div>
   </section>
 
-
   <section>
     <div class="main-right">
-    
-        <label class="text-file">Từ khóa </label>
-        <div class="from-txt1">
-        <input type="text" class="form-control txt4"  name="keyword"  id="keywordInput" >
-    
-        <div id="keywords">
-        <span onclick="updateInput(this)"><button type="button">IT</button></span>
-        <span onclick="updateInput(this)"><button type="button">LOSIRP</button></span>
-        <span onclick="updateInput(this)"><button type="button">BACKEND</button></span>
-        <span onclick="updateInput(this)"><button type="button">FONEAND</button></span>
-    
-    </div>
+        <label class="text-file">Từ khóa *</label>
+        <div class="from-job">
+            <input type="text" class="txt1" name="keyword" placeholder="Nhập từ khóa, phân tách bằng dấu phẩy" id="keywordInput" >
+            <div id="keywords">
+                <span onclick="updateInput(this, '')"><button type="button">IT</button></span>
+                <span onclick="updateInput(this, '')"><button type="button">LOSIRP</button></span>
+                <span onclick="updateInput(this, '')"><button type="button">BACKEND</button></span>
+                <span onclick="updateInput(this, '')"><button type="button">FONEAND</button></span>
+            </div>
         </div>
-      </div>
-      </section>
-    
+    </div>
+</section>
     
       <section>
         <div class="main-right">

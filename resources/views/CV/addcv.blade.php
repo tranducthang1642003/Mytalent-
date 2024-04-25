@@ -68,7 +68,7 @@
             </div>
             </div>
         </section>
-    <form method="POST" action="{{ route('cv_job') }}">
+    <form method="POST" action="{{ route('cv_job.add') }}">
         @csrf
 <section>
 <div id="Đăng nhập" class="tabcontent">

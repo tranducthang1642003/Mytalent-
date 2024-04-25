@@ -2,8 +2,9 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\cv\addcv;
-use App\Http\Controllers\job\add_job;
+use App\Http\Controllers\cv\CvController;
+use App\Http\Controllers\Job\JobController;
+
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Auth\loginController;
@@ -22,35 +23,37 @@ Route::prefix('login')->group(function(){
     Route::get('/verify-token', [RegisterController::class, 'showVerifyTokenForm'])->name('verify.token');
     Route::post('/verify-token', [RegisterController::class, 'verifyToken'])->name('verify.token');
 
-Route::prefix('cv')->group(function(){
- Route::get('/thongtin',[addcv::class,'thongtin']);
- Route::get('/chuyentap',[addcv::class,'chuyentap']);
- Route::get('/add',[addcv::class,'Show_Add_Cv'])->name('cv_job');
- Route::post('/add',[addcv::class,'Cv_Job'])->name('cv_job');
- Route::get('/listcv',[addcv::class,'Show_Cv']);
- Route::delete('/cv/{id}', [addcv::class, 'Destroy_Cv'])->name('Cv_Destroy_Cv');
- Route::get('/cv/{id}/edit', [addcv::class, 'Edit'])->name('cv.Edit');
- Route::put('/cv/{id}', [addcv::class, 'Cv_Update'])->name('Cv_Update');
- Route::get('/add',[addcv::class,'Show_Add_Cv'])->name('cv_job');
-
- Route::get('/listcv',[addcv::class,'Show_Cv']);
-
-});
-
-Route::prefix('js_job')->group(function(){
- Route::get('/job',[ add_job::class,'Show_Add_Job'])->name('job');
- Route::post('/job',[add_job::class,'Job']);
- Route::get('/list',[add_job::class,'Show_List']);
-
-
-
- Route::get('/job/search', [add_job::class, 'filterJobsAndCvs'])->name('job.filter');
- Route::post('/job/search', [add_job::class, 'filterJobsAndCvs'])->name('job.filter');
+    Route::prefix('cv')->group(function() {
+        Route::get('/thongtin', [CvController::class, 'thongtin']);
+        Route::get('/chuyentap', [CvController::class, 'chuyentap']);
+    
+        Route::get('/add', [CvController::class, 'showAddCv'])->name('cv_job.show');
+        Route::post('/add', [CvController::class, 'addCv'])->name('cv_job.add');
+    
+        Route::get('/listcv', [CvController::class, 'showCv'])->name('cv.list');
+    
+        Route::delete('/cv/{id}', [CvController::class, 'destroyCv'])->name('cv.destroy');
+        
+        Route::get('/cv/{id}/edit', [CvController::class, 'edit'])->name('cv.edit');
+        Route::put('/cv/{id}', [CvController::class, 'update'])->name('cv.update');
+    });
+    
  
- Route::delete('/job/{id}', [add_job::class, 'destroyjob'])->name('job.destroyjob');
- route::get('/job/{id}/edit', [add_job::class,'edit'])->name('job.edit');
- route::put('/job/{id}', [add_job::class,'jobupdate'])->name('jobupdate');
-   });  
+    
+    Route::prefix('js_job')->group(function () {
+        Route::get('/job', [JobController::class, 'showAddJob'])->name('job.showAdd');
+        Route::post('/job', [JobController::class, 'addJob'])->name('job.add');
+        Route::get('/list', [JobController::class, 'showList'])->name('job.list');
+    
+        Route::get('/job/search', [JobController::class, 'filterJobsAndCvs'])->name('job.filter');
+        Route::post('/job/search', [JobController::class, 'filterJobsAndCvs'])->name('job.filter');
+    
+        Route::delete('/job/{id}', [JobController::class, 'destroyJob'])->name('job.destroy');
+        
+        Route::get('/job/{id}/edit', [JobController::class, 'edit'])->name('job.edit');
+        Route::put('js_job/job/{id}', 'JobController@update')->name('job.update');
+
+    });
 
 
 

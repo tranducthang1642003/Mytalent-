@@ -15,49 +15,10 @@
 </head>
 <body>
 <header>
-<div class="menu">
-    <div class="left">
-   <div class="tab">
-   <button class="tablinks" style=" border: none; background-color: #0000f7; font-weight: 900; font-size: 30px; color: white;">Mytalent</button>
-   <button class="tablinks"><a href="/js_job/job"> Thêm vị trí </a></button>
-   <button class="tablinks" > <a href="/cv/add">thêm cv </button></a>
-</div>
-<div id="Đăng nhập" class="tabcontent">
-
-</div>
-<div id="Đăng ký" class="tabcontent"></div>
-</div>
-
-<div class="right">
-<div class="step"><h3>30 Credist </h3></div>
-<div class="step"><h3>VN</h3></div>
-<div class="step"><h3>@php
-use Illuminate\Support\Facades\Auth;
-@endphp
-
-@auth
-    
-<span class="text-white">
-    <small class="text-white mx-2">
-       {{ Auth::user()->email }}
-    </small>
-</span>
-
-     
-
-    @csrf
-</form>
-    @else
-    
-    @endauth
-</div></h3></div>
-</div>
-</div>
+    @include('layouts.menu')
 </header>
-<br>
-
 <article>
-<form action="{{ route('Cv_Update', $cv->id) }}" method="POST">
+<form action="{{ route('cv.update', $cv->id) }}" method="POST">
     @csrf
     @method('PUT')
 <section>
@@ -90,35 +51,35 @@ use Illuminate\Support\Facades\Auth;
   <p><div class="from"></p>
     <label>Tên ứng viên <span class ="text-red-light-1">*</span></label>
     <div class="from-txt">
-    <input type="text" id="name" name="Name" class="txt" value="{{ $cv->Name }}">
+        <input type="text" id="name" name="name" class="txt" value="{{ $cv->name }}">
     </div>
     </div>
     <!-- f -->
     <p><div class="from"></p>
     <label>Giới tính <span class ="text-red-light-1">*</span></label>
     <div class="from-txt">
-    <input type="text" id="gioitinh" name="Gioitinh" class="txt" value="{{ $cv->Gioitinh }}">
+        <input type="text" id="gioitinh" name="sex" class="txt" value="{{ $cv->sex }}">
     </div>
     </div>
     <!-- f -->
     <p><div class="from"></p>
     <label>Số điện thoại <span class ="text-red-light-1">*</span></label>
     <div class="from-txt">
-    <input type="text" class="txt" placeholder="Nhập" name="Phone" value="{{ $cv->Phone }}">
+        <input type="text" class="txt" placeholder="Nhập" name="phone" value="{{ $cv->phone }}">
     </div>
     </div>
     <!-- f -->
     <p><div class="from"></p>
     <label>Email <span class ="text-red-light-1">*</span></label>
     <div class="from-txt">
-    <input type="email" class="txt" placeholder="Nhập" name="Email" value="{{ $cv->Email }}">
+        <input type="email" class="txt" placeholder="Nhập" name="email" value="{{ $cv->email }}">
     </div>
     </div>
  <!-- f -->
  <p><div class="from"></p>
     <label>ngày sinh <span class ="text-red-light-1">*</span></label>
     <div class="from-txt">
-    <input type="date" class="txt" placeholder="Nhập" name="Date" value="{{ $cv->Date }} ">
+        <input type="date" class="txt" placeholder="Nhập" name="date" value="{{ $cv->date }}">
     </div>
     </div>
 
@@ -126,7 +87,7 @@ use Illuminate\Support\Facades\Auth;
  <p><div class="from"></p>
     <label>Địa chỉ hiện tại </label>
     <div class="from-txt">
-    <input type="text" class="txt" placeholder="Nhập" name="Address" value="{{ $cv->Address }}">
+        <input type="text" class="txt" placeholder="Nhập" name="address" value="{{ $cv->address }}">
     </div>
     </div>
 
@@ -139,13 +100,13 @@ use Illuminate\Support\Facades\Auth;
   <p><div class="from"></p>
   <label>Trình độ học vấn </label>
     <div class="from-txt">
-      <input type="radio" name="Education" id="0" value="{{ $cv->Education }}" value="daihoc">
+    <input type="radio" name="education" id="daihoc" value="daihoc" {{ $cv->education == 'daihoc' ? 'checked' : '' }}>
       <label for="0">đại học</label>
-      <input type="radio" name="Education" id="1" value="{{ $cv->Education }}" value="caodang">
+      <input type="radio" name="education" id="daihoc" value="daihoc" {{ $cv->education == 'daihoc' ? 'checked' : '' }}>
       <label for="1">cao đẳng</label>
-      <input type="radio" name="Education" id="2"value="{{ $cv->Education }}" value="trungcap">
+      <input type="radio" name="education" id="daihoc" value="daihoc" {{ $cv->education == 'daihoc' ? 'checked' : '' }}>
       <label for="2">trung cấp</label>
-      <input type="radio" name="Education" id="3"value="{{ $cv->Education }}" value="khac">
+      <input type="radio" name="education" id="daihoc" value="daihoc" {{ $cv->education == 'daihoc' ? 'checked' : '' }}>
       <label for="3">khác</label>
     </div>
     </div>
@@ -153,8 +114,8 @@ use Illuminate\Support\Facades\Auth;
     <p><div class="from"></p>
     <label>Trường học </label>
     <div class="from-txt">
-    <input type="list" class="txt" list="items" placeholder="Nhập" name="School[]" value="{{ $cv->School }}">
-    <datalist id="items">
+        <input type="text" class="txt" list="items" placeholder="Nhập" name="school" value="{{ $cv->school }}">
+        <datalist id="items">
       <option value="Trường công nghệ thông">
       <option value="Trường đại học mở">
       <option value="Sư phạm kĩ thuật">
@@ -175,13 +136,13 @@ use Illuminate\Support\Facades\Auth;
     <p><div class="from"></p>
     <label>Ngoại Ngữ </label>
     <div class="from-txt">
-    <input type="text" class="txt"  placeholder="nhập" name="Language" value="{{ $cv->Language }}">
+        <input type="text" class="txt"  placeholder="nhập" name="language" value="{{ $cv->language }}">
     </div>
 </div>
         <p><div class="from"></p>
     <label>Chứng chỉ khác</label>
     <div class="from-txt">
-    <input type="text" class="txt" placeholder="Nhập" name="Certificate" value="{{ $cv->Certificate }}">
+        <input type="text" class="txt" placeholder="Nhập" name="certificate" value="{{ $cv->certificate }}">
     </div>
 </div>
 
@@ -202,27 +163,27 @@ use Illuminate\Support\Facades\Auth;
     <p><div class="from"></p>
     <label>Nghành nghề </label>
     <div class="from-txt">
-    <input type="text" class="txt"  placeholder="nhập" name="Career" value="{{ $cv->Career }}">
+        <input type="text" class="txt"  placeholder="nhập" name="career" value="{{ $cv->career }}">
     </div>
 </div>
         <p><div class="from"></p>
     <label>kĩ năng</label>
     <div class="from-txt">
-    <input type="text" class="txt" placeholder="Nhập" name="skills" value="{{ $cv->Skills }}" >
+        <input type="text" class="txt" placeholder="Nhập" name="skills" value="{{ $cv->skills }}">
     </div>
 </div>
 
 <p><div class="from"></p>
     <label>Mức lương hiện tại </label>
     <div class="from-txt">
-    <input type="text" class="txt" placeholder="Nhập" name="Currentsalary" value="{{ $cv->Currentsalary }}">
+        <input type="text" class="txt" placeholder="Nhập" name="currentsalary" value="{{ $cv->currentsalary }}">
     </div>
 </div>
 
 <p><div class="from"></p>
     <label>Mức lương mong muốn</label>
     <div class="from-txt">
-    <input type="text" class="txt" placeholder="Nhập" name="Desiredsalary" value="{{ $cv->Desiredsalary }}">
+        <input type="text" class="txt" placeholder="Nhập" name="desiredsalary" value="{{ $cv->desiredsalary }}">
     </div>
 </div>
 </div>
@@ -244,7 +205,7 @@ use Illuminate\Support\Facades\Auth;
 <div class="txt-img">
     <div class="icons"><i class="fa-solid fa-upload fa-bounce" style="color: #000000;"></i></div>
      <div class=""><span class="txt-tetx">Tải ảnh lên</span></div>
-    <input type="file" name="Image" id="file"  value="{{ $cv->Image }}">
+     <input type="file" name="image" id="file"  value="{{ $cv->image }}">
     </label>
     </div>
     <div class="txt-text1">Chưa chọn 
@@ -266,74 +227,61 @@ use Illuminate\Support\Facades\Auth;
     </label>
     </div>
     </div>
+
     </section>
 
-  <div class="from">
-  <div class="from">
 
-    <label class="text-file">Từ khóa *</label>
-    <div class="from-txt1">
-    <input type="text" class="form-control"  name="keyword" placeholder="Nhập từ khóa, phân tách bằng dấu phẩy" id="keywordInput"  value="{{ $cv->keyword }}">
+    <section>
+        <div class="from">
+            <label class="text-file">Từ khóa *</label>
+            <div class="from-txt1">
+                <input type="text" class="form-control" name="keyword" placeholder="Nhập từ khóa, phân tách bằng dấu phẩy" id="keywordInput" value="{{ $cv->keyword }}">
+                <div id="keywords">
+                    <span onclick="updateInput(this, '{{ $cv->keyword }}')"><button type="button">IT</button></span>
+                    <span onclick="updateInput(this, '{{ $cv->keyword }}')"><button type="button">LOSIRP</button></span>
+                    <span onclick="updateInput(this, '{{ $cv->keyword }}')"><button type="button">BACKEND</button></span>
+                    <span onclick="updateInput(this, '{{ $cv->keyword }}')"><button type="button">FONEAND</button></span>
+                </div>
+            </div>
+        </div>
+        
+    </section>
 
-    <div id="keywords">
-    <span onclick="updateInput(this)"><button type="button">IT</button></span>
-    <span onclick="updateInput(this)"><button type="button">LOSIRP</button></span>
-    <span onclick="updateInput(this)"><button type="button">BACKEND</button></span>
-    <span onclick="updateInput(this)"><button type="button">FONEAND</button></span>
-
-</div>
-
-    </div>
-</div>
-    </div>
-
-</div>
 
 <section>
-<div class="main-right">
-<div class="from">
-    <label class="text-file">Liên kết</label>
-    <div class="from-txt1">
-    <input type="text" class="txt1" placeholder="Nhập" name="link" value="{{ $cv->link }}">
-    <input type="text" class="txt1" placeholder="Nhập"  name="link" value="{{ $cv->link }}">
-    <input type="text" class="txt1" placeholder="Nhập"  name="link" value="{{ $cv->link }}">
-
-    <div id="inputs-containerlink" style="padding-bottom: 3%;" >
-  <!-- Initial input -->
-</div>
-<input type="button"  onclick="addInputlink()" class="btn3" value="">
-    </div>
-    </div>
     
-</div>
+        <div class="from">
+            <label class="text-file">Liên kết</label>
+            <div class="from-txt1">
+                <input type="text" class="txt1" placeholder="Nhập" name="link" value="{{ $cv->link }}">
+                <input type="text" class="txt1" placeholder="Nhập" name="link" value="{{ $cv->link }}">
+                <input type="text" class="txt1" placeholder="Nhập" name="link" value="{{ $cv->link }}">
+                <div id="inputs-containerlink" style="padding-bottom: 3%;"></div>
+                <input type="button" onclick="addInputlink()" class="btn3" value="">
+            </div>
+        </div>
+    </div>
 </section>
-
 </article>
 <br>
 <footer>
-<input type="submit" value="Lưu và thêm mới " class="btn">
-<input type="reset" class="btn"  value="Xóa ">
-              </div>
-            </form>
-            </div>
+<input type="submit" value="Lưu và thêm mới" class="btn">
+<input type="reset" class="btn" value="Xóa">
 </footer>
+</form>
 
-</body>
-</html>
 <script src="/js/javascript.js"></script>
-
-
-
+<script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify"></script>
 <script>
-    // Khởi tạo Tagify
+   
     var input = document.querySelector('#keywordInput');
     var tagify = new Tagify(input);
-
-    function updateInput(element) {
-        // Lấy từ khóa từ phần tử được nhấp
-        var keyword = element.textContent;
-
-        // Thêm từ khóa vào trường input
-        tagify.addTags([keyword]);
+    function updateInput(element, keyword) {
+        if (keyword.trim() !== '') {
+            var keywords = keyword.split(',');
+            tagify.addTags(keywords);
+        }
+        var newKeyword = element.textContent.trim();
+        tagify.addTags([newKeyword]);
     }
 </script>
