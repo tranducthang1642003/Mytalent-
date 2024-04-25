@@ -72,7 +72,8 @@ class RegisterController extends Controller
     {
         // Validate the token provided by the user
         $request->validate([
-            'token' => ['required', 'string'], // Add any additional validation rules if needed
+            'token' => ['required', 'string'], 
+            // Add any additional validation rules if needed
         ]);
 
         // Retrieve the token from the request

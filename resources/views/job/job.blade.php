@@ -82,38 +82,27 @@
         @include('layouts.bosung')
     </div>
     </section>
-    
-    <br>
-    <section>
 
 
-
-
-
+<section>
 <footer>
 <button type="submit" class="btn">Lưu và thêm mới </button>
 <input type="reset" class="btn1"  value="Xóa ">
-            </form>
+</form>
 </footer>
+</section>
+
 
 </body>
 </html>
 <script src="/js/javascript.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@2.0.1/dist/js/multi-select-tag.js"></script>   
-
-
 <script>
-    // Khởi tạo Tagify
     var input = document.querySelector('#keywordInput');
     var tagify = new Tagify(input);
-
     function updateInput(element) {
-        // Lấy từ khóa từ phần tử được nhấp
         var keyword = element.textContent;
-
-        // Thêm từ khóa vào trường input
         tagify.addTags([keyword]);
-        
     }
     
 </script>

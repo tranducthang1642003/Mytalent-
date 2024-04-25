@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6197072dc153b6ffd40a0d8b01f7fa4c",
+    "content-hash": "bcad2ab96efa5d6354ec0f4dec2b4fd4",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -2657,16 +2657,16 @@
         },
         {
             "name": "nwidart/laravel-modules",
-            "version": "v11.0.5",
+            "version": "v11.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nWidart/laravel-modules.git",
-                "reference": "44b9b93714c29a55242ba59106b6ef076ecfc585"
+                "reference": "3f65a38cbe82e486be845ed763d8f48beec45269"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nWidart/laravel-modules/zipball/44b9b93714c29a55242ba59106b6ef076ecfc585",
-                "reference": "44b9b93714c29a55242ba59106b6ef076ecfc585",
+                "url": "https://api.github.com/repos/nWidart/laravel-modules/zipball/3f65a38cbe82e486be845ed763d8f48beec45269",
+                "reference": "3f65a38cbe82e486be845ed763d8f48beec45269",
                 "shasum": ""
             },
             "require": {
@@ -2727,7 +2727,7 @@
             ],
             "support": {
                 "issues": "https://github.com/nWidart/laravel-modules/issues",
-                "source": "https://github.com/nWidart/laravel-modules/tree/v11.0.5"
+                "source": "https://github.com/nWidart/laravel-modules/tree/v11.0.6"
             },
             "funding": [
                 {
@@ -2739,7 +2739,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-04-17T06:30:10+00:00"
+            "time": "2024-04-21T22:14:23+00:00"
         },
         {
             "name": "phpoption/phpoption",
