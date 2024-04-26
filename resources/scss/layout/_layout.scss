@@ -44,44 +44,87 @@ header{
     justify-content: space-evenly;
 }
   
-  .tab button {
-    border: none;
-    outline: none;
-    cursor: pointer;
-    transition: 0.3s;
-    font-size: 12px;
-    width: 24%; 
-    border-radius: 3%;
-    height: 33px;
-background: none  ;
-    
-    
-  }
+    .tab button {
+      border: none;
+      outline: none;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 12px;
+      width: 24%; 
+      border-radius: 3%;
+      height: 33px;
+  background: none  ;
+      
+      
+    }
 
-  .tab1 button {
-    border: none;
-    outline: none;
-    cursor: pointer;
-    transition: 0.3s;
-    font-size: 15px;
-    width: 10%;
+    .tab1 button {
+      border: none;
+      outline: none;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 15px;
+      width: 10%;
 
-    height: 40px;
-  background:none;
-  }
+      height: 40px;
+    background:none;
+    }
 
-  .tab1 button:hover {
-   color: rgb(0, 8, 255);
+    .tab1 button:hover {
+    color: rgb(0, 8, 255);
 
+    }
+    .tab1 button.active {
+      color: blue;
+      border-bottom: 3px solid blue;
   }
-  .tab1 button.active {
-    color: blue;
-    border-bottom: 3px solid blue;
-}
-  .tabcontent {
-    display: none;
-    border-top: none;
+    .tabcontent {
+      display: none;
+      border-top: none;
+    }
+
+
+
+    .tab button {
+      border: none;
+      outline: none;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 12px;
+      width: 24%; 
+      border-radius: 3%;
+      height: 33px;
+  background: none  ;
+      
+      
+    }
+  
+    .tab button {
+      border: none;
+      outline: none;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 15px;
+      width: 20%;
+      height: 40px;
+  
+    }
+  
+    .tab button:hover {
+     color: rgb(0, 8, 255);
+  
+    }
+    .tab button.active {
+      color: blue;
+      border-bottom: 3px solid blue;
+      background-color: black;
   }
+    .tabcontent {
+      display: none;
+      border-top: none;
+    }
+  
+
 
 article{
     width: 98%;
@@ -170,20 +213,42 @@ min-height: 350px;
 
 }
 
+
+.from1{
+  padding: 1px 5px 0px 22px;
+}
+
+#keywords{
+  padding: 0px 2px 10px;
+}
+
 label{
   font-size: 15px;
-  padding: 5px;
+  padding: 2px;
   font-weight: 900;
 }
 
 .txt{
-  width: 93%;
+  width: 94%;
   height: 40px;
   border-radius: 5px;
   border: 1px solid rgb(210, 210, 210);
-  padding: 5px 10px 0px 10px;
+  padding: 5px 10px 0px 20px;
   margin-top: 1.5%;
   
+}
+
+.usd{
+  position: absolute;
+  margin-top: 1.7%;
+  margin-left: -1%;
+  font-weight: 100;
+}
+
+
+.txt-keyword{
+  width: 96%;
+  border-radius: 5px;
 }
 
 .from-txt1{

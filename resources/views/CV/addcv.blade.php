@@ -12,6 +12,7 @@
     <script src="https://unpkg.com/vanilla-tags-input"></script>
     <link rel="stylesheet" href="https://unpkg.com/@yaireo/tagify/dist/tagify.css">
      <script src="https://unpkg.com/@yaireo/tagify"></script>
+     
 </head>
 <body>
 
@@ -58,8 +59,8 @@
 <article>
     <section>
         <div class="col-1">
-            <div class="text-2"> <span>Danh sách vị trí  </span> / Thêm Cv </div>
-            <div class="text-3"><i class="fa-solid fa-arrow-left"></i>  <span style="padding-left: 15px">Thông tin Cv</span> </div>
+            <div class="text-2"> <span>Danh sách vị trí  </span> / Thêm CV </div>
+            <div class="text-3"><i class="fa-solid fa-arrow-left"></i>  <span style="padding-left: 10px">Thông tin CV</span> </div>
             <div class="left">
                <div class="tab1">
                     <button class="tablinks" onclick="openCity(event, 'Đăng nhập')"id="defaultOpen">Thông tin cơ bản</button>
@@ -72,13 +73,13 @@
         @csrf
 <section>
 <div id="Đăng nhập" class="tabcontent">
-    @include('layouts.cv')
+    @include('CV.layouts.cv')
 </div>
 </section>
 
 <section>
 <div id="Đăng ký" class="tabcontent">
-    @include('layouts.bosung')
+    @include('CV.layouts.bosung')
 </div>
 </section>
     <section>
@@ -93,3 +94,23 @@
 </body>
 </html> 
 
+<script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify"></script>
+<script>
+    var input = document.querySelector('#keywordInput');
+    var tagify = new Tagify(input);
+    function updateInput(element, keyword) {
+        if (keyword.trim() !== '') {
+            var keywords = keyword.split(',');
+            tagify.addTags(keywords);
+        }
+        var newKeyword = element.textContent.trim();
+        tagify.addTags([newKeyword]);
+    }
+</script>
+
+<script>
+    var skillInput1 = document.querySelector('#skillInput1');
+    var tagify = new Tagify(skillInput1);
+ 
+    
+</script>

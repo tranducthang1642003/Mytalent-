@@ -3,15 +3,57 @@ body{
     font-family: $f-font-family;
 }
 
+.filter-form1{
 
-.filter-form {
-  display: none;
-  /* Thêm các thuộc tính CSS khác để tùy chỉnh giao diện của biểu mẫu */
+  width: 100%;
+  background-color: #000000;
+  height: 1392px;
+  position: absolute;
+  margin-top: -26%;
+
 }
 
-#filter-button:active + .filter-form {
+.khung-1{
+  width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 45px;
+
+}
+
+
+.loc{
+width: 70%;
+  margin: auto;
+  background-color: #ffffff;
+  height: 800px;
+  margin-top: 50px;
+}
+.filter-form1 {
+  display: none;
+ 
+}
+
+#filter-button:active + .filter-form1 {
   display: block;
 }
+
+.filter-col-2{
+  width: 50%;
+
+height: 520px;
+margin: auto;
+}
+
+.filter-1{
+  width: 100%;
+  height: 40px;
+  border: 1px solid #2196F3;
+  background-color: aqua;
+  padding: 10px 2px;
+  border-radius: 3px;
+}
+
 header{
   width: 100%;
   height: 52px;
@@ -77,6 +119,35 @@ background: none  ;
   background:none;
   }
 
+
+
+  .tab2 button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 15px;
+    width: 15%;
+    height: 40px;
+  background:none;
+  }
+
+
+  
+  .tab2 button:hover {
+    color: rgb(0, 8, 255);
+ 
+   }
+   .tab2 button.active {
+     color: blue;
+     border-bottom: 3px solid blue;
+ }
+
+ .boder{
+  width: 100%;
+  border-bottom: 1px solid #cccccc;
+ }
+
   .tab1 button:hover {
    color: rgb(0, 8, 255);
 
@@ -92,7 +163,7 @@ background: none  ;
 
 article{  
   width: Fixed (1,391px);
-    min-height: 1300px;
+    min-height: auto;
     margin: auto;
     border-radius: 10px;
    
@@ -102,7 +173,7 @@ article{
   line-height: 1.5;
 
   background-color: rgba(255, 255, 255, 1);
-   min-height:370px;
+   min-height:auto;
     margin: auto;
     border-radius: 3px;
     box-shadow: 1px 1px 1px 1px rgb(233, 233, 233);
@@ -290,29 +361,43 @@ form.example::after {
 .table{
     width: 100%;
     border-collapse: collapse;
-    padding: 33px;
-    margin-top: 30px;
-    
+    background-color: #ffffff;
+    padding-top: 15px;
+    border-radius: 3px;
+    box-shadow: 1px 1px 1px 1px rgb(233, 233, 233);
+    padding: 30px;
 }
   
-
+.table1{
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  padding-top: 15px;
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px 1px rgb(233, 233, 233);
+}
 thead{
-    background-color: aquamarine;
-    height: 40px;
-    text-align: left;
-}
-tbody{
-    height: 40px;
-}
-
-th{
-  padding: 7px;
-  font-weight: bolder;
-  width: Fill (210.75px)px;
-  height: Fill (40px)px;
+  background: rgba(240, 245, 255, 1);
+  width:  180.5px;
+  height:  36px;
   gap: 0px;
   border: 1px 0px 0px 1px;
   opacity: 0px;
+  
+}
+tbody{
+  width:  180.5px;
+  height:  36px;
+  gap: 0px;
+  border: 1px 0px 0px 1px;
+  opacity: 0px;
+}
+
+th{
+  width:  180.5px;
+  height:  36px;
+  text-align: justify;
+padding: 10px;
   
 }
 #cars{
@@ -321,24 +406,17 @@ th{
 }
 
 td{
-  padding: 7px;
-  font-size: 15px;
-  font-family: 'Times New Roman', Times, serif;
-  font-weight: 600;
+  width:  180.5px;
+  height:  36px;
+  padding: 10px;
   
 }
 
-.filter-form{
-  width: 47%;
- 
-  justify-content: center;
-  flex-direction: row-reverse;
-  background-color: #a7c3da;
-  height: 450px;
-  position: absolute;
-z-index: 99999;
-margin-left: 25%;
-box-shadow: 3px 3px 3px 3px #f1f1f1;
-margin-top: -15%;
 
+.td{
+  background: rgba(255, 255, 255, 1);
+width: 65%;
+border: 1px solid  rgba(82, 196, 26, 1);
+color:  rgba(82, 196, 26, 1);
+text-align: center;
 }

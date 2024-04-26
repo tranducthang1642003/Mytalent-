@@ -19,6 +19,7 @@ class CvController
     {
         $location = serialize($request->input('location'));
         $school = serialize($request->input('school'));
+$encodedLocation = htmlspecialchars($location);
 
         $cv = Cvs::create([
             'name' => $request->name,

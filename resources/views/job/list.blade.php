@@ -36,9 +36,17 @@
   <input type="text" placeholder="Tìm kiếm " name="search2">
   <button type="submit"><i class="fa fa-search"></i></button>
 </form>
-    </div>
 
+<br>
+            <div class="tab2" >
+                <button class="tablinks" onclick="openCity(event, 'Đăng nhập')" id="defaultOpen">Danh sách vị trí</button>
+                <button class="tablinks" onclick="openCity(event, 'Đăng ký')">Vị trí đã lọc </button>
+            </div>
+        <br>
+</div>
 
+   
+   
 <div class="text-col-2">
 <label for="cars">Trạng thái</label>
 <select id="cars" name="cars">
@@ -52,55 +60,127 @@
 <input type="date" name="" id="">
 </div>
 </div>
-
-
+</div>
+</section>
+<div class="boder"></div>
 
 <section>
-        <div class="table">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Vị trí</th>
-                        <th scope="col">Số lần lọc</th>
-                        <th scope="col">Nhà Tuyển dụng</th>
-                        <th scope="col">Trạng thái</th>
-                        <th scope="col">Ngày tạo</th>
-                        <th scope="col">Ngày hết hạn</th>
-                        <th scope="col">Thao tác</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                    @foreach($jobs as $job)
-                        <td>{{$job->id}}</td>
-                        <td>{{$job->company}}</td>
-                        <td>{{03}}</td>
-                        <td>{{$job->locations}}</td>
-                        <td><div class="text-xanh td1 ">{{$job->status}}</div> </td>
-                        <td> {{$job->updated_at }}</td>
-                        <td>{{$job->updated_at}} <span class="text-Yello-light-2"></span> </div></td>
-                        <td>
-                        
-                            <a href="{{ route('job.edit', $job->id) }}"><i class="fa-solid fa-pen" style="color: #121212;"></i></a>
-                            <form action="{{ route('job.destroy', $job->id) }}" method="POST" style="display: inline;">
-                        @csrf
-                          @method('DELETE')
-                        <button type="submit" class="btnk" onclick="return confirm('Bạn có chắc chắn muốn xóa Job này?')"><i class="fa-solid fa-trash" style="color: #dd0303;"></i></button>
-                    </form>
-                </td>
-        </tr>   
-        @endforeach
-                </tbody>
-             
-            </table>
-         
-           </div>
-     
-        </section>
+    <div id="Đăng nhập" class="tabcontent">
+            <div class="table">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">No.</th>
+                            <th scope="col">Vị trí</th>
+                            <th scope="col">Số lần lọc</th>
+                            <th scope="col">Nhà Tuyển dụng</th>
+                            <th scope="col">Trạng thái</th>
+                            <th scope="col">Ngày tạo</th>
+                            <th scope="col">Ngày hết hạn</th>
+                            <th scope="col">Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        @foreach($jobs as $job)
+                            <td>{{$job->id}}</td>
+                            <td><div class="text-xanh td1" >{{$job->company}}</td>
+                            <td><div class="text-xanh td1 ">{{03}}</td>
+                            <td>{{$job->locations}}</td>
+                            <td><div class="text-xanh td ">{{$job->status}}</div> </td>
+                            <td> {{$job->updated_at }}</td>
+                            <td>{{$job->updated_at}} <span class="text-Yello-light-2"></span> </div></td>
+                            <td>
+                            <button type="submit" id="filter-button" onclick="handleFilterClick({{ $job->id }})" class="btnk"><img src="/Image/favorite-chart.jpg" alt="" style="width: 20px"></button>
+
+
+
+                                <a href="{{ route('job.edit', $job->id) }}"><img src="/Image/edit-2.png" alt="" style="width: 20px"></a>
+                                <form action="{{ route('job.destroy', $job->id) }}" method="POST" style="display: inline;">
+                            @csrf
+                              @method('DELETE')
+                            <button type="submit" class="btnk" onclick="return confirm('Bạn có chắc chắn muốn xóa Job này?')"><img src="/Image/trash.png" alt="" style="width: 20px"></button>
+                        </form>
+                    </td>
+            </tr>   
+            @endforeach
+                    </tbody>
+                </table>
+               </div>
     </div>
-    <!-- l -->
+</section>
+</article>
+</section>
+
+<div id="filter-form" class="filter-form1">
+<div class="loc">
+
+<div class="khung-1">
+<button type="submit" id="filter-button" onclick="handleFilterClick({{ $job->id }})" class="btnk"><i class="fa-solid fa-xmark" style="color: #000000;"></i></button>
+<div class="" style="text-align: center"><h4>Lọc ứng viên </h4></div>
+<div class="" style="text-align: center"><h4>Lọc ứng viên </h4></div>
+</div>
+<hr>
+<div class="filter-col-2">
+<div class="filter-1">1 lần lọc ứng viên = 3 credit.</div>
+
+<div class=""><h3>Vị trí:</h3></div>
+<p><div class="from-job"></p>
+    <label>Kinh nghiệm <span class ="text-red-light-1">*</span></label>
+    <div class="from-txt">
+    <input type="text" name="addresss" class="txt" placeholder="Nhập">
+    </div>
+    <p><div class="from-job"></p>
+    <label>Kỹ năng<span class ="text-red-light-1">*</span></label>
+    <div class="from-txt">
+    <input type="text" name="addresss" class="txt" placeholder="Nhập">
+    </div>
+    <label>Ngành nghề <span class ="text-red-light-1">*</span></label>
+    <div class="from-txt">
+    <input type="text" name="addresss" class="txt" placeholder="Nhập">
+    </div>
+  
+    <p><div class="from-job"></p>
+    <label>Mức lương <span class ="text-red-light-1">*</span></label>
+    <div class="from-txt">
+    <input type="text" name="addresss" class="txt" placeholder="Nhập">
+    </div>
+    <p><div class="from-job"></p>
+        <label>Khu vực <span class ="text-red-light-1">*</span></label>
+        <div class="from-txt">
+        <input type="text" name="addresss" class="txt" placeholder="Nhập">
+        </div>
+        <p><div class="from-job"></p>
+            <label>Địa chỉ <span class ="text-red-light-1">*</span></label>
+            <div class="from-txt">
+            <input type="text" name="addresss" class="txt" placeholder="Nhập">
+            </div>
+    </div>
+    
+
+
+</div>
+</div>
+    
+</div>
+</section>
+
+
+
+
 </body>
 </html>
-
-
+<script src="/js/javascript.js"></script>
+<script>
+    function handleFilterClick(jobId) {
+        var form = document.getElementById("filter-form");
+      if (form.style.display === "none") {
+        form.style.display = "block";
+        setTimeout(function(){ form.style.opacity = "1"; }, 100);
+      } else {
+        form.style.opacity = "0";
+        setTimeout(function(){ form.style.display = "none"; }, 1000);
+      }
+        event.preventDefault();
+    }
+    </script>

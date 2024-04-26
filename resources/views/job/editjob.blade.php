@@ -191,18 +191,11 @@
 
 
 <script>
-    // Khởi tạo Tagify
     var input = document.querySelector('#keywordInput');
     var tagify = new Tagify(input);
-
     function updateInput(element) {
-        // Lấy từ khóa từ phần tử được nhấp
         var keyword = element.textContent;
-
-        // Thêm từ khóa vào trường input
         tagify.addTags([keyword]);
-        
     }
-    
 </script>
 

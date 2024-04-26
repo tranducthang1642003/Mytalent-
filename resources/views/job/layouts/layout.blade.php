@@ -67,9 +67,10 @@
 
   <section>
     <div class="main-right">
+      <p></p>
         <label class="text-file">Từ khóa *</label>
-        <div class="from-job">
-            <input type="text" class="txt1" name="keyword" placeholder="Nhập từ khóa, phân tách bằng dấu phẩy" id="keywordInput" >
+        <div class="from">
+            <input type="text" class="txt-keyword" name="keyword" placeholder="Nhập từ khóa, phân tách bằng dấu phẩy" id="keywordInput" >
             <div id="keywords">
                 <span onclick="updateInput(this, '')"><button type="button">IT</button></span>
                 <span onclick="updateInput(this, '')"><button type="button">LOSIRP</button></span>

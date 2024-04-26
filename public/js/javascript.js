@@ -22,7 +22,7 @@ function addInput() {
   const newInputContainer = document.createElement('div');
   newInputContainer.classList.add('input-container');
   newInputContainer.innerHTML = `
-  <input type="text" class="txt" placeholder="Nhập" name="School[]"  class="btn3">
+  <input type="text" class="txt" placeholder="Nhập" name="school[]"  class="btn3">
     <button onclick="removeInput(this)" class="xoa"><i class="fa-solid fa-xmark"></i></button>
   `;
   inputsContainer.appendChild(newInputContainer);
@@ -48,7 +48,7 @@ function addInput1() {
   const newInputContainer = document.createElement('div');
   newInputContainer.classList.add('input-container1');
   newInputContainer.innerHTML = `
-  <input type="text" class="txt" placeholder="Nhập" name="Location[]"  class="btn3">
+  <input type="text" class="txt" placeholder="Nhập" name="location[]"  class="btn3">
     <button onclick="removeInput(this)" class="xoa"><i class="fa-solid fa-xmark"></i></button>
   `;
 
@@ -91,4 +91,14 @@ function removeInput(button) {
 
 
    
-   
+   function handleFilterClick(jobId) {
+    var form = document.getElementById("filter-form");
+  if (form.style.display === "none") {
+    form.style.display = "block";
+    setTimeout(function(){ form.style.opacity = "1"; }, 100);
+  } else {
+    form.style.opacity = "0";
+    setTimeout(function(){ form.style.display = "none"; }, 1000);
+  }
+    event.preventDefault();
+}

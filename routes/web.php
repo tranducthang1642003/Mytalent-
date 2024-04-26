@@ -59,5 +59,6 @@ Route::prefix('login')->group(function(){
 
 Route::get('/filter', [filter::class, 'showFilterForm'])->name('showFilterForm');
 Route::get('/filter', [filter::class, 'filterCv'])->name('filter');
+Route::get('/search',[filter::class,'search'])->name('search');
 
 

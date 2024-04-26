@@ -42,4 +42,8 @@ class filter extends Controller
     }
     
     
+ public function search(Request $request){
+
+}
+
 }

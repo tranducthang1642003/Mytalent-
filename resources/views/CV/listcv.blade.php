@@ -36,9 +36,14 @@
   <input type="text" placeholder="Tìm kiếm " name="search2">
   <button type="submit"><i class="fa fa-search"></i></button>
 </form>
-    </div>
 
+<br>
+          
+        
+</div>
 
+   
+   
 <div class="text-col-2">
 <label for="cars">Trạng thái</label>
 <select id="cars" name="cars">
@@ -52,57 +57,51 @@
 <input type="date" name="" id="">
 </div>
 </div>
-
-
-
-<section>
-        <div class="table">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">STT</th>
-                        <th scope="col">Ứng viên</th>
-                        <th scope="col">Số điện thoại</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Vị trí</th>
-                        <th scope="col">Kinh Ngiệm</th>
-                        <th scope="col">Ngày tải lên</th>
-                        <th scope="col">Thao tác</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                    @foreach($cvs as $cvs)
-                        <td>{{$cvs->id}}</td>
-                        <td><div class="text-xanh td1 ">{{$cvs->name}}</div> </td>
-                        <td>{{$cvs->phone}}</td>
-                        <td>{{$cvs->email}}</td>
-                        <td> {{$cvs->location }}</td>
-                        <td> {{$cvs->experience }}</td>
-                        <td>{{$cvs->updated_at}} <span class="text-Yello-light-2">NEW</span> </div></td>
-                        <td>
-                        
-                            <a href="{{ route('cv.edit', $cvs->id) }}"><i class="fa-solid fa-pen" style="color: #121212;"></i></a>
-                            <form action="{{ route('cv.destroy', $cvs->id) }}" method="POST" style="display: inline;">
-                        @csrf
-                          @method('DELETE')
-                        <button type="submit" class="btnk" onclick="return confirm('Bạn có chắc chắn muốn xóa CV này?')"><i class="fa-solid fa-trash" style="color: #dd0303;"></i></button>
-                    </form>
-                </td>
-        </tr>   
-        @endforeach
-                </tbody>
-             
-            </table>
+</div>
+</section>
+            <div class="table">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width: 20px">SST</th>
+                            <th scope="col">Ứng viên</th>
+                            <th scope="col">Số điện thoại</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Vị trí</th>
+                            <th scope="col">Kinh nghiệm (năm)</th>
+                            <th scope="col">Ngày tải lên</th>
+                            <th scope="col">Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        @foreach($cvs as $cvs)
+                            <td style="width: 30px">0{{$cvs->id}}</td>
+                            <td style="width: 230px"><div class="text-xanh td1 ">{{$cvs->name}}</div> </td>
+                            <td>{{$cvs->phone}}</td>
+                            <td style="width: 300px">{{$cvs->email}}</td>
+                        <td > {{htmlspecialchars($cvs->location)}}</td>
+                            <td > {{$cvs->experience }}</td>
+                            <td style="width: 230px">{{$cvs->updated_at}} <span class="text-Yello-light-2"><h7>NEW</h7></span> </div></td>
+                            <td>
+                                <a href="{{ route('cv.edit', $cvs->id) }}"><img src="/Image/edit-2.png" alt="" style="width: 20px"></a>
+                                <form action="{{ route('cv.destroy', $cvs->id) }}" method="POST" style="display: inline;">
+                            @csrf
+                              @method('DELETE')
+                            <button type="submit" class="btnk" onclick="return confirm('Bạn có chắc chắn muốn xóa CV này?')"><img src="/Image/trash.png" alt="" style="width: 20px"></button>
+                        </form>
+                    </td>
+            </tr>   
+            @endforeach
+                    </tbody>
+                </table>
+               </div>
          
-           </div>
-     
-        </section>
     </div>
     <!-- l -->
-  
+
 
 </body>
 </html>
 
-
+<script src="/js/javascript.js"></script>

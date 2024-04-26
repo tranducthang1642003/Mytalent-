@@ -88,17 +88,20 @@
   
   
 
-          <label class="text-file">Từ khóa *</label>
-          <div class="from">
-          <input type="text" class="form-control txt"  name="keywords" placeholder="Nhập từ khóa, phân tách bằng dấu phẩy" id="keywordInput" >
-          <div id="keyword">
-          <span onclick="updateInput(this)"><button type="button">IT</button></span>
-          <span onclick="updateInput(this)"><button type="button">LOSIRP</button></span>
-          <span onclick="updateInput(this)"><button type="button">BACKEND</button></span>
-          <span onclick="updateInput(this)"><button type="button">FONEAND</button></span>
-      
-      </div>
-          </div>
+        
+  <section>
+
+        <label class="text-file">Từ khóa *</label>
+        <div class="from">
+            <input type="text" class="txt-keyword" name="keyword" placeholder="Nhập từ khóa, phân tách bằng dấu phẩy" id="keywordInput" >
+            <div id="keywords">
+                <span onclick="updateInput(this, '')"><button type="button">IT</button></span>
+                <span onclick="updateInput(this, '')"><button type="button">LOSIRP</button></span>
+                <span onclick="updateInput(this, '')"><button type="button">BACKEND</button></span>
+                <span onclick="updateInput(this, '')"><button type="button">FONEAND</button></span>
+            </div>
+        </div>
+
         </div>
     
         
@@ -198,18 +201,21 @@
           <p><div class="from"></p>
       <label>kĩ năng</label>
       <div class="from-txt">
-        <input type="text" class="form-control txt"  name="skills" placeholder="Nhập từ khóa, phân tách bằng dấu phẩy" id="keywordInput" >
+        <input type="text"  class="txt" name="skills" placeholder="Nhập từ khóa, phân tách bằng dấu phẩy" id="" >
 
       </div>
   <p><div class="from"></p>
       <label>Mức lương hiện tại </label>
-      <div class="from-txt">
+      <label style="float: right">USD | VND <span><h4 class="usd">USD/tháng</h4></span></label>
+        <div class="from-txt">
       <input type="text" class="txt" placeholder="Nhập" name="currentsalary">
       </div>
   <p><div class="from"></p>
-      <label>Mức lương mong muốn</label>
+      <label style="float: left">Mức lương mong muốn</label>
+      <label style="float: right">USD | VND <span><h4 class="usd">USD/tháng</h4></span></label>
       <div class="from-txt">
-      <input type="text" class="txt" placeholder="Nhập" name="desiredsalary" >
+      <input type="text" class="txt" placeholder="Nhập" name="desiredsalary"  >
+      
       </div>
   <p><div class="from"></p>
     <label>Kinh nghiệm</label>
@@ -224,16 +230,3 @@
   </body>
   </html>
   <script src="/js/javascript.js"></script>
-  
-  
-  <script>
-    // Khởi tạo Tagify
-    var input = document.querySelector('#keywordInput');
-    var tagify = new Tagify(input);
-    function updateInput(element) {
-        // Lấy từ khóa từ phần tử được nhấp
-        var keyword = element.textContent;
-        // Thêm từ khóa vào trường input
-        tagify.addTags([keyword]);
-    }
-</script>
